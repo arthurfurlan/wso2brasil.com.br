@@ -1,0 +1,68 @@
+---
+author: Leonardo Saraiva
+date: '2013-02-18 22:13:00'
+layout: post
+slug: wso2con-2013
+comments: true
+status: publish
+title: "WSO2Con 2013"
+external-url: http://mcorp.com.br/2013/02/wso2con-2013/
+categories:
+- eventos
+tags:
+- wso2
+- wso2con
+- wso2 api manager
+- api manager
+- raspberry pi
+- raspberry
+- wso2 doc star
+- doc star
+- londres
+- colombo
+---
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-auditorio-400x300.jpg 400 300 "WSO2Con Auditório" "WSO2Con Auditório" %}](http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-auditorio.jpg)
+
+O pessoal que acompanha o [@WSO2Brasil](http://twitter.com/wso2brasil) está sabendo que fomos convidados para a [WSO2Con](http://wso2con.com) em Londres, que aconteceu do dia 12 ao dia 14 de fevereiro.
+
+O local estava muito bem decorado e com tudo perfeitamente bem preparado! Foi engraçado que tínhamos "link" direto com o pessoal em Colombo (Sri Lanka) e podíamos ficar assistindo-os pelo telão.
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-pessoal-em-colombo-400x300.jpg 400 300 "WSO2Con Pessoal em Colombo" "WSO2Con Pessoal em Colombo" %}](http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-pessoal-em-colombo.jpg)
+
+Foram três dias de muito conteúdo e informação da mais alta qualidade, sendo eles divididos em:
+
+  * **Primeiro dia**: dedicado totalmente a tutorias que cobriram da teoria a prática; e
+  * **Segundo e terceiro dia**: foram a convenção propriamente dita.
+
+Foi uma pena eu não conseguir assistir a todas as palestras ao vivo, mas pela qualidade das palestras que consegui assistir, somado aos comentários do [pessoal no twitter](http://twitter.com/vyper/wso2), pude perceber que todas as palestras foram de alta qualidade. Agora basta esperar sair os vídeos para que possamos assistir a todas as palestras.
+
+No decorrer dos próximos dias irei publicar o material sobre as palestras que assisti. Mas vou adiantando aqui mesmo algumas novidades pra vocês irem acompanhando até eu poder detalhar com calma.
+
+## WSO2 API Manager
+
+Todo o suporte para publicação de aplicações: controle de versão, controle de fluxo do desenvolvimento, banco de dados, publicação nos diversos ambientes entre outras coisas num único lugar!
+
+O _alpha_ está disponível! Caso alguém teste com mais calma, compartilhem aí as informações, ainda não pude ver com muita calma, mas adianto que no _demo_ não deu nenhum problema (o que é um milagre em palestras) e os meus testes totalmente _express_ nos intervalos das palestras, tudo funcionou perfeitamente!
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-api-manager-400x300.jpg 400 300 "WSO2 API Manager" "WSO2 API Manager" %}](http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-api-manager.jpg)
+
+## WSO2 Doc Star: Melhorias na documentação
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-doc-star-400x300.jpg 400 300 "WSO2 Doc Start" "WSO2 Doc Star" %}](http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-doc-star.jpg)
+
+É um ponto que todos sofremos e temos tentado ajudar, mas agora a coisa vai!
+
+## Raspberry PI...
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-raspberry-pi-cluster-400x300.jpg 400 300 "Cluster de Raspberry PI" "Cluster de Raspberry PI" %}](http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-raspberry-pi-cluster.jpg)
+
+Todos os participantes ganharam um [Raspberry PI](http://www.raspberrypi.org/), inclusive nós!
+
+O pessoal montou todo _cluster_ com raspberry para rodar a [aplicação _mobile_](http://wso2con.com/m)... E teve palestras detalhando isso, então aguardem...
+
+Mas caso você seja muito curioso, tem aqui dois _posts_ em inglês com detalhamento _Building a Raspberry Pi Cluster [Part 1](http://blog.afkham.org/2013/01/raspberry-pi-control-center.html)_ e _[Part 2](http://blog.afkham.org/2013/02/building-raspberry-pi-cluster-part-2.html)_.
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao-400x300.jpg 400 300 "WSO2Con Organização" "WSO2Con Organização" %}](http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao.jpg)
+
+Meus parabéns ao pessoal organizador da [WSO2Con](http://wso2con.com) e até depois! Desculpem-me pela qualidade das fotos, mas na correria fui apenas com o celular. ):

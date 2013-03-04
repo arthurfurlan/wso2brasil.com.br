@@ -1,0 +1,28 @@
+---
+author: Leandro Prado
+date: '2010-10-22 22:03:00'
+layout: post
+slug: serie-criando-servicos-com-wso2
+comments: true
+status: publish
+title: Série criando serviços com WSO2
+external-url: http://www.leandroprado.com.br/2010/10/serie-criando-servicos-com-wso2/
+categories:
+- desenvolvimento
+tags:
+- bam
+- bus
+- esb
+- soa
+- data services
+- dss
+- wso2
+---
+
+Veja abaixo os links para a série de posts de como criar serviços com o WSO2
+
+[Criando um WSO2 DataServices](http://www.leandroprado.com.br/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services)
+
+[Criando um WSO2 Application Service](http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/)
+
+[Criando roteamento na BUS](http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-3-wso2-esb)
