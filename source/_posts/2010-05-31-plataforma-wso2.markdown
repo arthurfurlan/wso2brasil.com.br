@@ -1,0 +1,125 @@
+---
+slug: plataforma-wso2
+publish: true
+title: "Plataforma WSO2"
+kind: article
+created_at: 2010-05-31 12:31:32 UTC
+author: Leandro Prado
+layout: post
+external-url: http://www.leandroprado.com.br/2010/05/plataforma-wso2/
+categories:
+- arquitetura
+tags:
+- wso2
+- data services
+- dss
+- esb
+- is
+- identity service
+- bam
+- business activity monitor
+- enterprise service bus
+- wsas
+- application server
+---
+<p style="text-align: justify;">Neste post vou descrever o que cada solução do WSO2 é responsável.</p>
+<table border="0">
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Enterprise Service Bus</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-esb-logo.gif" alt="WSO2 Enterprise Service Bus" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">WSO2 ESB permite aos administradores de sistema e arquitetos de SOA de forma simples e fácil configurar o roteamento de mensagens, a virtualização, a intermediação, transformação, logs de requisições, agendamento de tarefas, balanceamento de carga, mediação de eventos e muito mais.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 240px;">
+<h3>WSO2 Governance Registry</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-registry-logo.gif" alt="WSO2 Governance Registry" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">Responsável por manter o controle de sua arquitetura SOA como um repositório de metadados, suporte para controle de versão, gestão de ciclo de vida, um modelo avançado para usuários / papéis / permissões, e as características sociais, tais como marcação, classificação e comentários. WSO2  Governance Registry se integra com outros produtos WSO2 para coletar metadados sobre serviços, centraliza a política de metadados, e gerencia dependências.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 190px;">
+<h3>WSO2 Identity Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-is-logo.gif" alt="WSO2 Identity Server" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">A WSO2 Identity Server é o servidor de gerenciamento de identidade e direito. Ele suporta cartões de Informação e OpenID para autenticação, bem como autorização para XACML. Pode ser integrada facilmente com LDAP ou Active Directory.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 260px;">
+<h3>WSO2 Business Activity Monitor</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bam-logo.gif" alt="WSO2 Business Activity Monitor" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">A WSO2 Business Activity Monitor (BAM WSO2) serve para suprir as necessidades dos especialistas em TI acompanharem e entenderem as atividades de negócios dentro de uma implantação SOA com isso permite que as organizações sejam pró-ativa ao invés de ser reativo.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Gadgat Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-gs-logo.gif" alt="WSO2 Gadgat Server" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">O Gadgat WSO2 Server permite que você possa oferecer aos seus executivos, funcionários, parceiros ou clientes uma maneira de obter todas as informações em um único lugar que eles precisam. Pordemos criar vários paineis para cada usuário permitindo-lhe adicionar, personalizar e reorganizar seus gadgets, assim como agrupá-las em conjuntos de tabulação.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Business Process Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bps-logo.gif" alt="WSO2 Business Process Server" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">A WSO2 Business Process Server é um servidor responsável por executar os processos de negócios, são escritos usando o padrão WS-BPEL. Oferece um completo console gráfico para implantar, gerenciar e visualizar os processos, além de gerenciar e exibir instâncias do processo.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Mashup Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-mashup-logo.gif" alt="" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">A WSO2 Mashup Server fornece uma plataforma para uma rápida implantação de serviços Web Mashups.  Combinando mashups simples, mas rica de reutilização, segurança, confiabilidade e governação, a WOS2 Mashup Server oferece a composição de serviços de classe empresarial. O servidor Mashup é voltada para desenvolvedores web (HTML + Javascript / competências XML) que permite um rápido desenvolvimento e compartilhamento de novos serviços.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Data Services</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-ds-logo.gif" alt="WSO2 Data Services" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">A WSO2 Data Services fornece uma plataforma fácil de usar para criar serviços responsáveis por buscar os dados armazenados em locais heterogêneos, como banco de dados, arquivos CSV, Excel ou XML, permitindo a fácil integração de dados em processos de negócios, mashups, gadgets aplicações, BI e todos os serviços em geral.</p>
+<table>
+<tbody>
+<tr>
+<td style="width: 320px;">
+<h3>WSO2 Web Services Application Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-wsas-logo.gif" alt="WSO2 Web Services Application Server" /></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">WSO2 WSAS é um servidor de aplicativos para web services. Com o seu servidor Web incorporado de alto desempenho, suporte completo para XML, SOAP, WSDL, e suporte para comunicações confiáveis, seguras, WSO2 WSAS torna simples e eficaz para criar, consumir e gerenciar Web Services. tanbém podemos expor aplicativos como serviços na forma de POJOs ou JARs</p>
+<p style="text-align: justify;">Além dessas soluções, o WSO2 possui frameworks para fornecer aos desenvolvedores a infra-estrutura para criar e consumir serviços em sua linguagem de programação favorita como C, C++, PHP ou Spring.</p>
