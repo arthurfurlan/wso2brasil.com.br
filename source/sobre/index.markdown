@@ -13,10 +13,10 @@ E para quem ainda não conhece o WSO2, é uma suíte de produtos de código-livr
 
 Sinta-se a vontade para ler nossas últimas postagens e acompanhar o pessoal da comunidade.
 
-## Membros ativos
+## Membros ativos <a name="contato"></a>
 
- * [José Nogueira](/sobre/jose-nogueira) ([site →](http://www.mcorp.com.br/))
- * [Leonardo Saraiva](/sobre/leonardo-saraiva) ([site →](http://www.mcorp.com.br/))
+ * [José Nogueira](/sobre/jose-nogueira) ([jose.nogueira@wso2brasil.com.br](mailto:jose.nogueira@wso2brasil.com.br)) [[site →](http://www.mcorp.com.br/)]
+ * [Leonardo Saraiva](/sobre/leonardo-saraiva) ([leonardo@wso2brasil.com.br](mailto:leonardo@wso2brasil.com.br)) [[site →](http://www.mcorp.com.br/)]
 
 ## Membros honorários
 
