@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://www.wso2brasil.com.br
+url: http://WSO2Brasil.github.com/wso2brasil
 title: WSO2Brasil
 subtitle: # Comunidade brasileira para o WSO2
 author: WSO2Brasil
@@ -90,10 +90,10 @@ delicious_count: 3
 
 # Disqus Comments
 disqus_short_name: wso2brasil
-disqus_show_comment_count: false
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: 'UA-39120636-1'
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
