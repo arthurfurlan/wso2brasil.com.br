@@ -1,0 +1,45 @@
+---
+layout: post
+title: "Nós no FISL14"
+slug: nos-no-fisl-14
+date: 2013-07-09 15:35
+comments: true
+author: Leonardo Saraiva
+status: publish
+external-url: http://mcorp.com.br/2013/07/nos-no-fisl-14
+categories:
+- eventos
+tags:
+- wso2
+- fisl
+- porto alegre
+- poa
+- software livre
+---
+
+Como dito anteriormente, fomos ao [FISL 14](http://softwarelivre.org/fisl14)! Temos que admitir uma "vergonha": apesar de ser um evento muito famoso e referência para todos, nunca havíamos ido ao evento.
+
+[{% img center http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada-450x253.jpg 450 253 %}](http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada.jpg)
+
+Ficamos impressionados com o tamanho e a organização do evento, uma [agenda](http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-agenda.jpg) de 4 dias e 10 trilhas, com milhões de opções de palestras com temas e linhas variadas. Incrível quanta informação foi "distribuída" no evento, além das 10 salas, tinha um enorme salão com vários estandes e muitas coisas pra entreter _nerds_!
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2-160x120.jpg" width="160" height="120" /></a>
+</p>
+
+Isso traz alguns problemas, no meu ver. Palestras vazias por outras concorrentes de mais peso, por exemplo: participamos do fim de uma palestra que tinha UM ouvinte, o que é praticamente um bate-papo. E a não parada para o almoço, tudo bem que ajuda a desafogar um pouco os restaurantes mas, faz com que muitas pessoas percam palestras pois em algum momento terão fome.
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando-200x113.jpg" width="200" height="113" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando-200x113.jpg" width="200" height="113" /></a>
+</p>
+
+Nós também palestramos, com o tema: "WSO2 - Apresentando e desmitificando a complexidade do SOA e suas "letrinhas" e caso tenham curiosidade de ver a palestra, fiquem de olho no site do FISL14, pois logo eles devem liberar os vídeos.
+
+<p style="text-align: center">
+  <iframe src="https://docs.google.com/presentation/d/1EwbfJXR3swL1pmvBRIyCrBYu7p-E9XAqqKvus40DBdQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="429" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</p>
+
+Gostaríamos de agradecer o pessoal do [WSO2](http://wso2.com), principalmente a **Asangi**, pela ajuda nos custos e paciência para nos responder prontamente em todas nossas dúvidas.
