@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: eventos | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/categorias/eventos/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[8º SoLiSC - Nos vemos lá]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/09/8o-solisc-nos-vemos-la/"/>
+    <updated>2013-09-16T10:29:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/09/8o-solisc-nos-vemos-la</id>
+    <content type="html"><![CDATA[<p><a href="http://www.solisc.org.br/"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/09/8solisc.png" width="600" height="211"></a></p>
+
+<p>Agora, nos dias 20 e 21 de setembro de 2013 ocorrerá o 8º SoLiSC - Congresso Catarinense de Software Livre, em Florianópolis! Eu fui nas duas primeiras edições, quando ainda eram em Joinville, mas após a mudança para a capital do estado de Santa Catarina, nunca mais tive a oportunidade de participar.</p>
+
+<p>Mas esse ano estarei lá, não só para acompanhar as diversas palestras com trilhas sobre desenvolvimento, software livre, distribuições, infraestrutura e as oficinas. Mas também para palestrar sobre SOA e WSO2.</p>
+
+<p>A <a href="http://solisc.org.br/grade.htm">grade</a> mostra que as opções são muitas e com muitas palestras interessantes (curioso para ver as palestras sobre arduíno) e também algumas oficinas!</p>
+
+<p>As <a href="https://eventioz.com.br/e/8-solisc-congresso-catarinense-de-software-livre/">inscrições</a> se encerram amanhã, então #CORRÃO!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Nós no FISL14]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/nos-no-fisl-14/"/>
+    <updated>2013-07-09T15:35:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/nos-no-fisl-14</id>
+    <content type="html"><![CDATA[<p>Como dito anteriormente, fomos ao <a href="http://softwarelivre.org/fisl14">FISL 14</a>! Temos que admitir uma "vergonha": apesar de ser um evento muito famoso e referência para todos, nunca havíamos ido ao evento.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada-450x253.jpg" width="450" height="253"></a></p>
+
+<p>Ficamos impressionados com o tamanho e a organização do evento, uma <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-agenda.jpg">agenda</a> de 4 dias e 10 trilhas, com milhões de opções de palestras com temas e linhas variadas. Incrível quanta informação foi "distribuída" no evento, além das 10 salas, tinha um enorme salão com vários estandes e muitas coisas pra entreter <em>nerds</em>!</p>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2-160x120.jpg" width="160" height="120" /></a>
+</p>
+
+
+<p>Isso traz alguns problemas, no meu ver. Palestras vazias por outras concorrentes de mais peso, por exemplo: participamos do fim de uma palestra que tinha UM ouvinte, o que é praticamente um bate-papo. E a não parada para o almoço, tudo bem que ajuda a desafogar um pouco os restaurantes mas, faz com que muitas pessoas percam palestras pois em algum momento terão fome.</p>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando-200x113.jpg" width="200" height="113" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando-200x113.jpg" width="200" height="113" /></a>
+</p>
+
+
+<p>Nós também palestramos, com o tema: "WSO2 - Apresentando e desmitificando a complexidade do SOA e suas "letrinhas" e caso tenham curiosidade de ver a palestra, fiquem de olho no site do FISL14, pois logo eles devem liberar os vídeos.</p>
+
+<p style="text-align: center">
+  <iframe src="https://docs.google.com/presentation/d/1EwbfJXR3swL1pmvBRIyCrBYu7p-E9XAqqKvus40DBdQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="429" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</p>
+
+
+<p>Gostaríamos de agradecer o pessoal do <a href="http://wso2.com">WSO2</a>, principalmente a <strong>Asangi</strong>, pela ajuda nos custos e paciência para nos responder prontamente em todas nossas dúvidas.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Participaremos do FISL 14]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/participaremos-do-fisl-14/"/>
+    <updated>2013-07-03T13:34:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/participaremos-do-fisl-14</id>
+    <content type="html"><![CDATA[<p>Sabemos que está muito em cima para avisar vocês, mas a correria da vida não está fácil pra ninguém (nem pro Eike Batista, <a href="http://g1.globo.com/economia/noticia/2013/07/cenario-economico-acumula-novo-reves-com-crise-de-empresa-de-eike-batista.html">não é</a>?).</p>
+
+<p><a href="http://softwarelivre.org/fisl14"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14.png"></a></p>
+
+<p>Mas... antes tarde do que nunca! Estaremos no <a href="http://softwarelivre.org/fisl14">FISL 14</a>, que ocorre entre os dias 3 e 6 de julho, "passeando" pelos corredores e assistindo as palestras, caso queiram conversar conosco, basta dar um grito.</p>
+
+<p>Nós vamos palestrar no <strong>dia 6</strong>, sala <strong>41C</strong>, as <strong>14:00</strong>. Mas tem muitas palestras interessantes, dêem uma olhada na <a href="http://fisl.org.br/14/papers_ng/public/fast_grid?event_id=3">grade de palestras</a> que você se perderá na quantidade e na qualidade das palestras.</p>
+
+<p>Nos vemos lá!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2Con 2013]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/02/wso2con-2013/"/>
+    <updated>2013-02-18T22:13:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/02/wso2con-2013</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-auditorio.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-auditorio-400x300.jpg" width="400" height="300" title="WSO2Con Auditório" alt="WSO2Con Auditório"></a></p>
+
+<p>O pessoal que acompanha o <a href="http://twitter.com/wso2brasil">@WSO2Brasil</a> está sabendo que fomos convidados para a <a href="http://wso2con.com">WSO2Con</a> em Londres, que aconteceu do dia 12 ao dia 14 de fevereiro.</p>
+
+<p>O local estava muito bem decorado e com tudo perfeitamente bem preparado! Foi engraçado que tínhamos "link" direto com o pessoal em Colombo (Sri Lanka) e podíamos ficar assistindo-os pelo telão.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-pessoal-em-colombo.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-pessoal-em-colombo-400x300.jpg" width="400" height="300" title="WSO2Con Pessoal em Colombo" alt="WSO2Con Pessoal em Colombo"></a></p>
+
+<p>Foram três dias de muito conteúdo e informação da mais alta qualidade, sendo eles divididos em:</p>
+
+<ul>
+<li><strong>Primeiro dia</strong>: dedicado totalmente a tutorias que cobriram da teoria a prática; e</li>
+<li><strong>Segundo e terceiro dia</strong>: foram a convenção propriamente dita.</li>
+</ul>
+
+
+<p>Foi uma pena eu não conseguir assistir a todas as palestras ao vivo, mas pela qualidade das palestras que consegui assistir, somado aos comentários do <a href="http://twitter.com/vyper/wso2">pessoal no twitter</a>, pude perceber que todas as palestras foram de alta qualidade. Agora basta esperar sair os vídeos para que possamos assistir a todas as palestras.</p>
+
+<p>No decorrer dos próximos dias irei publicar o material sobre as palestras que assisti. Mas vou adiantando aqui mesmo algumas novidades pra vocês irem acompanhando até eu poder detalhar com calma.</p>
+
+<h2>WSO2 API Manager</h2>
+
+<p>Todo o suporte para publicação de aplicações: controle de versão, controle de fluxo do desenvolvimento, banco de dados, publicação nos diversos ambientes entre outras coisas num único lugar!</p>
+
+<p>O <em>alpha</em> está disponível! Caso alguém teste com mais calma, compartilhem aí as informações, ainda não pude ver com muita calma, mas adianto que no <em>demo</em> não deu nenhum problema (o que é um milagre em palestras) e os meus testes totalmente <em>express</em> nos intervalos das palestras, tudo funcionou perfeitamente!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-api-manager.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-api-manager-400x300.jpg" width="400" height="300" title="WSO2 API Manager" alt="WSO2 API Manager"></a></p>
+
+<h2>WSO2 Doc Star: Melhorias na documentação</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-doc-star.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-doc-star-400x300.jpg" width="400" height="300" title="WSO2 Doc Start" alt="WSO2 Doc Star"></a></p>
+
+<p>É um ponto que todos sofremos e temos tentado ajudar, mas agora a coisa vai!</p>
+
+<h2>Raspberry PI...</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-raspberry-pi-cluster.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-raspberry-pi-cluster-400x300.jpg" width="400" height="300" title="Cluster de Raspberry PI" alt="Cluster de Raspberry PI"></a></p>
+
+<p>Todos os participantes ganharam um <a href="http://www.raspberrypi.org/">Raspberry PI</a>, inclusive nós!</p>
+
+<p>O pessoal montou todo <em>cluster</em> com raspberry para rodar a <a href="http://wso2con.com/m">aplicação <em>mobile</em></a>... E teve palestras detalhando isso, então aguardem...</p>
+
+<p>Mas caso você seja muito curioso, tem aqui dois <em>posts</em> em inglês com detalhamento <em>Building a Raspberry Pi Cluster <a href="http://blog.afkham.org/2013/01/raspberry-pi-control-center.html">Part 1</a></em> e <em><a href="http://blog.afkham.org/2013/02/building-raspberry-pi-cluster-part-2.html">Part 2</a></em>.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao-400x300.jpg" width="400" height="300" title="WSO2Con Organização" alt="WSO2Con Organização"></a></p>
+
+<p>Meus parabéns ao pessoal organizador da <a href="http://wso2con.com">WSO2Con</a> e até depois! Desculpem-me pela qualidade das fotos, mas na correria fui apenas com o celular. ):</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Treinamento: Celepar]]></title>
+    <link href="http://wso2brasil.com.br/blog/2012/11/treinamento-celepar/"/>
+    <updated>2012-11-08T20:06:00-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2012/11/treinamento-celepar</id>
+    <content type="html"><![CDATA[<p>Aplicamos um pequeno treinamento/apresentação nos dias 07 e 08/11 na <a href="http://www.celepar.pr.gov.br/">Celepar</a>, Companhia de Informática do Paraná, os
+temas abordados foram os usos das ferramentas <a href="http://wso2.com/products/data-services-server/">WSO2 Data Service</a>, <a href="http://wso2.com/products/application-server/">WSO2 Application Server</a> e <a href="http://wso2.com/products/enterprise-service-bus/">WSO2 Enterprise Service Bus</a>.</p>
+
+<p>Falamos sobre como funciona o tal do "<a href="/glossario/#SOA">SOA</a>", passamos num geral sobre as funcionabilidades das ferramentas e, por fim, simulamos
+um pequeno <em>case</em> utilizando as ferramentas citadas anteriormente.</p>
+
+<p>Estiveram presentes membros de diversas equipes da empresa: infra-estrutura, desenvolvedores, responsáveis por novas tecnologias
+e algumas outras áreas mais específicas. Elas serão usadas como "cobaias" para a implementação dos primeiros <em>cases</em> da empresa.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar-400x300.jpg" width="400" height="300"></a></p>
+
+<p>Um muito obrigado a todos os envolvidos.</p>
+]]></content>
+  </entry>
+  
+</feed>

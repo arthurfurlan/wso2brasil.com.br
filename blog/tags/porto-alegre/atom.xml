@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: porto alegre | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/porto-alegre/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Nós no FISL14]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/nos-no-fisl-14/"/>
+    <updated>2013-07-09T15:35:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/nos-no-fisl-14</id>
+    <content type="html"><![CDATA[<p>Como dito anteriormente, fomos ao <a href="http://softwarelivre.org/fisl14">FISL 14</a>! Temos que admitir uma "vergonha": apesar de ser um evento muito famoso e referência para todos, nunca havíamos ido ao evento.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada-450x253.jpg" width="450" height="253"></a></p>
+
+<p>Ficamos impressionados com o tamanho e a organização do evento, uma <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-agenda.jpg">agenda</a> de 4 dias e 10 trilhas, com milhões de opções de palestras com temas e linhas variadas. Incrível quanta informação foi "distribuída" no evento, além das 10 salas, tinha um enorme salão com vários estandes e muitas coisas pra entreter <em>nerds</em>!</p>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2-160x120.jpg" width="160" height="120" /></a>
+</p>
+
+
+<p>Isso traz alguns problemas, no meu ver. Palestras vazias por outras concorrentes de mais peso, por exemplo: participamos do fim de uma palestra que tinha UM ouvinte, o que é praticamente um bate-papo. E a não parada para o almoço, tudo bem que ajuda a desafogar um pouco os restaurantes mas, faz com que muitas pessoas percam palestras pois em algum momento terão fome.</p>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando-200x113.jpg" width="200" height="113" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando-200x113.jpg" width="200" height="113" /></a>
+</p>
+
+
+<p>Nós também palestramos, com o tema: "WSO2 - Apresentando e desmitificando a complexidade do SOA e suas "letrinhas" e caso tenham curiosidade de ver a palestra, fiquem de olho no site do FISL14, pois logo eles devem liberar os vídeos.</p>
+
+<p style="text-align: center">
+  <iframe src="https://docs.google.com/presentation/d/1EwbfJXR3swL1pmvBRIyCrBYu7p-E9XAqqKvus40DBdQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="429" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</p>
+
+
+<p>Gostaríamos de agradecer o pessoal do <a href="http://wso2.com">WSO2</a>, principalmente a <strong>Asangi</strong>, pela ajuda nos custos e paciência para nos responder prontamente em todas nossas dúvidas.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Participaremos do FISL 14]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/participaremos-do-fisl-14/"/>
+    <updated>2013-07-03T13:34:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/participaremos-do-fisl-14</id>
+    <content type="html"><![CDATA[<p>Sabemos que está muito em cima para avisar vocês, mas a correria da vida não está fácil pra ninguém (nem pro Eike Batista, <a href="http://g1.globo.com/economia/noticia/2013/07/cenario-economico-acumula-novo-reves-com-crise-de-empresa-de-eike-batista.html">não é</a>?).</p>
+
+<p><a href="http://softwarelivre.org/fisl14"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14.png"></a></p>
+
+<p>Mas... antes tarde do que nunca! Estaremos no <a href="http://softwarelivre.org/fisl14">FISL 14</a>, que ocorre entre os dias 3 e 6 de julho, "passeando" pelos corredores e assistindo as palestras, caso queiram conversar conosco, basta dar um grito.</p>
+
+<p>Nós vamos palestrar no <strong>dia 6</strong>, sala <strong>41C</strong>, as <strong>14:00</strong>. Mas tem muitas palestras interessantes, dêem uma olhada na <a href="http://fisl.org.br/14/papers_ng/public/fast_grid?event_id=3">grade de palestras</a> que você se perderá na quantidade e na qualidade das palestras.</p>
+
+<p>Nos vemos lá!</p>
+]]></content>
+  </entry>
+  
+</feed>

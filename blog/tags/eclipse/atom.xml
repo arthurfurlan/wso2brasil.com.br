@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: eclipse | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/eclipse/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Instalando WSO2 Enterprise Service Bus Eclipse Tools no Ubuntu Karmic Koala (9.10)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/instalando-wso2-enterprise-service-bus-eclipse-tools-no-ubuntu-karmic-koala-9-10/"/>
+    <updated>2009-12-22T10:43:15-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/instalando-wso2-enterprise-service-bus-eclipse-tools-no-ubuntu-karmic-koala-9-10</id>
+    <content type="html"><![CDATA[<p>Com o lançamento do <a href="http://wso2.org/projects/tools/esb/esb-authoring">WSO2 Enterprise Service Bus Eclipse Tools</a> (v1.0.0-beta),
+cansado de ficar utilizando a interface web para gerenciar os "esqueminhas" da
+ESB, resolvei testar o plugin.</p>
+
+<p>Mas como nem tudo são flores, após eu <a href="http://wso2.org/project/tools/esb/esb-authoring/1.0.0/docs/install_guide.html">instalar o plugin</a> e tentar criar um novo <em>endpoint</em>,
+recebi o erro abaixo:</p>
+
+<pre><code>Unhandled event loop exception XPCOM error -2147467259
+</code></pre>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-error.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-error-300x184.png" alt="" /></a></p>
+
+<p>Com isso, passei um certo tempo procurando na internet, até descobrir que o
+erro é causado por falta da biblioteca <strong>libstdc++5</strong>, que no Ubuntu Karmic
+Koala (9.10) foi atualizada para <strong>libstdc++6</strong>. Versão que é incompátivel com
+a visualização embarcada do Mozilla que o <a href="http://www.eclipse.org/webtools/">Eclipse WTP</a> utiliza.</p>
+
+<p>Então, para resolver o problema, primeiro passo que tentei foi:</p>
+
+<pre><code>$ sudo apt-get install libstdc++5
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package libstdc++5 is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+E: Package libstdc++5 has no installation candidate
+</code></pre>
+
+<p>Só que não resolveu, a maneira que encontrei foi procurar a biblioteca para
+download, encontrei no site do Debian:</p>
+
+<pre><code>wget http://ftp.br.debian.org/debian/pool/main/g/gcc-3.3/libstdc++5_3.3.6-18_i386.deb
+</code></pre>
+
+<p>E instalei:</p>
+
+<pre><code>sudo dpkg -i libstdc++5_3.3.6-18_i386.deb
+</code></pre>
+
+<p>E com esses passos, tudo funciona normalmente...</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-running.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-running-300x222.png" alt="" /></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Testes na versão 2.2.0 do WSO2 Data Services Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/"/>
+    <updated>2009-12-18T17:46:09-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server</id>
+    <content type="html"><![CDATA[<p>Estava eu, numa calma sexta-feira, realizando testes na recém lançada versão
+2.2.0 do <a href="http://wso2.org/projects/data-services-server/java">WSO2 Data Services Server</a>, e para começá-los resolvi fazer <a href="/glossario/#Deploy">deploy</a> dos
+serviços que já temos desenvolvido, pensando que tudo seria tranquilo, como
+estava o meu dia, mas... ledo engano.</p>
+
+<h2>Erro - Primeiro ato</h2>
+
+<p>Fui no básico: "Add > Data Service > Upload" e...</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-faulty-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-faulty-01-300x199.png" alt="wso2-data-services-faulty-01" /></a></p>
+
+<p>Um erro que não me
+diz muito, então o jeito foi ver o que poderia ser por "tentativa" e erro.
+Após um pouco de luta e leitura do código fonte do arquivo DBS, descobri que
+era algum método que executa uma procedure e não tinha o ordinal preenchido.</p>
+
+<p><div><script src='https://gist.github.com/2907872.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/2907872&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+
+<p>Então peguei a linha 3 e corrigi, deixando assim:</p>
+
+<p><div><script src='https://gist.github.com/2907878.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/2907878&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+
+<p>Ou seja, devíamos ter prestado mais atenção quando falavam ser obrigatório
+para procedures o preenchimento desse campo, mas como nunca deu problema,
+então não prestávamos a devida atenção.</p>
+
+<h2>Erro - Segundo ato</h2>
+
+<p>Com o serviço devidamente publicado, fui a execução dos métodos para ver se
+tudo iria bem. Primeiro método (sem parâmetros de entrada) foi tranquilo,
+retornou tudo que eu precisava. Já no segundo método...</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-faulty-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-faulty-02-300x199.png" alt="wso2-data-services-faulty-02" /></a></p>
+
+<p>E voltamos a busca do
+erro perdido... E dessa vez não foi falta de atenção nossa, apenas o plugin
+que o pessoal do WSO2 disponibiliza (e que ensinei a
+<a href="http://www.mcorp.com.br/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse/">compilar</a>)
+que não preencheu o atributo como devia. Na chamada
+da operação estava assim:</p>
+
+<p><div><script src='https://gist.github.com/2907879.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/2907879&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+
+<p>Enquanto deveria estar assim:</p>
+
+<p><div><script src='https://gist.github.com/2907881.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/2907881&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+
+<p>E feito todas essas alterações na definição dos data service, tudo correu bem
+e tranquilo com essa nova versão.</p>
+
+<p>Mas ainda acho que vale a pena esperar um pouco pra ver se não aparece nenhuma
+correção que levem eles a gerar a versão 2.2.1; também tenho que verificar se
+os <em>patches</em> que aplicamos na versão anterior deixaram de ser necessário. Mas
+isso fica pra uma próximo oportunidade.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o plugin do WSO2 Data Services Server para o Eclipse]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse/"/>
+    <updated>2009-12-18T12:21:41-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/eclipse-wso2-ds.png" alt="Eclipse + WSO2 Data Service" /> Como não encontrei uma versão
+final do plugin para o <a href="http://www.eclipse.org">Eclipse</a> para criação, edição
+e deploy de serviços do <a href="http://wso2.org/projects/data-services-server/java">WSO2 Data Services Server</a> na página de downloads do site, o jeito foi
+compilar o plugin a partir do fonte disponível no
+<a href="http://wso2.org/svn">repositório</a> (e viva o código aberto). E seguem abaixo
+os passos necessário para o procedimento.</p>
+
+<h2>Requisitos</h2>
+
+<p>Será necessário que você tenha instalado os programas abaixo para poder
+realizar esse processo. Não é minha ideia ensinar como instalar, mas com uma
+busca no <a href="http://www.google.com.br">Google</a> esse problema deve ser facilmente
+resolvido:</p>
+
+<ul>
+<li><a href="http://subversion.tigris.org/">Subversion</a></li>
+<li><a href="http://maven.apache.org/">Maven2</a></li>
+</ul>
+
+
+<h2>Baixando fontes</h2>
+
+<p>Primeiro passo é baixar do <a href="http://wso2.org/svn">repositório</a> o código fonte
+da última versão:</p>
+
+<pre><code>svn co https://wso2.org/repos/wso2/trunk/tools/ide/eclipse/data-service/org.wso2.ws.dataservices.ide/
+</code></pre>
+
+<h2>Compilação</h2>
+
+<p>Depois de baixados os fontes, basta entrar na pasta que foi gerada e mandar
+compilar:</p>
+
+<pre><code>cd org.wso2.ws.dataservices.ide
+mvn install
+</code></pre>
+
+<p>Esse processo pode demorar um pouco, pois ele realiza o download de diversas
+dependências para compilação, mas no fim ele gera dentro do diretório "target"
+com o arquivo "org.wso2.ws.dataservices.ide_1.0.0.jar" que deve ser instalado
+no seu Eclipse.</p>
+
+<h2>Instalação</h2>
+
+<p>No meu caso, o Eclipse está instalado no meu <em>home</em> e é para lá que copiei o
+arquivo.</p>
+
+<pre><code>cp target/org.wso2.ws.dataservices.ide_1.0.0.jar ~/Applications/eclipse/plugins/.
+</code></pre>
+
+<h2>Finalização</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-wizard-new.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-wizard-new-300x234.png" alt="WSO2 Data services: Wizard new" /></a></p>
+
+<p>E com isso, no menu de "Novo", do seu Eclipse, deve
+ter a opção de <em>wizard</em> para criação e após criado o serviço (que ficará para
+um outro post) você tem a opção de clicar com o botão direito no arquivo e
+editar (<em>Edit Data Service</em>) ou realizar o <a href="/glossario/#Deploy">deploy</a>
+(<em>Deploy Data Service</em>).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BPEL Editor VS JBoss Tools]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/09/bpel-editor-vs-jboss-tools/"/>
+    <updated>2009-09-29T07:23:41-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/09/bpel-editor-vs-jboss-tools</id>
+    <content type="html"><![CDATA[<p>Cansado de apanhar dos bugs e problemas do <a href="http://www.eclipse.org/bpel/">BPEL Eclipse</a>, resolvi tentar a sorte com o <a href="http://www.jboss.org/tools">JBoss Tools (3.1)</a>.</p>
+
+<p>O JBoss Tools não atende só BPEL, tem diversas funcionalidades, mas o que me
+importava realmente era o BPEL.</p>
+
+<p>Após duas semanas trabalhando com ele e fazendo os processos o utilizando,
+cheguei as conclusões abaixo:</p>
+
+<p><strong>Boas notícias:</strong></p>
+
+<ul>
+<li>auto-completation para xsl;</li>
+<li>atalho para criação de arquivo xsl;</li>
+<li>adicionar elemento no schema tem menu "antes" e "depois".</li>
+</ul>
+
+
+<p><strong>Más notícias:</strong></p>
+
+<ul>
+<li>na criação do arquivo de deploy, além de o nome ficar diferente (fica bpel-deploy.xml e não deploy.xml), não consigo selecionar os serviços os targets, tive que fazer o arquivo manualmente;</li>
+<li>continua não alterando o nome da operação no bpel ao alterar no wsdl;</li>
+<li>continua (as vezes) não criando um novo "assign" quando pergunta se quer que seja criado (mas não dá exception que obrigava abrir e fechar o bpel);</li>
+<li>o problema ao alterar o nome da variável de "request" ou "response", fechar o bpel e verificar no "Details" do "Invoke" continua;</li>
+<li>continua incluido as variáveis em um local do bpel que o editor não lê;</li>
+<li>simplesmente os botões de "add" e "delete" do "details" de um "assign" continua parando de responder simplesmente;</li>
+<li>continua perdendo as referências aos wsdl do nada.</li>
+</ul>
+
+
+<p>Ou seja, não resolveu meus maiores problemas além de criar alguns novos...
+Definitivamente não conheço um editor BPEL livre decente. Alguém conhece?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services - Instalação do servidor]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/09/wso2-data-services-instalacao-do-servidor/"/>
+    <updated>2009-09-17T13:32:41-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/09/wso2-data-services-instalacao-do-servidor</id>
+    <content type="html"><![CDATA[<p>A instalação do WSO2 Data Services se divide em duas partes, a instalação do
+servidor e a preparação do ambiente de desenvolvimento.</p>
+
+<h2>1. Servidor</h2>
+
+<p>É necessário realizar o download da última versão (utilizamos aqui a
+<a href="http://dist.wso2.org/products/solutions/data-services/java/2.0/wso2dataservices-2.0.zip">2.0</a>) do servidor na <a href="http://wso2.org/projects/solutions/data-services/java">página do projeto</a>.</p>
+
+<p>Vou exemplificar os comandos como se fosse utilizar pasta
+"~/Applications/wso2" para colocar todos os servidores do WSO2, caso tenha
+outra escolha, verifique a adaptação dos comandos.</p>
+
+<p>Criando a pasta:</p>
+
+<pre><code>mkdir -p ~/Applications/wso2
+</code></pre>
+
+<p>Descompactando o arquivo (lembrando de verificar a versão do arquivo que você
+baixou - no meu caso, 2.0):</p>
+
+<pre><code>unzip /path/to/download/wso2dataservices-2.0.zip -d ~/Applications/wso2
+</code></pre>
+
+<p>Após descompactado, vamos iniciar o servidor:</p>
+
+<pre><code>cd ~/Applications/wso2/wso2-dataservices-2.0 ./bin/wso2server.sh
+</code></pre>
+
+<p>Após algumas (várias) mensagens depois, você deve receber algo como:</p>
+
+<pre><code>[2009-05-29 14:30:30,330] INFO - HTTPS port : 9443 {org.wso2.carbon.core.StartupServlet}
+[2009-05-29 14:30:30,333] INFO - HTTP port : 9763 {org.wso2.carbon.core.StartupServlet}
+[2009-05-29 14:30:30,333] INFO - WSO2 Carbon started in 35 sec {org.wso2.carbon.core.StartupServlet}[/code]
+</code></pre>
+
+<p>E isso representa que tudo já está instalado e funcionando! Para sair, basta
+usar "CTRL + C".</p>
+
+<p>Esse comando que acabou de utilizar é usado para controlar o serviço do WSO2,
+tem alguns parâmetros que podem ser utilizados, para vê-los basta digitar:</p>
+
+<pre><code>./bin/wso2server.sh help
+</code></pre>
+
+<p>E com isso temos o servidor instalado! Para mantê-lo iniciado, em background,
+basta utilizar o comando:</p>
+
+<pre><code>./bin/wso2server.sh start
+</code></pre>
+
+<h2>1. Ambiente de desenvolvimento</h2>
+
+<p>É necessário realizar o download e instalação
+<a href="http://dist.wso2.org/products/solutions/data-services/java/1.0.1/org.wso2.ws.dataservices.ide_1.0.1.jar">desse</a> <em>plugin</em> para o
+<a href="http://www.eclipse.org">Eclipse</a>.</p>
+
+<p>Numa próxima "jornada", vamos fazer nosso primeiro <em>data service</em>.</p>
+]]></content>
+  </entry>
+  
+</feed>

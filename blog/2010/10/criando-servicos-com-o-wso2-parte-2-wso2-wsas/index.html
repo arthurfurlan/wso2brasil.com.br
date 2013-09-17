@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Criando serviços com o WSO2 - Parte 2 - WSO2 WSAS - WSO2Brasil</title>
+  <meta name="author" content="WSO2Brasil">
+
+  
+  <meta name="description" content="Hoje vamos dar continuidade ao exemplo de como criar um serviço usando as ferramentas do WSO2, no post anterior criamos o Data Services, hoje &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="WSO2Brasil" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.colorbox.min.js" type="text/javascript"></script>
+<link href="/stylesheets/colorbox.css" rel="stylesheet" type="text/css">
+
+<script>
+jQuery = jQuery.noConflict(true);
+jQuery(document).ready( function() {
+  var thumbnails = 'a:has(img)[href$=".bmp"],a:has(img)[href$=".gif"],a:has(img)[href$=".jpg"],a:has(img)[href$=".jpeg"],a:has(img)[href$=".png"],a:has(img)[href$=".BMP"],a:has(img)[href$=".GIF"],a:has(img)[href$=".JPG"],a:has(img)[href$=".JPEG"],a:has(img)[href$=".PNG"],a:has(img)[rel^="lightbox"]';
+  jQuery(thumbnails).colorbox({
+    transition: "none"
+  });
+});
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39120636-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/"><img src="/images/wso2brasil.png" /></a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com.br/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wso2brasil.com.br" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Arquivos</a></li>
+  <li><a href="/sobre">Sobre</a></li>
+  <li><a href="/sobre/#contato">Contato</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+  
+    <h1 class="entry-title"><a href="http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/">Criando Serviços Com O WSO2 - Parte 2 - WSO2 WSAS →</a></h1>
+    
+
+
+
+  <p class="meta">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-05T00:00:00-03:00" pubdate data-updated="true">Oct 5<span>th</span>, 2010</time>
+    
+     | <a href="#disqus_thread">Comments</a>
+    
+  </p>
+
+
+  </header>
+
+
+<div class="entry-content"><p>Hoje vamos dar continuidade ao exemplo de como criar um serviço usando as ferramentas do WSO2, no post anterior criamos o Data Services, hoje estaremos criando o nosso Business Service e publicar no WSO2 WSAS.</p>
+
+
+<p>O nosso Business Service será responsável por conter a regra de negócio do nosso serviço, ou seja, para uma determinada entrada vindo da BUS vamos consumir o Data Service aplicar a nossa regra de negócio e retornar os dados para a BUS. Esse é o momento onde vamos meter a mão na massa e codificar em Java.</p>
+
+
+<p>Para consumir o Data Service vamos estar usando o Apache Axis2, que é um framework para contrução e consumo de webservices, portanto <a title="Axis2" href="http://ws.apache.org/axis2/download.cgi" target="_blank">clique aqui</a> e faça o download, a versão que estou usando é 1.5.1. Depois de concluído o download descompactar o arquivo e copiar para um diretório de sua preferência.</p>
+
+
+
+
+<h3>Criando um Business Service</h3>
+
+
+
+
+<p>1. Abra o Eclipse e vamos criar um novo projeto, clique em File -&gt; New -&gt; Project</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem1.png"><img class="aligncenter size-medium wp-image-542" title="Criando novo projeto Java" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem1.png" alt="" width="541" height="486" /></a></p>
+
+
+<p>Na nova janela que abriu, selecione Java Project clique em Next.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png"><img class="aligncenter size-medium wp-image-543" title="Selecionar Java Project" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png" alt="" width="462" height="374" /></a></p>
+
+
+<p>Coloque o nome do projeto com <strong>RecursoHumanoServico</strong> depois clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png"><img class="aligncenter size-medium wp-image-544" title="Adicionando o nome do projeto" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png" alt="" width="467" height="522" /></a></p>
+
+
+<p>Para deixar nosso projeto mais organizado vamos criar duas Package, clique com o botão direito em cima da pasta src  e selecione a opção New -&gt; Package</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem4.png"><img class="aligncenter size-medium wp-image-545" title="Criando as packages" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem4.png" alt="" width="507" height="337" /></a></p>
+
+
+<p>Coloque o nome do package de <strong>br.leandroprado.webservices.recursohumano</strong></p>
+
+
+<p style="text-align: center;"><strong><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem5.png"><img class="aligncenter size-medium wp-image-546" title="Nome da Package" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem5.png" alt="" width="492" height="398" /></a><br />
+</strong></p>
+
+
+<p>Adicione mais um package com o nome de <strong>br.leandroprado.webservices.recursohumano.entidades</strong>, veja como seu projeto deve ficar depois de criado as duas packages<strong><br />
+</strong></p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem6.png"><img class="aligncenter size-medium wp-image-547" title="Packages criadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem6.png" alt="" width="498" height="251" /></a></p>
+
+
+<p>2. Depois de configurado o o projeto temos que adicionar as bibliotecas do Axis2 que vamos utilizar, clique em Project -&gt; Properties</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem8.png"><img class="aligncenter size-medium wp-image-548" title="Adicionando as bibliotecas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem8.png" alt="" width="522" height="332" /></a></p>
+
+
+<p>Na nova janela que abrir, clique em Java Build Path -&gt; Libraries</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem9.png"><img class="aligncenter size-medium wp-image-549" title="Selecionar External Jars" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem9.png" alt="" width="519" height="365" /></a></p>
+
+
+<p>Clique no botão Add External JARs e vá até o diretório onde esta o Axis2, que baixamos anteriormente e selecione os seguintes JARs.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem10.png"><img class="aligncenter size-medium wp-image-550" title="Selecionando os Jars necessários" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem10.png" alt="" width="515" height="417" /></a></p>
+
+
+<p>Veja que em Libraries foi adicionado os JARs do Axis2.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem11.png"><img class="aligncenter size-medium wp-image-551" title="Libraries adicionadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem11.png" alt="" width="526" height="368" /></a></p>
+
+
+<p>3. Agora vamos começar a codificar o nosso serviço, clique com o botão direito em cima da package  <strong>br.leandroprado.webservices.recursohumano </strong>e selecione a opção New -&gt; Class</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem12.png"><img class="aligncenter size-medium wp-image-552" title="Criando uma nova classe" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem12.png" alt="" width="528" height="265" /></a></p>
+
+
+<p>Coloque o nome da nova classe de RecursoHumanoServico e clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem13.png"><img class="aligncenter size-medium wp-image-553" title="Classe RecursoHumanoServico" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem13.png" alt="" width="428" height="460" /></a></p>
+
+
+<p>Vamos criar outra classe dentro da package <strong>br.leandroprado.webservices.recursohumano.entidades </strong>chamada Funcionario</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem14.png"><img class="aligncenter size-medium wp-image-555" title="Classes criadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem14.png" alt="" width="411" height="216" /></a></p>
+
+
+<p>Veja abaixo o conteúdo da classe Funcionario.java, ela contém os campos que o nosso DataService retorna.</p>
+
+
+
+
+<pre class="brush: java; title: ; notranslate">
+package br.leandroprado.webservices.recursohumano.entidades;
+
+import java.util.Date;
+
+public class Funcionario {
+
+    private int codigo;
+    private String nome;
+    private String endereco;
+    private String sexo;
+    private String dataAniversario;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getDataAniversario() {
+        return dataAniversario;
+    }
+
+    public void setDataAniversario(String dataAniversario) {
+        this.dataAniversario = dataAniversario;
+    }
+}
+</pre>
+
+
+
+
+<p>Agora vamos criar o serviço, na classe RecursoHumanoServico vamos adicionar um novo método onde vamos chamar o nosso método do DataService, veja abaixo o código;</p>
+
+
+
+
+<pre class="brush: java; title: ; notranslate">
+package br.leandroprado.webservices.recursohumano;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.xml.namespace.QName;
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
+
+import br.leandroprado.webservices.recursohumano.entidades.Funcionario;
+
+public class RecursoHumanoServico {
+
+    // endereco do WSDL do DataService
+    private static EndpointReference rhEndpoint = new EndpointReference(&quot;http://10.0.2.15:9764/services/RecursoHumanoServico?wsdl&quot;);
+
+    public Funcionario[] pesquisarFuncionario(String nome)
+    {
+        String nameSpace = &quot;http://webservices.leandroprado.com.br/DataServices/RecursoHumano/PesquisarFuncionario&quot;;
+        String nomeMetodo = &quot;PesquisarFuncionario&quot;;
+
+        List&lt;Funcionario&gt; lst = new ArrayList&lt;Funcionario&gt;();
+
+        try {
+                                      // verifica se o parametro esta preenchido
+            if(nome != null)
+            {
+                if(nome.equals(&quot;&quot;))
+                    throw new Exception(&quot;Campo Nome é obrigatório!&quot;);
+            }
+            else
+                throw new Exception(&quot;Campo Nome é obrigatório!&quot;);
+
+            // cria os parametros do servico com o EndPoint e o método que queremos usar
+            Options options = new Options();
+            options.setTo(rhEndpoint);
+            options.setAction(&quot;urn:&quot; + nomeMetodo);
+
+            // cria um client para o servico
+            ServiceClient sender = new ServiceClient();
+            sender.setOptions(options);
+
+            // para criar os parametros de entrada do servico
+            OMFactory fac = OMAbstractFactory.getOMFactory();
+            OMNamespace omNs = fac.createOMNamespace(
+                            nameSpace,    // namespace do método
+                             nomeMetodo); // nome do método que vamos invocar
+            OMElement payload = fac.createOMElement(nomeMetodo, omNs);
+
+            // seta o nome dos parametros de entrada e seu conteudo
+            OMElement param = fac.createOMElement(&quot;Nome&quot;, omNs);
+            param.setText(&quot;%&quot; + nome + &quot;%&quot;);
+            payload.addChild(param);
+
+            // Executa o DataService
+            OMElement result = sender.sendReceive(payload);
+
+            // Recupeara o retorno
+            Iterator rows = result.getChildElements();
+
+            // Enquanto houver linhas no retorno
+            while (rows.hasNext()) {
+                OMElement row = (OMElement) rows.next();
+
+                // recupera os elementos
+                OMElement codigo = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;CodigoFuncionario&quot;));
+                OMElement nme = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;NomeFuncionario&quot;));
+                OMElement endereco = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;EnderecoFuncionario&quot;));
+                OMElement sexo = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;SexoFuncionario&quot;));
+                OMElement dataAniver = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;DataAniversario&quot;));
+
+                // cria um objeto do tipo Funcionario
+                Funcionario _fun = new Funcionario();
+                _fun.setCodigo(Integer.parseInt(codigo.getText()));
+                _fun.setNome(nme.getText());
+                _fun.setEndereco(endereco.getText());
+                _fun.setSexo(sexo.getText());
+                _fun.setDataAniversario(dataAniver.getText());
+
+                // Adiciona na lista
+                lst.add(_fun);
+            }
+        }
+        catch(Exception ex)
+        {
+            throw new RuntimeException(ex.getMessage());
+        }
+
+        // verifica se a lista possui elementos
+        if(lst.size() &gt; 0)
+            return lst.toArray(new Funcionario[lst.size()-1]);
+        else
+            return lst.toArray(new Funcionario[0]);
+    }
+}
+</pre>
+
+
+<p>4. Agora vamos publicar o serviço no WSO2 WSAS, primeiro de tudo temos que iniciar os serviços WSO2 DataServices e WSO2 WSAS, já vimos no post <a href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/" target="_blank">Criando um ambiente SOA com WSO2</a> como criar o ambiente e iniciar os serviços.</p>
+
+
+<p>Uma das maneiras de fazer o deploy de um serviço para o WSAS é exportar nosso serviço para um arquivo .jar, então  clique com o botão direito em cima do projeto RecursoHumanoServico e selecione a opção Export.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem15.png"><img class="aligncenter size-medium wp-image-565" title="Exportar o serviço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem15.png" alt="" width="517" height="362" /></a></p>
+
+
+<p>Selecione a opção Jar File, e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem16.png"><img class="aligncenter size-medium wp-image-565" title="Selecione Jar File" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem16.png" alt="" width="511" height="409" /></a></p>
+
+
+<p>Agora selecione em qual diretório vamos salvar o arquivo .jar, nesse caso estou salvando no Desktop e clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem17.png"><img class="aligncenter size-medium wp-image-565" title="Selecione o local para salvar o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem17.png" alt="" width="431" height="395" /></a></p>
+
+
+<p>Acessando nosso diretório Desktop o arquivo exportado.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem18.png"><img class="aligncenter size-medium wp-image-565" title="Arquivo Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem18.png" alt="" width="397" height="128" /></a></p>
+
+
+<p>Agora vamos fazer o Deploy do arquivo .jar para o WSAS, acessar o console de administração do WSAS e selecionar a opção Services -&gt; Add -&gt; Jar Service</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem19.png"><img class="aligncenter size-medium wp-image-571" title="Selecionar a opção Jar Service" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem19.png" alt="" width="203" height="300" /></a></p>
+
+
+<p>Coloque o nome do seu serviço e procure o arquivo .jar que exportamos anteriormente, e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem20.png"><img class="aligncenter size-medium wp-image-571" title="Adicionando o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem20.png" alt="" width="526" height="162" /></a></p>
+
+
+<p>Na próxima tela temos que selecionar qual classe que queremos expor como serviço, em nosso exemplo é a classe RecursoHumanoServico.java, não esqueça de selecionar o escopo que é SOAP, depois clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem21.png"><img class="aligncenter size-medium wp-image-571" title="Configurando o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem21.png" alt="" width="526" height="129" /></a></p>
+
+
+<p>Selecione os métodos que deseja disponibilizar no serviço, em nosso exemplo só temos um método, mas se tivesse vários métodos poderiamos selecionar quais deles vamos disponibilizar para consumo, depois clique em Finish.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem22.png"><img class="aligncenter size-medium wp-image-571" title="Métodos do Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem22.png" alt="" width="525" height="115" /></a></p>
+
+
+<p>Se tudo ocorrer sem erros, uma mensagem será exibida e o nosso serviço vai aparecer na lista, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem23.png"><img class="aligncenter size-medium wp-image-571" title="Serviço adicionado" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem23.png" alt="" width="536" height="219" /></a></p>
+
+
+<p>Vamos testar nosso método, clique em Try this Service , preencha o parâmetro nome e clique no botão, o seguinte resultado deverá ocorrer:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem24.png"><img class="aligncenter size-medium wp-image-571" title="Testando o servço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem24.png" alt="" width="539" height="293" /></a></p>
+
+
+<p>Vamos testar se a nossa validação está sendo executada, se invocar o método sem nenhum valor para o parâmetro nome, deve retornar um erro, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem25.png"><img class="aligncenter size-medium wp-image-571" title="Testando a Exception" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem25.png" alt="" width="525" height="159" /></a></p>
+
+
+<h3>Conclusão</h3>
+
+
+<p>Podemos ver que para criar um BusinessServer usando o WSAS não tem muito segredo, para quem ja programa em JAVA não vai ter nehuma dificuldade.</p>
+
+
+<p>O que podemos fazer para facilitar o consumo é criar um componente onde só passamos o método que queremos consumir e ele nos retorna um objeto criado, fica por conta de vocês aprimorar esse código.</p>
+
+
+<p>O WSO2 lançou um plugin para o Eclipse que cria serviços para o WSAS, com esse plugin é possível fazer debug dos nossos métodos, dessa forma facilitando o desenvolvimento para o programador.</p>
+
+
+<p><a href="http://wso2.org/library/tutorials/create-axis2-web-service-in-3-steps-using-eclipse" target="_blank">Create an Axis2 Web Service in 3 Steps Using Eclipse</a></p>
+
+
+<p><a href="http://wso2.org/library/tutorials/debug-your-axis2-web-service-3-steps-using-eclipse" target="_blank">How to Debug Your Axis2 Web Service in 3 Steps Using Eclipse</a></p>
+
+
+<p>No próximo post estaremos criando a camada da BUS, vamos criar um proxy para disponibilizar os serviços aos nossos clientes.</p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/RecursoHumanoServico.zip" target="_blank">Download Parte 2</a></p>
+
+
+<p>Até a próxima!</p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Leandro Prado</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-05T00:00:00-03:00" pubdate data-updated="true">Oct 5<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categorias/desenvolvimento/'>desenvolvimento</a>
+  
+</span>
+
+
+      
+
+<span class="tags">
+  
+    <a class='tag' href='/blog/tags/application-server/'>application server</a>, <a class='tag' href='/blog/tags/business/'>business</a>, <a class='tag' href='/blog/tags/wsas/'>wsas</a>, <a class='tag' href='/blog/tags/wso2/'>wso2</a>
+  
+</span>
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/" data-via="wso2brasil" data-counturl="http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/" title="Previous Post: Criando serviços com o WSO2 - Parte 1 - WSO2 Data Services">&laquo; Criando serviços com o WSO2 - Parte 1 - WSO2 Data Services</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/10/criando-servicos-com-o-wso2-parte-3-wso2-esb/" title="Next Post: Criando serviços com o WSO2 - Parte 3 - WSO2 ESB">Criando serviços com o WSO2 - Parte 3 - WSO2 ESB &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/8o-solisc-nos-vemos-la/">8º SoLiSC - Nos vemos lá</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0/">Lançado: WSO2 User Engagement Server - 1.0.0!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/nos-no-fisl-14/">Nós no FISL14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/participaremos-do-fisl-14/">Participaremos do FISL 14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/">Agendamento de tarefas na WSO2 Enterprise Service Bus</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+    <h1>Related Posts</h1>
+    <ul class="posts">
+    
+        <li class="related">
+        <a href="/blog/2010/10/serie-criando-servicos-com-wso2/">Série criando serviços com WSO2</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2010/07/criando-um-ambiente-soa-com-wso2/">Criando um ambiente SOA com WSO2</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2010/05/plataforma-wso2/">Plataforma WSO2</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2012/11/treinamento-celepar/">Treinamento: Celepar</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2010/05/ferramentas-soa-open-source/">Ferramentas SOA Open Source</a>
+        </li>
+    
+    </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (8)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/tags/business-process' style='font-size: 104.28571428571429%'>business process(3)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/web-services-application' style='font-size: 104.28571428571429%'>web services application(3)</a> <a href='/blog/tags/soa' style='font-size: 108.57142857142857%'>soa(6)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> </span>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("wso2brasil", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/wso2brasil" class="twitter-follow-button" data-show-count="false">Follow @wso2brasil</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/wso2brasil">@wso2brasil</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'wso2brasil',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - WSO2Brasil -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'wso2brasil';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

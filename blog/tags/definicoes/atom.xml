@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: definições | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/definicoes/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Data Services: O que é isso?]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/data-services-o-que-e-isso/"/>
+    <updated>2009-12-01T00:41:16-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/data-services-o-que-e-isso</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/11/server.jpg" title="Já viu algum datacenter assim?" alt="&quot;Já viu algum datacenter assim?&quot;" /></p>
+
+<p>Se fisicamente algumas empresas mantém um <em>datacenter</em> como esse acima,
+imagine o que não conseguem fazer com relação a "fontes de dados" e, para
+tentar minimizar esse problema, o <a href="/glossario/#SOA">SOA</a> propõe a utilização
+do "data services", que não podemos afirmar ser a solução para toda e qualquer
+empresa, mas foi a nossa opção e tem nos atendido muito bem.</p>
+
+<h2>Definição</h2>
+
+<p><a href="/glossario/#DataServices"><strong>Data Services</strong></a>: Camada que fornece acesso às
+diversas fontes de dados, podendo essas fontes serem: banco de dados,
+planilhas ou arquivos textos.</p>
+
+<h2>Então o que é isso afinal?</h2>
+
+<p>Digamos que temos uma maneira de organizar aquela "bagunça" generalizada que
+as vezes temos em nossa arquitetura, imagine o seguinte cenário: um sistema
+para o RH utilizando SQL Server, o sistema de compras utilizando Firebird, uma
+planilha de gerenciamento de projetos em excel e o restante em um ERP próprio
+utilizando PostgreSQL.</p>
+
+<p>Analisando esse cenário, aparece o problema de integrar todas essas soluções
+e, para não acessarmos diversas fontes de dados, cada um com seu <em>driver</em>
+específico, utilizamos o <a href="http://wso2.org/projects/data-services-server/java">WSO2 Data Services Server</a>!</p>
+
+<p>Que - basicamente - funciona como uma camada acima de toda aquela bagunça, com
+uma única maneira de acesso (serviços) às várias fontes de dados e sem maiores
+dependências, independente da forma dos dados o acesso será o mesmo.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/11/wso2-data-services-list.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/11/wso2-data-services-list-300x155.png" alt="WSO2 Data Services - Lista de serviços" /></a></p>
+
+<p>A tela acima mostra a visão do WSO2 Data Services Server na sua página de
+listagem de serviços, com atalhos para o <a href="/glossario/#WSDL">WSDL</a> (na versões
+1.1 e 2.0) e um "try-it", que são as duas formas de acesso aos serviços que
+expomos no WSO2 Data Services Server. E com isso teremos uma única fonte para
+consultar os dados de nossa empresa, atendendo uma das camadas da arquitetura
+que explicamos no post "<a href="http://www.mcorp.com.br/2009/11/soa-esta-para-wso2-ou-wso2-esta-para-o-soa/">SOA está para WSO2 ou WSO2 está para SOA?</a>".</p>
+
+<p>O desenvolvimento desses serviços é relativamente simples e será abordado em
+um próximo post.</p>
+
+<p>Caso esteja sendo muito superficial, aceito comentários e/ou críticas caso
+esteja muito rápido.</p>
+]]></content>
+  </entry>
+  
+</feed>

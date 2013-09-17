@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: instalação | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/instalacao/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Business Activity Monitoring + SQL Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server/"/>
+    <updated>2010-04-06T15:44:57-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do "chefe", realizei o download
+e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
+testes.</p>
+
+<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
+para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
+(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
+(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
+
+<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
+de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
+propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
+"bam", e para minha não-surpresa, lá estavam mais dois diretórios:</p>
+
+<ul>
+<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
+<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
+</ul>
+
+
+<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
+configuração que pudesse conter a conexão apontando para esses arquivos.</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+</code></pre>
+
+<p>Ops, não encontrei nada. Nova tentativa:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
+[milhões de respostas - ocultadas por mim - que não ajudam em nada]
+</code></pre>
+
+<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+</code></pre>
+
+<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho "sujo".</p>
+
+<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
+criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
+
+<ul>
+<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
+<li>repository/dataservices/BAMConfigurationDS.dbs</li>
+<li>repository/dataservices/BAMStatQueryDS.dbs</li>
+<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
+<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
+</ul>
+
+
+<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e...
+<em>voilà</em>.</p>
+
+<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
+</code></pre>
+
+<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
+capítulo, sempre acompanhado de dicas e descobertas. (:</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o plugin do WSO2 Data Services Server para o Eclipse]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse/"/>
+    <updated>2009-12-18T12:21:41-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/eclipse-wso2-ds.png" alt="Eclipse + WSO2 Data Service" /> Como não encontrei uma versão
+final do plugin para o <a href="http://www.eclipse.org">Eclipse</a> para criação, edição
+e deploy de serviços do <a href="http://wso2.org/projects/data-services-server/java">WSO2 Data Services Server</a> na página de downloads do site, o jeito foi
+compilar o plugin a partir do fonte disponível no
+<a href="http://wso2.org/svn">repositório</a> (e viva o código aberto). E seguem abaixo
+os passos necessário para o procedimento.</p>
+
+<h2>Requisitos</h2>
+
+<p>Será necessário que você tenha instalado os programas abaixo para poder
+realizar esse processo. Não é minha ideia ensinar como instalar, mas com uma
+busca no <a href="http://www.google.com.br">Google</a> esse problema deve ser facilmente
+resolvido:</p>
+
+<ul>
+<li><a href="http://subversion.tigris.org/">Subversion</a></li>
+<li><a href="http://maven.apache.org/">Maven2</a></li>
+</ul>
+
+
+<h2>Baixando fontes</h2>
+
+<p>Primeiro passo é baixar do <a href="http://wso2.org/svn">repositório</a> o código fonte
+da última versão:</p>
+
+<pre><code>svn co https://wso2.org/repos/wso2/trunk/tools/ide/eclipse/data-service/org.wso2.ws.dataservices.ide/
+</code></pre>
+
+<h2>Compilação</h2>
+
+<p>Depois de baixados os fontes, basta entrar na pasta que foi gerada e mandar
+compilar:</p>
+
+<pre><code>cd org.wso2.ws.dataservices.ide
+mvn install
+</code></pre>
+
+<p>Esse processo pode demorar um pouco, pois ele realiza o download de diversas
+dependências para compilação, mas no fim ele gera dentro do diretório "target"
+com o arquivo "org.wso2.ws.dataservices.ide_1.0.0.jar" que deve ser instalado
+no seu Eclipse.</p>
+
+<h2>Instalação</h2>
+
+<p>No meu caso, o Eclipse está instalado no meu <em>home</em> e é para lá que copiei o
+arquivo.</p>
+
+<pre><code>cp target/org.wso2.ws.dataservices.ide_1.0.0.jar ~/Applications/eclipse/plugins/.
+</code></pre>
+
+<h2>Finalização</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-wizard-new.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-wizard-new-300x234.png" alt="WSO2 Data services: Wizard new" /></a></p>
+
+<p>E com isso, no menu de "Novo", do seu Eclipse, deve
+ter a opção de <em>wizard</em> para criação e após criado o serviço (que ficará para
+um outro post) você tem a opção de clicar com o botão direito no arquivo e
+editar (<em>Edit Data Service</em>) ou realizar o <a href="/glossario/#Deploy">deploy</a>
+(<em>Deploy Data Service</em>).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services - Instalação do servidor]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/09/wso2-data-services-instalacao-do-servidor/"/>
+    <updated>2009-09-17T13:32:41-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/09/wso2-data-services-instalacao-do-servidor</id>
+    <content type="html"><![CDATA[<p>A instalação do WSO2 Data Services se divide em duas partes, a instalação do
+servidor e a preparação do ambiente de desenvolvimento.</p>
+
+<h2>1. Servidor</h2>
+
+<p>É necessário realizar o download da última versão (utilizamos aqui a
+<a href="http://dist.wso2.org/products/solutions/data-services/java/2.0/wso2dataservices-2.0.zip">2.0</a>) do servidor na <a href="http://wso2.org/projects/solutions/data-services/java">página do projeto</a>.</p>
+
+<p>Vou exemplificar os comandos como se fosse utilizar pasta
+"~/Applications/wso2" para colocar todos os servidores do WSO2, caso tenha
+outra escolha, verifique a adaptação dos comandos.</p>
+
+<p>Criando a pasta:</p>
+
+<pre><code>mkdir -p ~/Applications/wso2
+</code></pre>
+
+<p>Descompactando o arquivo (lembrando de verificar a versão do arquivo que você
+baixou - no meu caso, 2.0):</p>
+
+<pre><code>unzip /path/to/download/wso2dataservices-2.0.zip -d ~/Applications/wso2
+</code></pre>
+
+<p>Após descompactado, vamos iniciar o servidor:</p>
+
+<pre><code>cd ~/Applications/wso2/wso2-dataservices-2.0 ./bin/wso2server.sh
+</code></pre>
+
+<p>Após algumas (várias) mensagens depois, você deve receber algo como:</p>
+
+<pre><code>[2009-05-29 14:30:30,330] INFO - HTTPS port : 9443 {org.wso2.carbon.core.StartupServlet}
+[2009-05-29 14:30:30,333] INFO - HTTP port : 9763 {org.wso2.carbon.core.StartupServlet}
+[2009-05-29 14:30:30,333] INFO - WSO2 Carbon started in 35 sec {org.wso2.carbon.core.StartupServlet}[/code]
+</code></pre>
+
+<p>E isso representa que tudo já está instalado e funcionando! Para sair, basta
+usar "CTRL + C".</p>
+
+<p>Esse comando que acabou de utilizar é usado para controlar o serviço do WSO2,
+tem alguns parâmetros que podem ser utilizados, para vê-los basta digitar:</p>
+
+<pre><code>./bin/wso2server.sh help
+</code></pre>
+
+<p>E com isso temos o servidor instalado! Para mantê-lo iniciado, em background,
+basta utilizar o comando:</p>
+
+<pre><code>./bin/wso2server.sh start
+</code></pre>
+
+<h2>1. Ambiente de desenvolvimento</h2>
+
+<p>É necessário realizar o download e instalação
+<a href="http://dist.wso2.org/products/solutions/data-services/java/1.0.1/org.wso2.ws.dataservices.ide_1.0.1.jar">desse</a> <em>plugin</em> para o
+<a href="http://www.eclipse.org">Eclipse</a>.</p>
+
+<p>Numa próxima "jornada", vamos fazer nosso primeiro <em>data service</em>.</p>
+]]></content>
+  </entry>
+  
+</feed>

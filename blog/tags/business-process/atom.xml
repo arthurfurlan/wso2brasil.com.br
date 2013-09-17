@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: business process | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/business-process/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Business Activity Monitoring + SQL Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server/"/>
+    <updated>2010-04-06T15:44:57-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do "chefe", realizei o download
+e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
+testes.</p>
+
+<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
+para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
+(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
+(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
+
+<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
+de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
+propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
+"bam", e para minha não-surpresa, lá estavam mais dois diretórios:</p>
+
+<ul>
+<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
+<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
+</ul>
+
+
+<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
+configuração que pudesse conter a conexão apontando para esses arquivos.</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+</code></pre>
+
+<p>Ops, não encontrei nada. Nova tentativa:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
+[milhões de respostas - ocultadas por mim - que não ajudam em nada]
+</code></pre>
+
+<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+</code></pre>
+
+<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho "sujo".</p>
+
+<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
+criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
+
+<ul>
+<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
+<li>repository/dataservices/BAMConfigurationDS.dbs</li>
+<li>repository/dataservices/BAMStatQueryDS.dbs</li>
+<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
+<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
+</ul>
+
+
+<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e...
+<em>voilà</em>.</p>
+
+<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
+</code></pre>
+
+<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
+capítulo, sempre acompanhado de dicas e descobertas. (:</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Novidades nos lançamentos (nov/2009) da plataforma WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/novidades-nos-lancamentos-nov2009-da-plataforma-wso2/"/>
+    <updated>2009-11-24T12:28:20-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/novidades-nos-lancamentos-nov2009-da-plataforma-wso2</id>
+    <content type="html"><![CDATA[<p>Como avisei <a href="http://www.mcorp.com.br/2009/11/wso2-e-a-quinta-feira-agitada-muitos-lancamentos/">aqui</a> e no <a href="http://www.twitter.com/vyper">twitter</a>
+semana passada, o pessoal do <a href="http://www.wso2.org">WSO2</a> lançou algumas
+atualizações nos <a href="http://wso2.org/projects">projetos</a> da plataforma WSO2
+Carbon. Mas somente agora, com o lançamento oficial, é que podemos descobrir o
+que foi atualizado.</p>
+
+<p>Segue um resumão (baseado nas notas de lançamento) com o que foi atualizado em
+cada um dos projetos.</p>
+
+<h2>WSO2 Web Services Application Server (v3.1.2)</h2>
+
+<ul>
+<li>Correções em vários softwares que fazem parte dele: Apache Axis2, Apache Rampart, Apache Sandesha2, WSO2 Carbon e alguns outros projetos;</li>
+<li>Correção da limpeza de memória após reiniciar o servidor.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/wsas/java/3.1.2/docs/release_notes.html">aqui</a>.</p>
+
+<h2>WSO2 Enterprise Service Bus (v2.1.2)</h2>
+
+<ul>
+<li>Diversas melhorias e correções desde a versão 2.1.0 lançada em julho de 2009.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/esb/java/2.1.2/docs/release-notes.html">aqui</a>.</p>
+
+<h2>WSO2 Governance Registry (v3.0.2)</h2>
+
+<ul>
+<li>Melhoria no suporte a transação;</li>
+<li>Suporte ao WebSphere, WebLogic e JBoss;</li>
+<li>Baseado na suíte WSO2 Carbon;</li>
+<li>Suporte a clusterização;</li>
+<li>Correção de vários <em>bugs</em>.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/registry/3.0.2/docs/release-notes.html">aqui</a>.</p>
+
+<h2>WSO2 Business Process Server (v1.1.0)</h2>
+
+<ul>
+<li>Nova camada de integração WSO2 Carbon para o Apache ODE;</li>
+<li>Utilizando Apache ODE 2.0-beta (baseado no trunk) como engine BPEL;</li>
+<li>Suporte experimental para clusterização;</li>
+<li>Suporte para consumo de serviços seguros (usando WS-Security);</li>
+<li>Utilizando OpenJPA para camada de acesso a dados ODE;</li>
+<li>Recuperação de atividades utilizando o management console;</li>
+<li>Atualização online (<em>hot update</em>) do pacote BPEL facilitam o versionamento;</li>
+<li>Suporte a manipulação de dados utilizando E4X nos processos BPEL.</li>
+</ul>
+
+
+<p>Aqui deixo um adendo, baseado em alguns testes superficiais que fiz, posso
+dizer que não é indicado colocar essa versão em produção. Como disseram nas
+notas de lançamento, muita coisa está incompleta ainda e achei alguns
+probleminhas. Mas é interessante tentarmos colocar os processos BPEL e
+realizar testes para reportarmos os problemas e ajudarmos na correção dos
+mesmos para a versão 1.1.1 (que espero que chegue logo).</p>
+
+<p>Isso é até compreensível, já que se trata de uma nova versão e não apenas
+correções de bugs como as outras. (:</p>
+
+<p>Versão original com cada item comentado (inglês): <a href="http://wso2.org/project/bps/1.1.0/docs/release-note.html">aqui</a>.</p>
+
+<h2>WSO2 Identity Server (v2.0.2)</h2>
+
+<ul>
+<li>Correções em vários softwares que fazem parte dele: Apache Axis2, Apache Rampart, Apache Sandesha2, WSO2 Carbon e alguns outros projetos.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/solutions/identity/2.0.2/docs/release-%0Anotes.html">aqui</a>.</p>
+
+<h2>WSO2 Mashup Server (v2.0.1)</h2>
+
+<ul>
+<li>Interface visual para gerenciar as tarefas agendadas;</li>
+<li>Baseado no WSO2 Carbon SOA Framework que irá facilitar habilitação de funções a um clique, como o gerenciamento de Data Services nas futuras versões do Mashup Server.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/mashup/2.0.1/docs/release_notes.html">aqui</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 e a quinta-feira agitada: muitos lançamentos]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/wso2-e-a-quinta-feira-agitada-muitos-lancamentos/"/>
+    <updated>2009-11-19T05:38:38-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/wso2-e-a-quinta-feira-agitada-muitos-lancamentos</id>
+    <content type="html"><![CDATA[<p>Uma passeadinha básica no site do <a href="http://www.wso2.org">WSO2</a> para ver o
+movimento do <a href="http://www.wso2.org/forum">fórum</a> e quase caio para trás quando
+vejo a quantidade de produtos que eles atualizaram de ontem pra hoje.</p>
+
+<p>Não sei se estou sendo apressado, mas o lançamento nem está na página inicial
+ainda, apenas nas páginas dos projetos... Mas vamos divulgando não é? Então os
+projetos atualizados são:</p>
+
+<ul>
+<li><a href="http://wso2.org/projects/wsas/java">WSO2 Web Services Application Server</a> v3.1.2;</li>
+<li><a href="http://wso2.org/projects/bps">WSO2 Business Process Server</a> v1.1.0 (finalmente!);</li>
+<li><a href="http://wso2.org/projects/esb/java">WSO2 Enterprise Service Bus</a> v2.1.2;</li>
+<li><a href="http://wso2.org/projects/governance-registry">WSO2 Governance Registry</a> v3.0.2;</li>
+<li><a href="http://wso2.org/projects/identity">WSO2 Identity Server</a> v2.0.2;</li>
+<li><a href="http://wso2.org/projects/mashup">WSO2 Mashup Server</a> v2.0.1.</li>
+</ul>
+
+
+<p>Mas ainda sinto falta das atualizações do WSO2 Data Services, que está largado
+na 2.0 e com alguns bugzinhos chatos que até já arrumamos e mandamos o
+<em>patch</em>, mas ainda assim...</p>
+
+<p>E pensar que passei dois dias testando as alterações das últimas versões e
+hoje tem novas. Não consegui nem documentar as antigas... Só me resta testar
+novamente e homologar as novas versões.</p>
+]]></content>
+  </entry>
+  
+</feed>

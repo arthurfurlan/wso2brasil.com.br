@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: karmic koala | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/karmic-koala/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Instalando WSO2 Enterprise Service Bus Eclipse Tools no Ubuntu Karmic Koala (9.10)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/instalando-wso2-enterprise-service-bus-eclipse-tools-no-ubuntu-karmic-koala-9-10/"/>
+    <updated>2009-12-22T10:43:15-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/instalando-wso2-enterprise-service-bus-eclipse-tools-no-ubuntu-karmic-koala-9-10</id>
+    <content type="html"><![CDATA[<p>Com o lançamento do <a href="http://wso2.org/projects/tools/esb/esb-authoring">WSO2 Enterprise Service Bus Eclipse Tools</a> (v1.0.0-beta),
+cansado de ficar utilizando a interface web para gerenciar os "esqueminhas" da
+ESB, resolvei testar o plugin.</p>
+
+<p>Mas como nem tudo são flores, após eu <a href="http://wso2.org/project/tools/esb/esb-authoring/1.0.0/docs/install_guide.html">instalar o plugin</a> e tentar criar um novo <em>endpoint</em>,
+recebi o erro abaixo:</p>
+
+<pre><code>Unhandled event loop exception XPCOM error -2147467259
+</code></pre>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-error.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-error-300x184.png" alt="" /></a></p>
+
+<p>Com isso, passei um certo tempo procurando na internet, até descobrir que o
+erro é causado por falta da biblioteca <strong>libstdc++5</strong>, que no Ubuntu Karmic
+Koala (9.10) foi atualizada para <strong>libstdc++6</strong>. Versão que é incompátivel com
+a visualização embarcada do Mozilla que o <a href="http://www.eclipse.org/webtools/">Eclipse WTP</a> utiliza.</p>
+
+<p>Então, para resolver o problema, primeiro passo que tentei foi:</p>
+
+<pre><code>$ sudo apt-get install libstdc++5
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package libstdc++5 is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+E: Package libstdc++5 has no installation candidate
+</code></pre>
+
+<p>Só que não resolveu, a maneira que encontrei foi procurar a biblioteca para
+download, encontrei no site do Debian:</p>
+
+<pre><code>wget http://ftp.br.debian.org/debian/pool/main/g/gcc-3.3/libstdc++5_3.3.6-18_i386.deb
+</code></pre>
+
+<p>E instalei:</p>
+
+<pre><code>sudo dpkg -i libstdc++5_3.3.6-18_i386.deb
+</code></pre>
+
+<p>E com esses passos, tudo funciona normalmente...</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-running.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-plugin-esb-eclipse-running-300x222.png" alt="" /></a></p>
+]]></content>
+  </entry>
+  
+</feed>

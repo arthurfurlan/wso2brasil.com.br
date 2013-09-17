@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: doc star | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/doc-star/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2Con 2013]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/02/wso2con-2013/"/>
+    <updated>2013-02-18T22:13:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/02/wso2con-2013</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-auditorio.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-auditorio-400x300.jpg" width="400" height="300" title="WSO2Con Auditório" alt="WSO2Con Auditório"></a></p>
+
+<p>O pessoal que acompanha o <a href="http://twitter.com/wso2brasil">@WSO2Brasil</a> está sabendo que fomos convidados para a <a href="http://wso2con.com">WSO2Con</a> em Londres, que aconteceu do dia 12 ao dia 14 de fevereiro.</p>
+
+<p>O local estava muito bem decorado e com tudo perfeitamente bem preparado! Foi engraçado que tínhamos "link" direto com o pessoal em Colombo (Sri Lanka) e podíamos ficar assistindo-os pelo telão.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-pessoal-em-colombo.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-pessoal-em-colombo-400x300.jpg" width="400" height="300" title="WSO2Con Pessoal em Colombo" alt="WSO2Con Pessoal em Colombo"></a></p>
+
+<p>Foram três dias de muito conteúdo e informação da mais alta qualidade, sendo eles divididos em:</p>
+
+<ul>
+<li><strong>Primeiro dia</strong>: dedicado totalmente a tutorias que cobriram da teoria a prática; e</li>
+<li><strong>Segundo e terceiro dia</strong>: foram a convenção propriamente dita.</li>
+</ul>
+
+
+<p>Foi uma pena eu não conseguir assistir a todas as palestras ao vivo, mas pela qualidade das palestras que consegui assistir, somado aos comentários do <a href="http://twitter.com/vyper/wso2">pessoal no twitter</a>, pude perceber que todas as palestras foram de alta qualidade. Agora basta esperar sair os vídeos para que possamos assistir a todas as palestras.</p>
+
+<p>No decorrer dos próximos dias irei publicar o material sobre as palestras que assisti. Mas vou adiantando aqui mesmo algumas novidades pra vocês irem acompanhando até eu poder detalhar com calma.</p>
+
+<h2>WSO2 API Manager</h2>
+
+<p>Todo o suporte para publicação de aplicações: controle de versão, controle de fluxo do desenvolvimento, banco de dados, publicação nos diversos ambientes entre outras coisas num único lugar!</p>
+
+<p>O <em>alpha</em> está disponível! Caso alguém teste com mais calma, compartilhem aí as informações, ainda não pude ver com muita calma, mas adianto que no <em>demo</em> não deu nenhum problema (o que é um milagre em palestras) e os meus testes totalmente <em>express</em> nos intervalos das palestras, tudo funcionou perfeitamente!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-api-manager.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-api-manager-400x300.jpg" width="400" height="300" title="WSO2 API Manager" alt="WSO2 API Manager"></a></p>
+
+<h2>WSO2 Doc Star: Melhorias na documentação</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-doc-star.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-doc-star-400x300.jpg" width="400" height="300" title="WSO2 Doc Start" alt="WSO2 Doc Star"></a></p>
+
+<p>É um ponto que todos sofremos e temos tentado ajudar, mas agora a coisa vai!</p>
+
+<h2>Raspberry PI...</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-raspberry-pi-cluster.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-raspberry-pi-cluster-400x300.jpg" width="400" height="300" title="Cluster de Raspberry PI" alt="Cluster de Raspberry PI"></a></p>
+
+<p>Todos os participantes ganharam um <a href="http://www.raspberrypi.org/">Raspberry PI</a>, inclusive nós!</p>
+
+<p>O pessoal montou todo <em>cluster</em> com raspberry para rodar a <a href="http://wso2con.com/m">aplicação <em>mobile</em></a>... E teve palestras detalhando isso, então aguardem...</p>
+
+<p>Mas caso você seja muito curioso, tem aqui dois <em>posts</em> em inglês com detalhamento <em>Building a Raspberry Pi Cluster <a href="http://blog.afkham.org/2013/01/raspberry-pi-control-center.html">Part 1</a></em> e <em><a href="http://blog.afkham.org/2013/02/building-raspberry-pi-cluster-part-2.html">Part 2</a></em>.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao-400x300.jpg" width="400" height="300" title="WSO2Con Organização" alt="WSO2Con Organização"></a></p>
+
+<p>Meus parabéns ao pessoal organizador da <a href="http://wso2con.com">WSO2Con</a> e até depois! Desculpem-me pela qualidade das fotos, mas na correria fui apenas com o celular. ):</p>
+]]></content>
+  </entry>
+  
+</feed>

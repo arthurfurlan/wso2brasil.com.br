@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: business activity monitoring | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/business-activity-monitoring/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Business Activity Monitoring + SQL Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server/"/>
+    <updated>2010-04-06T15:44:57-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do "chefe", realizei o download
+e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
+testes.</p>
+
+<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
+para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
+(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
+(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
+
+<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
+de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
+propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
+"bam", e para minha não-surpresa, lá estavam mais dois diretórios:</p>
+
+<ul>
+<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
+<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
+</ul>
+
+
+<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
+configuração que pudesse conter a conexão apontando para esses arquivos.</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+</code></pre>
+
+<p>Ops, não encontrei nada. Nova tentativa:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
+[milhões de respostas - ocultadas por mim - que não ajudam em nada]
+</code></pre>
+
+<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+</code></pre>
+
+<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho "sujo".</p>
+
+<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
+criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
+
+<ul>
+<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
+<li>repository/dataservices/BAMConfigurationDS.dbs</li>
+<li>repository/dataservices/BAMStatQueryDS.dbs</li>
+<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
+<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
+</ul>
+
+
+<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e...
+<em>voilà</em>.</p>
+
+<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
+</code></pre>
+
+<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
+capítulo, sempre acompanhado de dicas e descobertas. (:</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: ibm | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/ibm/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2: SOA Workshop em São Paulo]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/11/wso2-soa-workshop-em-sao-paulo/"/>
+    <updated>2011-11-12T19:18:34-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/11/wso2-soa-workshop-em-sao-paulo</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/junior-chintana-amani-nuwan-leonardo.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/junior-chintana-amani-nuwan-leonardo-300x225.jpg" width="300" height="225" title="Junior, Chintana, Amani, Nuwan e Leonardo" alt="Junior, Chintana, Amani, Nuwan e Leonardo"></a></p>
+
+<p>No último fim de semana estivemos participando do <a href="http://wso2.com/events/workshops/2011-november-sao-paulo-open-paas-workshop/">Open PaaS Workshop: Understanding the Stratos Cloud Platform</a> em São Paulo.</p>
+
+<p>O <em>workshop</em> foi uma ótima oportunidade para conhecermos outras pessoas que utilizam a plataforma. E, também, saber que um pessoal do WSO2 veio ao Brasil realizar um <em>quickstart</em> em duas empresas, uma de Uberlândia e outra de São Paulo. Esses dois <em>cases</em>, são os primeiros <em>cases</em> privados que ficamos sabendo, publicamente. Estamos atrás de maiores detalhes sobre os projetos para escrevermos sobre eles.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-150x150.jpg"></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-2-150x150.jpg"></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-3.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-3-150x150.jpg"></a></p>
+
+<p>Isso mostra que o <a href="http://wso2.org">WSO2</a> está em crescimento no Brasil. E o que só ajuda a confirmar esse crescimento, é a participação da concorrência no <em>workshop</em> e também outras empresas interessadas em utilizar o WSO2.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-diogenes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-diogenes-300x225.jpg" alt="" /></a></p>
+
+<p>O <em>workshop</em> foi aberto pelo Diogenes Justo (<a href="http://www.indusval.com.br">Banco Indusval</a>) que deu uma introdução, falou um pouco do projeto, as opções estudadas e como chegou até o WSO2. Foi mais um bate-papo com a galera, passando uma visão muito interessante sobre o projeto deles. Conversamos com ele para que nos passasse mais detalhes sobre o projeto e a experiência de trabalhar com a plataforma, logo teremos boas novidades e mais conteúdo para vocês, vindo de outra fonte!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-chintana.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-chintana-150x150.jpg" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-nuwan.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-nuwan-150x150.jpg" alt="" /></a></p>
+
+<p>Também tivemos o <a href="http://wso2.com/about/team/chintana-wilamuna">Chintana Wilamuna</a> e o <a href="http://wso2.com/about/team/nuwan-bandara">Nuwan Bandara</a> falando sobre a plataforma em nuvem do WSO2 (<a href="http://stratoslive.wso2.com">Stratos Live</a>) e tirando várias dúvidas do pessoal! Todos estavam bastante curiosos e questionadores. As dúvidas foram bastante diversificadas, não apenas sobre <em>cloud</em>. O que gerou uma conversa legal e uma ótima troca de experiências.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-amani.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-amani-300x225.jpg" alt="" /></a></p>
+
+<p>Fechando as palestras por parte do pessoal do WSO2, veio a <a href="http://wso2.com/about/team/amani-soysa/">Amani Soysa</a>, que falou e mostrou um pouco do poderio do <a href="http://wso2.org/library/dss">WSO2 Data Services Server</a>. O que é uma "sacanagem", uma das ferramentas mais úteis e práticas. Não sou o cara mais imparcial pra falar da palestra da Amani, pois sou um amante declarado dessa do WSO2 DSS, então passo a bola.</p>
+
+<p>E, para fechar o evento, falei um pouco sobre nossa implantação aqui no <a href="http://www.ici.curitiba.org.br">ICI</a>. Tracei o perfil da equipe que participou do projeto, das opções e escolhas que fizemos, um pouco das vantagens e, também, dos problemas enfrentados em uma implantação sem suporte algum, em uma realidade menos 'enterprise'. E, claro, falei um pouco da comunidade <a href="http://www.wso2brasil.com.br">WSO2 Brasil</a> para que a galera se anime a estudar, ajudar e contribuir.</p>
+
+<p>A minha parte da palestra foi gravada, assim que eu conseguir a gravação, compartilharei por aqui. Por enquanto segue a minha apresentação, abaixo:</p>
+
+<iframe src="https://docs.google.com/present/embed?id=dd38hq7r_18dpb73rcp" frameborder="0" width="410" height="342"></iframe>
+
+
+<p>Resumindo, o evento foi muito bom! E para fechar com chave de ouro, recebemos um convite para acompanhar o <em>quickstart</em> do pessoal do WSO2 (pequenos <em>workshops</em> e instalação de alguns produtos) no <a href="http://www.indusval.com.br">Banco Indusval</a> de São Paulo. Um dos motivos da demora para escrevermos sobre.</p>
+]]></content>
+  </entry>
+  
+</feed>

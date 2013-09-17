@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://wso2brasil.com.br/sitemap.xml 

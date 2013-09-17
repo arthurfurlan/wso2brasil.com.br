@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title> Segurança de informações através de filtragem de dados no WSO2 Data Services - WSO2Brasil</title>
+  <meta name="author" content="WSO2Brasil">
+
+  
+  <meta name="description" content="Em alguns casos, podemos nos deparar com a necessidade de confidencializar
+alguns dados no retorno de Data Services,
+exibindo-os apenas
+para &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="WSO2Brasil" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.colorbox.min.js" type="text/javascript"></script>
+<link href="/stylesheets/colorbox.css" rel="stylesheet" type="text/css">
+
+<script>
+jQuery = jQuery.noConflict(true);
+jQuery(document).ready( function() {
+  var thumbnails = 'a:has(img)[href$=".bmp"],a:has(img)[href$=".gif"],a:has(img)[href$=".jpg"],a:has(img)[href$=".jpeg"],a:has(img)[href$=".png"],a:has(img)[href$=".BMP"],a:has(img)[href$=".GIF"],a:has(img)[href$=".JPG"],a:has(img)[href$=".JPEG"],a:has(img)[href$=".PNG"],a:has(img)[rel^="lightbox"]';
+  jQuery(thumbnails).colorbox({
+    transition: "none"
+  });
+});
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39120636-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/"><img src="/images/wso2brasil.png" /></a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com.br/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wso2brasil.com.br" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Arquivos</a></li>
+  <li><a href="/sobre">Sobre</a></li>
+  <li><a href="/sobre/#contato">Contato</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+  
+    <h1 class="entry-title">Segurança De Informações Através De Filtragem De Dados No WSO2 Data Services</h1>
+  
+
+
+
+  <p class="meta">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-24T19:30:30-03:00" pubdate data-updated="true">Feb 24<span>th</span>, 2011</time>
+    
+     | <a href="#disqus_thread">Comments</a>
+    
+  </p>
+
+
+  </header>
+
+
+<div class="entry-content"><p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/cadeado.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/cadeado-300x199.jpg" alt="" /></a></p>
+
+<p>Em alguns casos, podemos nos deparar com a necessidade de confidencializar
+alguns dados no retorno de <a href="http://www.mcorp.com.br/glossario/#DataServices">Data Services</a>,
+exibindo-os apenas
+para determinados grupos de usuários, tanto por questão de segurança (quando
+algum grupo específico não pode ter acesso a algumas informações),  quanto por
+não ter a necessidade de utilizar esse retorno, para que assim não precisemos
+criar dois serviços com a mesma finalidade. O WSO2 Data Services Server
+oferece a possibilidade de filtrar esses dados no retorno de uma <em>query</em>,
+através do <a href="http://www.mcorp.com.br/glossario/#WS-Security">WS-Security</a> (tem
+como foco principal o uso de <a href="http://www.mcorp.com.br/glossario%0A/#XML-Signature">XML Signature</a> e <a href="http://www.mcorp.com.br/glossario/#XML-Encryption">XML Encryption</a>). Nesse caso irei exemplificar a seguinte situação: um serviço que
+retorna dados referente aos funcionários, sendo consumido por dois
+departamentos: o RH (que necessita dos dados referente aos pagamentos dos
+honorários) e o setor de segurança (que utiliza apenas os dados cadastrais
+para acesso dos funcionários as dependências da empresa).</p>
+
+<p>Iremos utilizar nesse exemplo o WSO2 Data Services Server em sua versão 2.5.1
+(nesse caso considerando um conhecimento básico da suíte
+<a href="http://www.mcorp.com.br/glossario/#WSO2">WSO2</a>, caso contrário consulte os
+<a href="http://www.mcorp.com.br/tag/wso2"><em>posts</em> relacionados ao WSO2</a>):</p>
+
+<ul>
+<li><a href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/">Criando um ambiente SOA com WSO2</a></li>
+<li><a href="http://www.leandroprado.com.br/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/">Criando serviços com WSO2 Data Services</a></li>
+</ul>
+
+
+<p>Supondo que possuímos o banco de dados, com uma tabela simples chamada de
+TB_FUNCIONARIOS, com os campos: ID, NOME E SALARIO.</p>
+
+<h2>Etapa 1 - Criando o usuário</h2>
+
+<p>Logado ao WSO2 Data Services Server vá em &#8220;Home > Configure > User Management > Users&#8221;,
+para que possamos criar novos usuários, nesse caso criaremos os
+usuários &#8220;Maria&#8221; que faz parte do departamento de RH da empresa e &#8220;Joao&#8221; que
+faz parte da segurança do prédio. Click em &#8220;Add User&#8221; para preenchermos os
+dados do usuário que será cadastrado.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.0-add-user-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.0-add-user-wso2-300x205.jpg" alt="add user wso2" /></a></p>
+
+<p>Após inserir os dados do usuário, clicar em &#8220;finish&#8221;, repetir o procedimento
+pro cadastro do outro usuário. Podemos listar os usuários criados como mostra
+a imagem.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.1-list-user-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.1-list-user-wso2-300x149.jpg" alt="list user wso2" /></a></p>
+
+<h2>Etapa 2 - Criando grupos de usuários</h2>
+
+<p>Com nossos usuários criados, vamos gerar um grupo para vincular ao perfil do
+usuário. Vá em &#8220;Home > Configure > Users and Roles > Roles&#8221;, serão listados os
+grupos existentes no WSO2, clique em &#8220;Add New Role&#8221; que abrirá a tela para
+cadastrarmos os grupos.</p>
+
+<p>Crie um grupo com o nome &#8220;RecursosHumanos&#8221;, em seguida clique em &#8220;next&#8221;,
+aparecerá a tela com os flags de permissões e previlégios para os membros do
+grupo. Nesse caso vamos selecionar a opção &#8220;All permissions&#8221;, para que sejam
+marcadas todas as opções. Enquanto estamos criando o grupo, já podemos
+vincular os usuários que farão parte do mesmo, faça uma busca listando todos
+os usuários e selecione o usuário &#8220;Maria&#8221; criado anteriormente, como na imagem
+abaixo e finalize.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.2-select-user-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.2-select-user-wso2-300x170.jpg" alt="select user wso2" /></a></p>
+
+<p>Agora usando o mesmo processo vamos criar o grupo &#8220;Seguranca&#8221;. Observe que
+quando selecionamos algum usuário criado e vinculado ao grupo, o mesmo possui
+um ou vários grupos selecionados.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.3-roles-of-users-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.3-roles-of-users-wso2-300x176.jpg" alt="roles of users wso2" /></a></p>
+
+<h2>Etapa 3 - Filtrando dados da consulta</h2>
+
+<p>Com os usuários e grupos devidamente criados vamos finalmente ao que
+interessa, filtrar os dados de acordo com o perfil de cada grupo. Considerando
+que já exista um serviço &#8220;empresa&#8221;, vamos criar o método
+&#8220;pesquisarFuncionario&#8221; para demonstrar como filtrar os dados de retorno do
+método. Nesse caso, o método nos retornará os campos &#8220;ID&#8221; e &#8220;NOME&#8221; para o
+grupo Segurança, e &#8220;ID&#8221;, &#8220;NOME&#8221; e &#8220;SALARIO&#8221; para o grupo RecursosHumanos.</p>
+
+<p>Iremos em &#8220;Home > Manage > Services > List > Service Dashboard > Service
+Details > Data Sources > Queries&#8221;,  para inserirmos nosso novo método.
+Preenchemos com o SQL, o campo de entrada, e na hora em que formos preencher o
+retorno será onde a &#8220;mágica&#8221; acontecerá.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.4-edit-query-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.4-edit-query-wso2-300x176.jpg" alt="edit query wso2" /></a></p>
+
+<p>No item &#8220;Add new output Mapping&#8221; abriremos a tela para cadastrar um novo campo
+de retorno, preenchemos o tipo do campo, o nome de saída e o nome do campo no
+SQL. Abaixo dessas opções temos o item &#8220;Allowed User Roles&#8221;, aonde aparecerão
+os grupos que criamos anteriormente, para os campos &#8220;ID E NOME&#8221; selecionaremos
+ambos os grupos, no caso do campo &#8220;SALARIO&#8221; selecionaremos apenas o grupo
+RecursosHumanos, com o método criado mostraremos como consumir esse método
+filtrando os dados.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.5-add-edit-output-mapping-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.5-add-edit-output-mapping-wso2-300x160.jpg" alt="add edit output mapping wso2" /></a></p>
+
+<h2>Etapa 4 - Testando a filtragem de dados</h2>
+
+<p>Agora vamos abrir a opção &#8221; Home > Manage > Services > List > Service
+Dashboard > Security for the service > Activate Security > Service Dashboard >
+Security for the service&#8221;, selecionamos a opção &#8220;yes&#8221; no combo e setamos o
+flag &#8220;UsernameToken&#8221;, assim estaremos habilitando segurança por grupo e
+usuário do cliente.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.6-security-for-the-service-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.6-security-for-the-service-wso2-300x130.jpg" alt="security for the service wso2" /></a></p>
+
+<p>Simulando a execução do serviço, no próprio WSO2 Data Services Server, podemos
+perceber que aparecem as opções &#8220;username&#8221; e &#8220;password&#8221;. O retorno será
+filtrado de acordo com o usuário que for preenchido nesses campos. Executando
+a consulta, notaremos que o campo &#8220;SALARIO&#8221; só aparece no retorno se
+utilizarmos o usuário &#8220;Maria&#8221;.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.9-full-return-service-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.9-full-return-service-wso2-300x126.jpg" alt="full return service wso2" /></a></p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.8-parcial-return-service-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.8-parcial-return-service-wso2-300x128.jpg" alt="parcial return service wso2" /></a></p>
+
+<p>Espero ter colaborado, sugestões e criticas são sempre bem vindas, focando o
+objetivo de transformar a comunidade <a href="http://www.wso2brasil.com.br/">WSO2 Brasil</a> cada vez mais forte, até o próximo
+post.</p>
+
+<p>Post baseado no artigo &#8221;<a href="http://wso2.org/library/articles/content-filtering-data-services-user-roles">content filtering data services user roles</a>&#8221; de Anjana Fernando - Software Engineer WSO2.</p>
+
+<p>Pode ser visto um exemplo de <a href="http://www.mcorp.com.br/2010/03/consumindo-um-servico-seguro-utilizando-php/">consumo um servico seguro utilizando php</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">José Nogueira</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-24T19:30:30-03:00" pubdate data-updated="true">Feb 24<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categorias/desenvolvimento/'>desenvolvimento</a>
+  
+</span>
+
+
+      
+
+<span class="tags">
+  
+    <a class='tag' href='/blog/tags/data-services/'>data services</a>, <a class='tag' href='/blog/tags/dss/'>dss</a>, <a class='tag' href='/blog/tags/identity/'>identity</a>, <a class='tag' href='/blog/tags/seguranca/'>segurança</a>, <a class='tag' href='/blog/tags/ws-security/'>ws-security</a>, <a class='tag' href='/blog/tags/wso2/'>wso2</a>, <a class='tag' href='/blog/tags/wss/'>wss</a>, <a class='tag' href='/blog/tags/xml-encryption/'>xml encryption</a>, <a class='tag' href='/blog/tags/xml-signature/'>xml signature</a>
+  
+</span>
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/" data-via="wso2brasil" data-counturl="http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/01/lancamento-do-wso2-complex-event-processing-server-1-0-0-alpha/" title="Previous Post: Lançamento do WSO2 Complex Event Processing Server 1.0.0 (Alpha)">&laquo; Lançamento do WSO2 Complex Event Processing Server 1.0.0 (Alpha)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/05/soa-summer-school-2011/" title="Next Post: SOA Summer School 2011">SOA Summer School 2011 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/8o-solisc-nos-vemos-la/">8º SoLiSC - Nos vemos lá</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0/">Lançado: WSO2 User Engagement Server - 1.0.0!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/nos-no-fisl-14/">Nós no FISL14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/participaremos-do-fisl-14/">Participaremos do FISL 14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/">Agendamento de tarefas na WSO2 Enterprise Service Bus</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+    <h1>Related Posts</h1>
+    <ul class="posts">
+    
+        <li class="related">
+        <a href="/blog/2010/03/consumindo-um-servico-seguro-utilizando-php/">Consumindo um serviço seguro utilizando PHP</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2010/04/wso2-business-activity-monitoring-sql-server/">WSO2 Business Activity Monitoring + SQL Server</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2009/11/novidades-nos-lancamentos-nov2009-da-plataforma-wso2/">Novidades nos lançamentos (nov/2009) da plataforma WSO2</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2012/11/treinamento-celepar/">Treinamento: Celepar</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/">WSO2 Data Services Server e suas atualizações</a>
+        </li>
+    
+    </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (8)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/tags/business-process' style='font-size: 104.28571428571429%'>business process(3)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> <a href='/blog/tags/web-services-application' style='font-size: 104.28571428571429%'>web services application(3)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/soa' style='font-size: 108.57142857142857%'>soa(6)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> </span>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("wso2brasil", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/wso2brasil" class="twitter-follow-button" data-show-count="false">Follow @wso2brasil</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/wso2brasil">@wso2brasil</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'wso2brasil',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - WSO2Brasil -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'wso2brasil';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/';
+        var disqus_url = 'http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

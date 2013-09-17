@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: wso2 carbon | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/wso2-carbon/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2: SOA Workshop em São Paulo]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/11/wso2-soa-workshop-em-sao-paulo/"/>
+    <updated>2011-11-12T19:18:34-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/11/wso2-soa-workshop-em-sao-paulo</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/junior-chintana-amani-nuwan-leonardo.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/junior-chintana-amani-nuwan-leonardo-300x225.jpg" width="300" height="225" title="Junior, Chintana, Amani, Nuwan e Leonardo" alt="Junior, Chintana, Amani, Nuwan e Leonardo"></a></p>
+
+<p>No último fim de semana estivemos participando do <a href="http://wso2.com/events/workshops/2011-november-sao-paulo-open-paas-workshop/">Open PaaS Workshop: Understanding the Stratos Cloud Platform</a> em São Paulo.</p>
+
+<p>O <em>workshop</em> foi uma ótima oportunidade para conhecermos outras pessoas que utilizam a plataforma. E, também, saber que um pessoal do WSO2 veio ao Brasil realizar um <em>quickstart</em> em duas empresas, uma de Uberlândia e outra de São Paulo. Esses dois <em>cases</em>, são os primeiros <em>cases</em> privados que ficamos sabendo, publicamente. Estamos atrás de maiores detalhes sobre os projetos para escrevermos sobre eles.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-150x150.jpg"></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-2-150x150.jpg"></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-3.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-3-150x150.jpg"></a></p>
+
+<p>Isso mostra que o <a href="http://wso2.org">WSO2</a> está em crescimento no Brasil. E o que só ajuda a confirmar esse crescimento, é a participação da concorrência no <em>workshop</em> e também outras empresas interessadas em utilizar o WSO2.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-diogenes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-diogenes-300x225.jpg" alt="" /></a></p>
+
+<p>O <em>workshop</em> foi aberto pelo Diogenes Justo (<a href="http://www.indusval.com.br">Banco Indusval</a>) que deu uma introdução, falou um pouco do projeto, as opções estudadas e como chegou até o WSO2. Foi mais um bate-papo com a galera, passando uma visão muito interessante sobre o projeto deles. Conversamos com ele para que nos passasse mais detalhes sobre o projeto e a experiência de trabalhar com a plataforma, logo teremos boas novidades e mais conteúdo para vocês, vindo de outra fonte!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-chintana.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-chintana-150x150.jpg" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-nuwan.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-nuwan-150x150.jpg" alt="" /></a></p>
+
+<p>Também tivemos o <a href="http://wso2.com/about/team/chintana-wilamuna">Chintana Wilamuna</a> e o <a href="http://wso2.com/about/team/nuwan-bandara">Nuwan Bandara</a> falando sobre a plataforma em nuvem do WSO2 (<a href="http://stratoslive.wso2.com">Stratos Live</a>) e tirando várias dúvidas do pessoal! Todos estavam bastante curiosos e questionadores. As dúvidas foram bastante diversificadas, não apenas sobre <em>cloud</em>. O que gerou uma conversa legal e uma ótima troca de experiências.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-amani.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-amani-300x225.jpg" alt="" /></a></p>
+
+<p>Fechando as palestras por parte do pessoal do WSO2, veio a <a href="http://wso2.com/about/team/amani-soysa/">Amani Soysa</a>, que falou e mostrou um pouco do poderio do <a href="http://wso2.org/library/dss">WSO2 Data Services Server</a>. O que é uma "sacanagem", uma das ferramentas mais úteis e práticas. Não sou o cara mais imparcial pra falar da palestra da Amani, pois sou um amante declarado dessa do WSO2 DSS, então passo a bola.</p>
+
+<p>E, para fechar o evento, falei um pouco sobre nossa implantação aqui no <a href="http://www.ici.curitiba.org.br">ICI</a>. Tracei o perfil da equipe que participou do projeto, das opções e escolhas que fizemos, um pouco das vantagens e, também, dos problemas enfrentados em uma implantação sem suporte algum, em uma realidade menos 'enterprise'. E, claro, falei um pouco da comunidade <a href="http://www.wso2brasil.com.br">WSO2 Brasil</a> para que a galera se anime a estudar, ajudar e contribuir.</p>
+
+<p>A minha parte da palestra foi gravada, assim que eu conseguir a gravação, compartilharei por aqui. Por enquanto segue a minha apresentação, abaixo:</p>
+
+<iframe src="https://docs.google.com/present/embed?id=dd38hq7r_18dpb73rcp" frameborder="0" width="410" height="342"></iframe>
+
+
+<p>Resumindo, o evento foi muito bom! E para fechar com chave de ouro, recebemos um convite para acompanhar o <em>quickstart</em> do pessoal do WSO2 (pequenos <em>workshops</em> e instalação de alguns produtos) no <a href="http://www.indusval.com.br">Banco Indusval</a> de São Paulo. Um dos motivos da demora para escrevermos sobre.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services Server e suas atualizações]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/"/>
+    <updated>2011-10-06T15:58:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg" alt="" /></a></p>
+
+<p>Se tem uma tarefa que toma muito tempo nosso, são os testes quando sai versão nova de algum produto do <a href="http://wso2.org">WSO2</a>.</p>
+
+<p>Estamos trabalhando na migração do <a href="/tag/data-services/">WSO2 Data Services Server</a> <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">2.5.1</a> para a <a href="/2011/06/novidades-wso2-data-services-server-2-6-x/">2.6.0</a> e isso gera uma árdua tarefa de testar todos os serviços que temos rodando, que rodam com diferentes banco de dados (<a href="http://dev.mysql.com">MySQL</a>, <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.microsoft.com/sqlserver/">SQL Server</a>, <a href="http://www.oracle.com/br/">Oracle</a>).</p>
+
+<p>Na maioria das vezes não encontramos problema algum ou apenas uma pequena
+mudança de atributo ou <em>tag</em> na definição dos .dbs. Mas as vezes encontramos
+problemas que fogem da simples configuração do data service, e como aconteceu
+agora conosco: um <em>bug</em>.</p>
+
+<p>Para tentar minimizar esse trabalho gerei um projeto que tem a ideia de
+automatizar ao máximo esse tipo de trabalho! E, para com isso, irmos além dos
+testes unitários que são realizados pelo pessoal do desenvolvimento do WSO2,
+testar as interfaces em real funcionamento, nos mais variados bancos de dados.</p>
+
+<p>E assim nasceu o pequeno projeto <a href="http://github.com/WSO2Brasil/wso2-ds-tests">wso2-ds-tests</a>. Que é um apanhando de data
+services, sql's e projeto do <a href="http://www.soapui.org/">SOAPUI</a>. Para maiores
+informações basta <a href="http://github.com/WSO2Brasil/wso2-ds-tests">acessar o projeto</a> no <a href="http://github.com">Github</a>!</p>
+
+<p>Deem uma olhadela por lá e qualquer contribuição é muito bem vinda, basta
+fazer um <em>fork</em> e mandar um <em>pull request</em>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Novidades WSO2 Data Services Server (2.6.x)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/06/novidades-wso2-data-services-server-2-6-x/"/>
+    <updated>2011-06-11T15:39:37-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/06/novidades-wso2-data-services-server-2-6-x</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-home.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-home-300x159.png" alt="WSO2 - Data Services Server 2.6.0 - Home" /></a></p>
+
+<p>Tenho acompanhado os <a href="http://builder.wso2.org/~carbon/releases/carbon/3.2.0/"><em>builds</em> diários</a> que o pessoal
+do <a href="http://wso2.org/">WSO2</a> tem feito e logo percebi várias novidades na
+interface, alteração essa que acontecerá em todos or produtos da série Carbon
+3.2.*.</p>
+
+<p>Mas, hoje eu tratarei apenas das novidades que teremos no Data Services
+Server, que são muitas e algumas bem importantes e há muito esperadas!</p>
+
+<ul>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#udt-support">UDT (User Defined Type) Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#complex-results">Complex Results</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#auto-generated-keys-support">Auto Generated Keys Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#distributed-transactions">Distributed Transactions</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#improved-boxcarring-support">Improved Boxcarring Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#improved-batch-request-support">Improved Batch Request Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#scheduled-tasks">Scheduled Tasks</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#registry-integration">Registry Integration for Excel, CSV, XSLT</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#web-scraping-support">Web Scraping Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#multiple-sql-dialect-support">Multiple SQL Dialect Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#db-to-ds-generation">Database to Data Service Generation</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#data-service-query-improvements">Data Service Query Improvements</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#service-group-hierarchy-support">Service Group/Hierarchy Support</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#database-explorer">Database Explorer</a></li>
+<li><a href="/2011/06/novidades-wso2-data-services-server-2-6-x/#dss-stratos-service">Data as a Service Features - DSS Stratos Service</a></li>
+</ul>
+
+
+<h3><a name="udt-support"></a>UDT (User Defined Type) Support</h3>
+
+<p>Não encontrei maiores detalhes na documentação ou no próprio WSO2 Data
+Services Server, talvez não tenha saído ainda nessa <em>release</em>.</p>
+
+<h3><a name="complex-results"></a>Complex Results</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-complex-elements-list.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-complex-elements-list-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Complex Elements - List" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-complex-elements-insert-nested.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-complex-elements-insert-nested-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Complex Elements - Insert nested" /></a></p>
+
+<p>Agora fica possível criar elementos complexos, facilitando algumas coisas em
+que era necessário utilizar um <em>transformation</em> (XSLT) ou <em>sub-queries</em>,
+ganhando - e muito - em performance.</p>
+
+<h3><a name="auto-generated-keys-support"></a>Auto Generated Keys Support</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-generate-keys.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-generate-keys-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Generate keys" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-generate-keys-invoke.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-generate-keys-invoke-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Generate keys: Invoke" /></a></p>
+
+<p>Muito útil para recuperar a <em>primary key</em> de um registro inserido no banco,
+tirando a necessidade de fazer <em>stored procedures</em> ou outro método de consumo
+apenas para recuperar a chave inserida.</p>
+
+<h3><a name="distributed-transactions"></a>Distributed Transactions</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-distribute-transactions.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-distribute-transactions-300x159.png" alt="WSO2 Data Services Server 2.6.0 - Distribute Transactions" /></a></p>
+
+<p>Uma maneira de realizar transações distribuídas (na maioria das vezes em
+<em>databases</em> separados), será usado JTA para controlar as transações e também é
+necessário que usará XA. Com isso ganhamos em não mais precisarmos controlar
+isso manualmente com um serviço no WSO2 Application Server.</p>
+
+<h3><a name="improved-boxcarring-support"></a>Improved Boxcarring Support</h3>
+
+<p>Apenas melhorias no suporte que já existia desde a versão 2.5.0, não encontrei
+nenhuma alteração visual ou no processo de desenvolvimento.</p>
+
+<h3><a name="improved-batch-request-support"></a>Improved Batch Request Support</h3>
+
+<p>Apenas melhorias no suporte que já existia desde a versão 2.5.0, não encontrei
+nenhuma alteração visual ou no processo de desenvolvimento.</p>
+
+<h3><a name="scheduled-tasks"></a>Scheduled Tasks</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-scheduled-tasks.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-scheduled-tasks-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Scheduled Tasks" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-scheduled-tasks-inserting.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-scheduled-tasks-inserting-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Scheduled Tasks: Insert" /></a></p>
+
+<p>Agora, ao invés de fazermos <em>shell scripts</em> que ficam na <em>crontab</em> do servidor
+para agendar alguns consumos, podemos fazer isso diretamente no WSO2 Data
+Services Server.</p>
+
+<h3><a name="registry-integration"></a>Registry Integration for Excel, CSV, XSLT</h3>
+
+<p>Não encontrei maiores detalhes na documentação ou no próprio WSO2 Data
+Services Server, talvez não tenha saído ainda nessa <em>release</em>.</p>
+
+<h3><a name="web-scraping-support"></a>Web Scraping Support</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-web-scraping-data-source.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-web-scraping-data-source-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Web Scraping: Data Source" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-web-scraping-query.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-web-scraping-query-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Web Scraping: Query" /></a></p>
+
+<p>Poderemos consumir dados diretamente de sites, fazendo <em>parser</em> em conteúdo de
+páginas, por exemplo.</p>
+
+<h3><a name="multiple-sql-dialect-support"></a>Multiple SQL Dialect Support</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dialects-options.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dialects-options-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Multiple Dialects SQL: Options" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dialects-sql-add.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dialects-sql-add-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Multiple Dialects SQL: Add" /></a></p>
+
+<p>Apesar de ter encontrado referências na <em>wizard</em> de criação/alteração de
+serviços, não encontrei nada na documentação ou entendi como funcionará, vamos
+aguardar outros <em>releases</em>.</p>
+
+<h3><a name="db-to-ds-generation"></a>Database to Data Service</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Database to Data Service Generation" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-choise-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-choise-type-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Database to Data Service Generation: Choise Type" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-select-tables.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-select-tables-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Database to Data Service Generation: Select Tables" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-tryit.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-db-to-ws-tryit-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Database to Data Service Generation: Try-it" /></a></p>
+
+<p>Nessa versão é possível gerar automaticamente os métodos para um database e
+tabela específico, mas apenas para Carbon Data Sources. Apesar de não ter
+gostado no padrão gerado, pode ser bom para gerar o CRUD básico e ser alterado
+posteriormente.</p>
+
+<h3><a name="data-service-query-improvements"></a>Data Service Query Improvements</h3>
+
+<p>Imagino que tenha sido apenas melhorias nas rotinas internas de montagem e
+processamento de <em>queries</em>. Porque as opções avançadas de <em>query</em> já existiam
+na versão 2.5.*.</p>
+
+<h3><a name="service-group-hierarchy-support"></a>Service Group/Hierarchy Support</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-group-option.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-group-option-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Service Group: Option" /></a><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-group-list.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-group-list-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Service Group: List" /></a></p>
+
+<p>Apenas um agrupamento de serviços, imagino que venha como padrão em todo
+aplicativo da suíte Carbon, pois em alguns outros aplicativos já existia essa
+opção.</p>
+
+<h3><a name="database-explorer"></a>Database Explorer</h3>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dbconsole-login.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dbconsole-login-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Database Console: Login" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dbconsole-simple-query.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-dbconsole-simple-query-150x150.png" alt="WSO2 Data Services Server 2.6.0 - Database Console: Simple Query" /></a></p>
+
+<p>Uma novidade muito interessante e prática, eles colocaram dentro do WSO2 Data
+Services Server uma maneira de explorarmos as bases de dados. E a interface
+lembra bastante o <a href="http://www.squirrelsql.org/">SQuirreL SQL</a>, ficou muito
+prático.</p>
+
+<h3><a name="dss-stratos-service"></a>Data as a Service Features - DSS Stratos Service</h3>
+
+<p>Existem algumas novidades também sobre os produtos como serviço na nuvem, que
+chamam de <a href="http://www.mcorp.com.br/2010/06/lancamento-do-wso2-stratos-alpha/">Stratos</a>,
+mas não encontrei documentação nesse <em>build</em>.</p>
+
+<p>E algumas outras pequenas alterações que foram percebidas, como:</p>
+
+<ul>
+<li><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-generate-response.png">Generate response</a>: baseado na <em>query</em> é gerada a resposta do serviço;</li>
+<li><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/06/wso2-data-services-server-2.6.0-force-stored-procedure.png">Force stored procedure</a>: força a executar a <em>query</em> como uma <em>stored procedure</em>;</li>
+<li>Entre outras inúmeras pequenas alterações que vão sendo notadas no uso dia-a-dia.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o WSO2 Carbon 3.0.0 e corrigindo o WSO2 Data  Services Server 2.5.0]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/"/>
+    <updated>2010-06-16T10:17:12-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-data-services-server.gif" alt="" />Versões novas de produtos sempre são uma alegria, seja pelos
+recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
+nós desenvolvedores. Mas juntamente com as novas versões (principalmente nos
+primeiros releases) vem também problemas, bugs ou incompatibilidade de
+versões- os problemas mais comuns.</p>
+
+<p>E para não pararmos no tempo, vendo que <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">as novidades do WSO2 Data Services Server 2.5.0</a>
+seriam muito bem vindas para nós, resolvemos realizar testes para verificar a
+possibilidade de atualizarmos nossa versão da 2.2.1 para a 2.5.0, e surgiu
+aquela alegria quando vimos que não teríamos problemas de incompatibilidade
+como ocorreu nos testes de migração da 2.0 para <a href="/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/">WSO2 Data Services Server 2.2.1</a>.</p>
+
+<p>Mas como nem tudo são rosas, um velho <em>bug</em> conhecido nosso na versão 2.0 e
+discutido no <a href="http://wso2.org/forum/thread/5349">fórum - de não aceitar valores <em>null</em></a>, tinha sido corrigido na versão
+2.2.1; mas resolveu dar as caras na versão 2.5.0. E por necessitarmos das
+novidades dessa versão, tivemos que correr atrás e corrigir o problema, já
+corrigido anteriormente.</p>
+
+<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-carbon.gif" alt="" />Como já
+conhecemos a estrutura, fomos direto ao site do projeto para realizar o
+<a href="http://wso2.org/downloads/data-services-server">download do fonte do WSO2 Data Services Server</a> e fomos atrás do arquivo problemático (SQLQuery.java).
+Mas para nossa surpresa, o arquivo não estava mais lá, foi centralizado no
+projeto <a href="http://wso2.org/downloads/carbon">WSO2 Carbon</a>.</p>
+
+<p>Então com o arquivo de <a href="http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip">código-fonte do WSO2 Carbon
+3.0.0</a>
+devidamente baixado, vamos colocar a mão na massa.</p>
+
+<h2>Baixando e descompactando o fonte</h2>
+
+<pre><code>wget http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip
+unzip wso2carbon-3.0.0-src.zip
+</code></pre>
+
+<h2>Baixando e aplicando o <em>patch</em></h2>
+
+<pre><code>wget /wp-content/uploads/2010/06/wso2-dataservices-accept-null.txt
+cd wso2carbon-3.0.0-src patch -p1 wso2-dataservices-accept-null.patch
+</code></pre>
+
+<p>E a mensagem recebida aqui será algo como:</p>
+
+<pre><code>patching file components/data-services/org.wso2.carbon.dataservices.core/3.0.0/src/main/java/org/wso2/carbon/dataservices/dispatch/query/SQLQuery.java
+</code></pre>
+
+<h2>Compilando o componente</h2>
+
+<p>Levando em consideração que você tenha as dependências necessárias, vai ser um
+passo bem demorado. Vai fazer download de alguns pacotes, compilar, testar e
+gerar uma nova versão do componente, com a correção.</p>
+
+<pre><code>cd components/data-services
+mvn install
+</code></pre>
+
+<h2>Corrigindo o Data Services Server</h2>
+
+<p>Agora que temos o componente corrigido e devidamente compilado, vamos copiá-lo
+para a instância do WSO2 Data Services Server (levando em consideração que
+minha instalação fica em ~/Applications/wso2/wso2dataservices-2.5.0).</p>
+
+<pre><code>cp org.wso2.carbon.dataservices.core/3.0.0/target/org.wso2.carbon.dataservices.core-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.core-3.0.0.jar
+cp org.wso2.carbon.dataservices.ui/3.0.0/target/org.wso2.carbon.dataservices.ui-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.ui-3.0.0.jar
+</code></pre>
+
+<h2>Conclusão</h2>
+
+<p>Com o <em>patch</em> criado, testado e aplicado. Abrimos um <a href="https://wso2.org/jira/browse/CARBON-7589">pedido de correção no JIRA do WSO2</a>, para que eles possam
+corrigir na próxima <em>release</em> (provavelmente a 2.5.1). Caso você não tenha
+disponibilidade (de tempo ou paciência), pode baixar os componente do WSO2
+Data Services Server corrigido (bastando apenas descompactá-los).</p>
+
+<ul>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-core-3.0.0.tar.gz">org.wso2.carbon.dataservices.core-3.0.0.jar</a></li>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-ui-3.0.0.tar.gz">org.wso2.carbon.dataservices.ui-3.0.0.jar</a></li>
+</ul>
+
+
+<p>E tenho que falar, viva o código aberto e o software livre! (;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Utilizando o Array Type do WSO2 Data Services Server 2.5.x]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/utilizando-o-array-type-do-wso2-data-services-server-2-5-x/"/>
+    <updated>2010-05-06T18:27:32-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/utilizando-o-array-type-do-wso2-data-services-server-2-5-x</id>
+    <content type="html"><![CDATA[<p>Uma das <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">novidades do WSO2 Data Services Server 2.5.x</a>, já listada anteriormente, é que
+agora poderemos trabalhar com <em>Array Types</em>. Essa opção não existia
+anteriormente e as únicas maneiras que tínhamos para contornar, digamos que
+não eram muito legais. Por exemplo: invocar várias vezes o método ou
+concatenar as várias entradas em um campo <em>string</em> e posteriormente (em uma
+<em>procedure</em> ou algo do gênero) realizar o <em>parser</em>.</p>
+
+<p>Ambas tem seus problemas, muitas requisições invocando várias vezes ou
+dificuldade de implementação (dependendo do banco de dados) para o caso de
+realizar o <em>parser</em> na <em>procedure</em>; mas, de uma forma ou outra, resolviam o
+problema. Só que com a implementação de <em>Array Type</em> resolvemos esse problema
+de maneira simples, eficiente e elegante!</p>
+
+<h2>Colocando a mão na massa</h2>
+
+<p>Digamos que temos um serviço onde nosso cliente quer listar vários produtos,
+nosso cliente tem todos os códigos dos produtos e quer o restante dos dados.
+Antigamente passaríamos para ele um método <em>productById</em> que recebe um <em>id</em>,
+algo como abaixo:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-without-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-without-array-type-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-without-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-without-array-type-150x150.png" alt="" /></a></p>
+
+<p>Mas agora tudo foi facilitado, vamos a "mágica"! Para alteração do método que
+aceite a entrada de um <em>Array Type</em>, serão necessários apenas dois passos.</p>
+
+<h3>Passo 1: editando a <em>query</em></h3>
+
+<p>Teremos que trocar a <em>query</em> que antigamente aceitava apenas um parâmetro como
+entrada "id = :id" e colocaremos uma que aceita "N" parâmetros "id in (:id)".
+Então na tela de edição da <em>query</em> do WSO2 Data Services Server, basta
+trocarmos, como fiz abaixo:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-without-array.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-without-array-150x150.png" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-with-array.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-with-array-150x150.png" alt="" /></a></p>
+
+<h3>Passo 2: editando o tipo da entrada</h3>
+
+<p>E o segundo passo, editando os <em>Input Mappings,</em> basta trocarmos o tipo
+<em>scalar</em> para <em>array</em>, novamente, como fiz abaixo:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-scalar.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-scalar-150x150.png" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-array.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-array-150x150.png" alt="" /></a></p>
+
+<h2>O resultado</h2>
+
+<p>E agora vamos a parte legal: o resultado!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-with-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-with-array-type-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-with-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-with-array-type-150x150.png" alt="" /></a></p>
+
+<h2>Conclusão</h2>
+
+<p>Essa implementação facilitou muito e melhorou a qualidade de nossos serviços.
+Ainda não foi lançada a versão final, apenas algumas <em>releases candidates</em>,
+que podem ser acompanhadas pelo <a href="http://builder.wso2.org/~carbon/releases/carbon/3.0.0/">repositório de <em>builders</em> do WSO2 Carbon 3.0.0</a>.</p>
+
+<p>Deixo aqui o <a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/wso2tutorial-array-type.zip">download dos arquivos utilizados para implementar o <em>Array Type</em></a> nesse exemplo, contém os arquivos abaixo:</p>
+
+<ul>
+<li><em>Data Service</em> antes da implementação do <em>Array Type</em></li>
+<li><em>Data Service</em> depois da implementação do <em>Array Type</em></li>
+<li>Script de criação do banco de dados utilizado (MySQL)</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: builder | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/builder/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Utilizando o Array Type do WSO2 Data Services Server 2.5.x]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/utilizando-o-array-type-do-wso2-data-services-server-2-5-x/"/>
+    <updated>2010-05-06T18:27:32-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/utilizando-o-array-type-do-wso2-data-services-server-2-5-x</id>
+    <content type="html"><![CDATA[<p>Uma das <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">novidades do WSO2 Data Services Server 2.5.x</a>, já listada anteriormente, é que
+agora poderemos trabalhar com <em>Array Types</em>. Essa opção não existia
+anteriormente e as únicas maneiras que tínhamos para contornar, digamos que
+não eram muito legais. Por exemplo: invocar várias vezes o método ou
+concatenar as várias entradas em um campo <em>string</em> e posteriormente (em uma
+<em>procedure</em> ou algo do gênero) realizar o <em>parser</em>.</p>
+
+<p>Ambas tem seus problemas, muitas requisições invocando várias vezes ou
+dificuldade de implementação (dependendo do banco de dados) para o caso de
+realizar o <em>parser</em> na <em>procedure</em>; mas, de uma forma ou outra, resolviam o
+problema. Só que com a implementação de <em>Array Type</em> resolvemos esse problema
+de maneira simples, eficiente e elegante!</p>
+
+<h2>Colocando a mão na massa</h2>
+
+<p>Digamos que temos um serviço onde nosso cliente quer listar vários produtos,
+nosso cliente tem todos os códigos dos produtos e quer o restante dos dados.
+Antigamente passaríamos para ele um método <em>productById</em> que recebe um <em>id</em>,
+algo como abaixo:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-without-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-without-array-type-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-without-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-without-array-type-150x150.png" alt="" /></a></p>
+
+<p>Mas agora tudo foi facilitado, vamos a "mágica"! Para alteração do método que
+aceite a entrada de um <em>Array Type</em>, serão necessários apenas dois passos.</p>
+
+<h3>Passo 1: editando a <em>query</em></h3>
+
+<p>Teremos que trocar a <em>query</em> que antigamente aceitava apenas um parâmetro como
+entrada "id = :id" e colocaremos uma que aceita "N" parâmetros "id in (:id)".
+Então na tela de edição da <em>query</em> do WSO2 Data Services Server, basta
+trocarmos, como fiz abaixo:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-without-array.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-without-array-150x150.png" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-with-array.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/query-with-array-150x150.png" alt="" /></a></p>
+
+<h3>Passo 2: editando o tipo da entrada</h3>
+
+<p>E o segundo passo, editando os <em>Input Mappings,</em> basta trocarmos o tipo
+<em>scalar</em> para <em>array</em>, novamente, como fiz abaixo:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-scalar.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-scalar-150x150.png" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-array.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/input-array-150x150.png" alt="" /></a></p>
+
+<h2>O resultado</h2>
+
+<p>E agora vamos a parte legal: o resultado!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-with-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/try-it-method-productById-with-array-type-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-with-array-type.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/05/soap-ui-method-productById-with-array-type-150x150.png" alt="" /></a></p>
+
+<h2>Conclusão</h2>
+
+<p>Essa implementação facilitou muito e melhorou a qualidade de nossos serviços.
+Ainda não foi lançada a versão final, apenas algumas <em>releases candidates</em>,
+que podem ser acompanhadas pelo <a href="http://builder.wso2.org/~carbon/releases/carbon/3.0.0/">repositório de <em>builders</em> do WSO2 Carbon 3.0.0</a>.</p>
+
+<p>Deixo aqui o <a href="http://assets.mcorp.com.br/wp-content/uploads/2010/05/wso2tutorial-array-type.zip">download dos arquivos utilizados para implementar o <em>Array Type</em></a> nesse exemplo, contém os arquivos abaixo:</p>
+
+<ul>
+<li><em>Data Service</em> antes da implementação do <em>Array Type</em></li>
+<li><em>Data Service</em> depois da implementação do <em>Array Type</em></li>
+<li>Script de criação do banco de dados utilizado (MySQL)</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: treinamento | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/treinamento/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Treinamento: Celepar]]></title>
+    <link href="http://wso2brasil.com.br/blog/2012/11/treinamento-celepar/"/>
+    <updated>2012-11-08T20:06:00-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2012/11/treinamento-celepar</id>
+    <content type="html"><![CDATA[<p>Aplicamos um pequeno treinamento/apresentação nos dias 07 e 08/11 na <a href="http://www.celepar.pr.gov.br/">Celepar</a>, Companhia de Informática do Paraná, os
+temas abordados foram os usos das ferramentas <a href="http://wso2.com/products/data-services-server/">WSO2 Data Service</a>, <a href="http://wso2.com/products/application-server/">WSO2 Application Server</a> e <a href="http://wso2.com/products/enterprise-service-bus/">WSO2 Enterprise Service Bus</a>.</p>
+
+<p>Falamos sobre como funciona o tal do "<a href="/glossario/#SOA">SOA</a>", passamos num geral sobre as funcionabilidades das ferramentas e, por fim, simulamos
+um pequeno <em>case</em> utilizando as ferramentas citadas anteriormente.</p>
+
+<p>Estiveram presentes membros de diversas equipes da empresa: infra-estrutura, desenvolvedores, responsáveis por novas tecnologias
+e algumas outras áreas mais específicas. Elas serão usadas como "cobaias" para a implementação dos primeiros <em>cases</em> da empresa.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar-400x300.jpg" width="400" height="300"></a></p>
+
+<p>Um muito obrigado a todos os envolvidos.</p>
+]]></content>
+  </entry>
+  
+</feed>

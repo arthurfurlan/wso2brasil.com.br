@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: avisos | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/categorias/avisos/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SOA Summer School 2011]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/05/soa-summer-school-2011/"/>
+    <updated>2011-05-06T09:17:35-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/05/soa-summer-school-2011</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/05/summerschool-2011.gif" alt="" /></p>
+
+<p>Movimentando, novamente, nossas férias de inverno (verão para os
+estadunidenses) tem o SOA Summer School, versão 2011. Várias palestras
+(<em>online</em>) ministradas pelo pessoal do <a href="http://www.wso2.org">WSO2</a>, uma vez
+por semana, falando sobre vários assuntos (lista de palestras abaixo).</p>
+
+<p>Disponibilizei um calendário no fuso horário GMT -3 (America/Sao_Paulo) para
+que não esqueçamos do evento.</p>
+
+<iframe src="https://www.google.com/calendar/b/0/embed?showPrint=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=450&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=maneh.org_j9mbgf10sln3f2k01d94n0fl10%40group.calendar.google.com&amp;color=%23182C57&amp;ctz=America%2FSao_Paulo" style=" border-width:0 " width="600" height="450" frameborder="0" scrolling="no"></iframe>
+
+
+<p>Fiquem ligados e não se esqueçam de realizar a inscrição no site do <a href="http://wso2.org/training">SOA Summer School 2011</a>!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 e a quinta-feira agitada: muitos lançamentos]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/wso2-e-a-quinta-feira-agitada-muitos-lancamentos/"/>
+    <updated>2009-11-19T05:38:38-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/wso2-e-a-quinta-feira-agitada-muitos-lancamentos</id>
+    <content type="html"><![CDATA[<p>Uma passeadinha básica no site do <a href="http://www.wso2.org">WSO2</a> para ver o
+movimento do <a href="http://www.wso2.org/forum">fórum</a> e quase caio para trás quando
+vejo a quantidade de produtos que eles atualizaram de ontem pra hoje.</p>
+
+<p>Não sei se estou sendo apressado, mas o lançamento nem está na página inicial
+ainda, apenas nas páginas dos projetos... Mas vamos divulgando não é? Então os
+projetos atualizados são:</p>
+
+<ul>
+<li><a href="http://wso2.org/projects/wsas/java">WSO2 Web Services Application Server</a> v3.1.2;</li>
+<li><a href="http://wso2.org/projects/bps">WSO2 Business Process Server</a> v1.1.0 (finalmente!);</li>
+<li><a href="http://wso2.org/projects/esb/java">WSO2 Enterprise Service Bus</a> v2.1.2;</li>
+<li><a href="http://wso2.org/projects/governance-registry">WSO2 Governance Registry</a> v3.0.2;</li>
+<li><a href="http://wso2.org/projects/identity">WSO2 Identity Server</a> v2.0.2;</li>
+<li><a href="http://wso2.org/projects/mashup">WSO2 Mashup Server</a> v2.0.1.</li>
+</ul>
+
+
+<p>Mas ainda sinto falta das atualizações do WSO2 Data Services, que está largado
+na 2.0 e com alguns bugzinhos chatos que até já arrumamos e mandamos o
+<em>patch</em>, mas ainda assim...</p>
+
+<p>E pensar que passei dois dias testando as alterações das últimas versões e
+hoje tem novas. Não consegui nem documentar as antigas... Só me resta testar
+novamente e homologar as novas versões.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Enterprise Service Bus (ESB) 2.1.1 lançada]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/10/wso2-enterprise-service-bus-esb-2-1-1-lancada/"/>
+    <updated>2009-10-14T12:37:12-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/10/wso2-enterprise-service-bus-esb-2-1-1-lancada</id>
+    <content type="html"><![CDATA[<p>Foi lançada a versão 2.1.1 da <a href="http://wso2.org/projects/esb/java">WSO2 ESB</a>,
+pelo que li no <em>release note</em> essa versão só trás correções de bugs, as
+correções foram (preguiça de <a href="http://translate.google.com.br/translate?prev=hp&amp;hl=pt-BR&amp;js=y&amp;u=http%3A%2F%2Fwso2.org%2Fproject%2Fesb%2Fjava%2F2.1.1%2Fdocs%2Frelease-notes.html&amp;sl=en&amp;tl=pt&amp;history_state0=&amp;swap=1">traduzir</a>):</p>
+
+<ul>
+<li>Endpoint management issues in clustered environments have been fixed (CARBON-5108)</li>
+<li>Defects in DBReport, DBLookup mediator UIs have been corrected (CARBON-5084)</li>
+<li>Script mediator UI has been improved to handle some exceptional scenarios (CARBON-5080)</li>
+<li>XQuery mediator UI has been enhanced to handle some exceptional scenarios (CARBON-5078)</li>
+<li>ESB management console has been enhanced to work properly on WebLogic application server</li>
+<li>UI enhancements to support WebSphere application server</li>
+<li>Sequence management UI has undergone some minor enhancements</li>
+<li>Enhancements to support front end - back end separation of the server</li>
+<li>Reported issues related to transaction mediator have been fixed (CARBON-4225)</li>
+<li>Issues releated to task creation and management have been rectified</li>
+<li>Many documentation updates and enhancements</li>
+</ul>
+
+
+<p>E que o pessoal do <a href="http://wso2.org">WSO2</a> continue trabalhando firme e forte
+assim. Ainda não consegui instalar para ver as diferenças na prática (estamos
+usando a 2.0.1 ainda)... assim que conseguir volto aqui comentar.</p>
+]]></content>
+  </entry>
+  
+</feed>

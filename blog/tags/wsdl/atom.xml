@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: wsdl | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/wsdl/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Novidades do próximo WSO2 Data Services Server (2.5.x)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/"/>
+    <updated>2010-04-09T13:24:27-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x</id>
+    <content type="html"><![CDATA[<p>A versão RC2 do WSO2 Data Services Server 2.5.0 nos mostrou que está com novas
+opções e funcionalidades muito úteis, algumas que estavam até fazendo falta.
+Claro que a adoção do WSO2 Carbon 3.0, traz várias diferenças nos recursos e
+interface em toda a suíte. Mas vamos partir para o que interessa.</p>
+
+<ul>
+<li><a href="#Dashboard">Dashboard</a></li>
+<li><a href="#CarbonDataSources">Carbon Data Sources</a></li>
+<li><a href="#ArrayType">Array type</a></li>
+<li><a href="#DefaultValuesInputMappings">Default values in input mappings</a></li>
+<li><a href="#DataValidationLogic">Data Validation Logic</a></li>
+<li><a href="#WIPServices">WIP services</a></li>
+<li><a href="#ContractFirst">Contract first</a></li>
+<li><a href="#BatchMode">Batch mode</a></li>
+<li><a href="#Boxcarring">Boxcarring</a></li>
+<li><a href="#Eventing">Eventing</a></li>
+<li><a href="#BinaryData">Binary Input/Output data</a></li>
+<li><a href="#JMX">JMX</a></li>
+<li><a href="#QueryProperties">Query Properties</a></li>
+<li><a href="#Conclusao">Conclusão</a></li>
+</ul>
+
+
+<h2><a name=""></a>Dashboard</h2>
+
+<p>Com a atualização para o WSO2 Carbon 3.0, foi implantando um <em>Dashboard</em> que
+pode conter informações variadas. Essas informações podem ser personalizadas
+utilizando <em>gadgets</em>. Aliás, essa atualização pode ser notada em toda a suíte
+que utilizam o novo Carbon.</p>
+
+<h2><a name=""></a>Carbon Data Sources</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-CarbonDataSources-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-CarbonDataSources-01-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-CarbonDataSources-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-CarbonDataSources-02-150x150.png" alt="" /></a></p>
+
+<p>Agora ficará muito mais fácil gerenciar conexões às várias base de dados. Com
+<em>Carbon Data Sources</em>, será possível apontar no <a href="/glossario/#DataServices">Data Service</a> qual <em>data source</em> utilizar, e cada
+ambiente (teste, desenvolvimento, homologação ou produção) terão suas próprias
+configurações, bastará manter o mesmo nome.</p>
+
+<h2><a name=""></a>Array Type</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-ArrayType-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-ArrayType-01-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-ArrayType-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-ArrayType-02-150x150.png" alt="" /></a></p>
+
+<p>Poderemos ter entradas do tipo <em>array</em> ou <em>scalar</em>, onde essas entradas podem
+conter valores de diferentes tipos, como: <em>string</em>, <em>integer</em>, <em>real</em>,
+<em>double</em>, <em>numeric</em>, <em>tinyint</em>, <em>smallint</em>, <em>bigint</em>, <em>date</em>, <em>time</em>,
+<em>timestamp</em>, <em>bit</em>, <em>oracle ref cursor</em> ou <em>binary</em>.</p>
+
+<h2><a name=""></a>Default values in input mappings</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-DefaultValuesInputMappings.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-DefaultValuesInputMappings-150x150.png" alt="" /></a></p>
+
+<p>No caso do tipo de entrada <em>scalar</em>, poderá ser indicado um valor padrão para
+a entrada.</p>
+
+<h2><a name=""></a>Data Validation Logic</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-DataValidationLogic-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-DataValidationLogic-01-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-DataValidationLogic-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-DataValidationLogic-02-150x150.png" alt="" /></a></p>
+
+<p>Os dados de entrada poderão ser validados utlizando alguns validadores
+padrões:</p>
+
+<ul>
+<li><strong>Long Range</strong>: com mínimo e máximo de opção;</li>
+<li><strong>Double Range</strong>: com mínimo e máximo de opção;</li>
+<li><strong>Length</strong>: com mínimo e máximo de opção;</li>
+<li><strong>Pattern</strong>: com pattern de opção;</li>
+<li><strong>Custom</strong>: com a classe de opção.</li>
+</ul>
+
+
+<h2><a name=""></a>WIP Services</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wip_dbs.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wip_dbs-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wip_service_list.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wip_service_list-150x150.png" alt="" /></a></p>
+
+<p>Os serviços que ainda não estão finalizados, estão passando por correção ou
+qualquer outro motivo, poderão ser marcados como: "Work in progress". Isso
+evitará erros e os clientes não conseguirão consumir o serviço.</p>
+
+<h2><a name=""></a>Contract first</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsdl_upload.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsdl_upload-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/dummy_data_source.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/dummy_data_source-150x150.png" alt="" /></a></p>
+
+<p>Com essa funcionalidade, criar <em>data services</em> poderá fica ainda mais simples.
+Basta adicionar um contrato (WSDL) com todas as definições e ele criará um
+<em>WIP Service</em> para você, sendo necessário apenas você configurar conexões e
+preencher as <em>queries</em>.</p>
+
+<h2><a name=""></a>Batch mode</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-BatchMode-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-BatchMode-01-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-BatchMode-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-BatchMode-02-150x150.png" alt="" /></a></p>
+
+<p>Um recurso bastante interessante implementado é o <em>Batch Mode</em>, esse recurso
+implementa automaticamente, em todos os métodos que realizam alguma função de
+escrita no banco de dados (<em>INSERT</em>, <em>DELETE</em> e <em>UPDATE</em>), o recurso de
+invocar uma única vez o serviço, mas realizando operações em vários objetos de
+uma única vez, como - por exemplo - um inserir uma listagem de pessoas.</p>
+
+<h2><a name=""></a>Boxcarring</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-Boxcarring-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-Boxcarring-01-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-Boxcarring-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-Boxcarring-02-150x150.png" alt="" /></a></p>
+
+<p>Implementação importante para essa nova versão, <em>boxcarring</em> nada mais é que o
+suporte a transações nos serviços, pelas informações coletadas, essa transação
+pode ser de dois tipos: <em>SOAP</em> ou <em>Transport</em>.</p>
+
+<h2><a name=""></a>Eventing</h2>
+
+<p>Será um recurso que dará a opção de implementarmos eventos em cima de
+determinadas operações, funciona basicamente como uma <em>trigger</em> de banco de
+dados.</p>
+
+<h2><a name=""></a>Binary Input/Output Data</h2>
+
+<p>Será possível utilizar dados binários (tipo Base64) tanto para enviar, quanto
+para receber.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/binary-input-mapping.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/binary-input-mapping-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/binary-output-mapping.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/binary-output-mapping-150x150.png" alt="" /></a></p>
+
+<h2><a name=""></a>JMX</h2>
+
+<p>O WSO2 Data Services Server proverá informações dos serviços publicados,
+utilizando Java Management Extensions (JMX).</p>
+
+<h2><a name=""></a>Query Properties</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-QueryProperties-01.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-QueryProperties-01-150x150.png" alt="" /></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-QueryProperties-02.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2ds-2.5.0-r2-QueryProperties-02-150x150.png" alt="" /></a></p>
+
+<p>As <em>queries</em> podem ter algumas propriedades específicas na execução, ajudando
+na questão de performance e limitações.</p>
+
+<h2><a name=""></a>Conclusão</h2>
+
+<p>Essas novas versões que estão para sair, da suíte WSO2 Carbon (3.0) e WSO2
+Data Services Server (2.5.0), evoluíram bastante comparativamente as suas
+sucessoras. E o que é bem importante, não foi necessária nenhuma alteração
+para os serviços que rodam na versão 2.2.1 do WSO2 Data Services Server
+funcionarem nessa <em>release</em>, diferentemente da atualização da versão 2.0.x
+para a 2.2.x.</p>
+
+<p>Os tópicos que não documentei ainda, provavelmente consiga documentar nas
+próximas <em>releases</em>, ou quando achar aonde estão esses recursos, a não ser que
+as alterações sejam internas e não fiquem visuais pra nós. Caso queira ajudar
+a encontrar e documentar todas as alterações, pode acessar o
+<a href="http://builder.wso2.org/~carbon/releases/carbon/3.0.0/">repositório</a> com os
+<em>builders</em> (com gerações quase que diárias).</p>
+
+<p>Minha ideia é também exemplificar como utilizar cada uma delas futuramente,
+para que não fique dúvidas de como utilizar esses novos recursos. Então, fique
+ligado nas atualizações pelo <em>feed</em>.</p>
+]]></content>
+  </entry>
+  
+</feed>

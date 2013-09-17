@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: enterprise service bus | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/enterprise-service-bus/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Agendamento de tarefas na WSO2 Enterprise Service Bus]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/"/>
+    <updated>2013-03-15T11:11:13-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus</id>
+    <content type="html"><![CDATA[<p>Em alguns casos vemos a necessidade de agendar algumas tarefas para a execução de algum script ou rotina, no projeto que estou trabalhando atualmente surgiu a necessidade de monitorar um <em>WS</em> a cada 5 segundos. Pensei em criar uma tarefa no <a href="http://pt.wikipedia.org/wiki/Crontab">crontab</a>, mas com isso seria complicado eu ter um controle mais detalhado sobre a execução da mesma, então me lembrei que na <a href="http://wso2.com/products/enterprise-service-bus/">WSO2 Enterprise Service Bus</a> existe uma funcionalidade que provê exatamente essa funcionalidade.</p>
+
+<p>Nesse caso, especificamente, eu teria que controlar através de <em>log</em> as informações de execução, criei um <em>log</em> no meu programa e pude utilizar os gráficos e relatórios da própria ferramenta.</p>
+
+<h1>Vamos exemplificar na prática esse uso</h1>
+
+<p>As configurações abaixo foram feitas utilizando a versão 4.5.0 da WSO2 ESB.</p>
+
+<h2>Criando a aplicação a ser executada</h2>
+
+<p>Utilizando o jar <em><a href="http://mirrors.ibiblio.org/pub/mirrors/maven2/org/apache/synapse/synapse-core/1.1/synapse-core-1.1.jar">synapse-core.1.1.jar</a> digitacomo dependência da aplicação, a seguir temos uma classe que exemplifica como ficarão nossos métodos, o método </em>execute_ será invocado de tempo em tempo na execução da tarefa, podemos programar o que quisermos ali, tanto a execução de um processo, uma atualização de base, uma chamada de um webservices e etc.</p>
+
+<p><div><script src='https://gist.github.com/5090589.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/5090589&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+
+<p>Iremos gerar o arquivo .jar dessa aplicação e o colocaremos dentro de <em>[ESB - Home]/repository/components/lib</em></p>
+
+<h2>Criando o agendamento</h2>
+
+<p>Primeiramente vamos selecionar a opção "Scheduled Tasks", na sequência "Add Task".</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-1.png"></p>
+
+<p>Iremos visualizar a tela onde cadastraremos nosso agendamento:</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-2.png"></p>
+
+<p>Nessa tela devemos preencher as opções obrigatórias, na opção "Task Implementation" iremos colocar o endereço da classe que iremos chamar, a mesma do arquivo .jar que colocamos no diretório da ESB anteriormente.</p>
+
+<p>E após apontar o endereço da classe clicaremos em "Load Task Properties", caso ocorra algum erro do endereçamento, será nos avisado pela aplicação.</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-3.png"></p>
+
+<p>Podemos adicionar mais propriedades para o nosso agendamento (de acordo com a classe implementada), após isso iremos configurar a "trigger" do agendamento, podemos utilizar o padrão <em>crontab</em> ou um padrão mais simples, nesse exemplo iremos cadastrar a opção de agendamento mais simples.</p>
+
+<p>Na opção "Count" iremos dizer ao agendamento quantas vezes essa tarefa será executada, caso essa tarefa rode sempre podemos colocar o valor "-1".</p>
+
+<p>Na opção "Interval" iremos colocar o período de cada execução dessa tarefa, o padrão do valor está em segundos. Então, após isso podemos clicar em "Schedule" e finalizarmos o agendamento.</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-4.png"></p>
+
+<p>É sempre interessante acompanharmos o <em>log</em> da aplicação para termos certeza que o agendamento funcionou perfeitamente.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Treinamento: Celepar]]></title>
+    <link href="http://wso2brasil.com.br/blog/2012/11/treinamento-celepar/"/>
+    <updated>2012-11-08T20:06:00-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2012/11/treinamento-celepar</id>
+    <content type="html"><![CDATA[<p>Aplicamos um pequeno treinamento/apresentação nos dias 07 e 08/11 na <a href="http://www.celepar.pr.gov.br/">Celepar</a>, Companhia de Informática do Paraná, os
+temas abordados foram os usos das ferramentas <a href="http://wso2.com/products/data-services-server/">WSO2 Data Service</a>, <a href="http://wso2.com/products/application-server/">WSO2 Application Server</a> e <a href="http://wso2.com/products/enterprise-service-bus/">WSO2 Enterprise Service Bus</a>.</p>
+
+<p>Falamos sobre como funciona o tal do "<a href="/glossario/#SOA">SOA</a>", passamos num geral sobre as funcionabilidades das ferramentas e, por fim, simulamos
+um pequeno <em>case</em> utilizando as ferramentas citadas anteriormente.</p>
+
+<p>Estiveram presentes membros de diversas equipes da empresa: infra-estrutura, desenvolvedores, responsáveis por novas tecnologias
+e algumas outras áreas mais específicas. Elas serão usadas como "cobaias" para a implementação dos primeiros <em>cases</em> da empresa.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar-400x300.jpg" width="400" height="300"></a></p>
+
+<p>Um muito obrigado a todos os envolvidos.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Série criando serviços com WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/10/serie-criando-servicos-com-wso2/"/>
+    <updated>2010-10-22T00:00:00-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/10/serie-criando-servicos-com-wso2</id>
+    <content type="html"><![CDATA[<p>Veja abaixo os links para a série de posts de como criar serviços com o WSO2</p>
+
+<ul>
+<li><a href="http://www.leandroprado.com.br/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/">Criando um WSO2 DataServices</a></li>
+<li><a href="http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/">Criando um WSO2 Application Service</a></li>
+<li><a href="http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-3-wso2-esb">Criando roteamento na BUS</a></li>
+</ul>
+
+
+<p>Um Abraço!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Criando serviços com o WSO2 - Parte 3 - WSO2 ESB]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-3-wso2-esb/"/>
+    <updated>2010-10-13T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-3-wso2-esb</id>
+    <content type="html"><![CDATA[<p>Hoje vamos finalizar o processo para criar um serviço com as ferramenta do WSO2, a última parte vamos publicar nosso serviço na BUS, dessa forma disponibilizando o serviço para nossos clientes.</p>
+
+<p>No WSO2 ESB vamos criar um proxy service que será responsável por chamar nosso serviço Bussiness Service (WSO2 WSAS) que por sua vez vai chamar o nosso Data Service (WSO2 DS), essa parte é basicamente configuração não vamos codificar nenhuma linha de código.</p>
+
+<p>Para expor nosso serviço na BUS vamos seguir os seguintes passos:</p>
+
+<h2>1) Criar uma Sequence</h2>
+
+<p>Um elemento de seqüência é usado para definir uma seqüência de mediadores que podem ser chamados mais tarde, nesse exemplo vamos criar uma sequence com um mediator de Log.</p>
+
+<p>Entre na página de administração do ESB, selecione a opção Sequences.</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem1.png"><img class="size-thumbnail wp-image-668 aligncenter" title="Menu para criar uma Sequence" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem1.png" alt="" /></a></p>
+
+<p>Clique na opção Add Sequence</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem2.png"><img class="aligncenter size-medium wp-image-669" title="Adicionar uma Sequence" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem2.png" alt="" width="701" height="227" /></a></p>
+
+<p>Na tela Design Sequence, coloque o nome da sequence como RecursoHumanoSequence e agora vamos adicionar a sequência que vai ser executada, em nosso exemplo temos somente um Log, para isso clique em Add Child -&gt; Core -&gt; Log</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem3.png"><img class="aligncenter size-medium wp-image-670" title="Configurar a sequence" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem3.png" alt="" width="705" height="393" /></a></p>
+
+<p>Depois de configurado a sequence, clique em Save, nossa sequence será listada na tela Mediation Sequences</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem4.png"><img class="aligncenter size-medium wp-image-671" title="Listagem das sequences" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem4.png" alt="" width="710" height="245" /></a></p>
+
+<h2>2) Criar um EndPoint</h2>
+
+<p>Um EndPoint é um destino específico de uma mensagem, também podemos ativar as estatísticas de endpoints e WSDL dos endereços.</p>
+
+<p><strong>Atenção:</strong> Para adicionar um Endpoint, vamos precisar acessar o WSAS para recuperar o endereço do Endpoint do nosso serviço, na página de administração do WSAS entre em List e no serviço RecursoHumanoServico clique na opção WSDL1.1</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem7.png"><img class="aligncenter size-medium wp-image-674" title="Recuperando o WSDL do WSAS" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem7.png" alt="" width="720" height="285" /></a></p>
+
+<p>O browser será aberto com o WSDL do serviço, no final está as configurações do Endpoint, copie esse endereço para que possamos colar na tela de criação do Endpoint na ESB.</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem8.png"><img class="aligncenter size-full wp-image-675" title="Recuperando o EndPoint" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem8.png" alt="" width="740" height="378" /></a></p>
+
+<p>Agora vamos voltar ao administrador da ESB, clique na opção Endpoints</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem5.png"><img class="aligncenter size-full wp-image-672" title="Menu para criar o EndPoint" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem5.png" alt="" /></a></p>
+
+<p>Na nova tela, clique em Address Endpoint</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem6.png"><img class="aligncenter size-medium wp-image-673" title="Adicionar um EndPoint" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem6.png" alt="" width="711" height="239" /></a></p>
+
+<p>Adicione um nome RecursoHumanoEndPoint e coloque o endereço do Endpoint que recuperamos no WSAS, clique no botão Test para verificar a comunicação entre a ESB e o WSAS</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem9.png"><img class="aligncenter size-full wp-image-676" title="Configurando o EndPoint" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem9.png" alt="" width="718" height="258" /></a></p>
+
+<p>Clique em Save</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem10.png"><img class="aligncenter size-full wp-image-677" title="Salvando o EndPoint" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem10.png" alt="" width="720" height="184" /></a></p>
+
+<p>Veja nosso Endpoint na listagem</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem11.png"><img class="aligncenter size-full wp-image-678" title="Listagem dos EndPoints" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem11.png" alt="" width="721" height="192" /></a></p>
+
+<h2>3) Criar o Proxy</h2>
+
+<p>Clique na opção Add -&gt; Proxy Service</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem12.png"><img class="aligncenter size-full wp-image-679" title="Menu para criar um Proxy" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem12.png" alt="" /></a></p>
+
+<p>Temos várias opções para criar proxy, clique na opção Custom Proxy</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem13.png"><img class="aligncenter size-full wp-image-680" title="Adicionar um Custom Proxy" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem13.png" alt="" width="722" height="258" /></a></p>
+
+<p>Vamos configurar nosso proxy da sequinte maneira</p>
+
+<ul>
+<li>Proxy Service Name: RecursoHumanoServico</li>
+<li>Publishing WSDL: Specify source URL</li>
+<li>WSDL URI: Coloque o endereço do WSDL do WSAS, aonde verificamos anteriormente</li>
+</ul>
+
+
+<p>Depois clique em Next</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem14.png"><img class="aligncenter size-full wp-image-681" title="Configurando o Proxy" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem14.png" alt="" width="722" height="543" /></a></p>
+
+<p>Nessa tela vamos configurar a Sequence e o Endpoint que ja criamos anteriormente.</p>
+
+<ul>
+<li>In Sequence Options: Selecione Import e na combo selecione a Sequence criada anteriormente</li>
+<li>Endpoint Options: Selecione Import e na combo selecione o Endpoint criado anteriormente</li>
+</ul>
+
+
+<p>Depois clique em Next</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem15.png"><img class="aligncenter size-full wp-image-682" title="Referência a Sequence e ao EndPoint" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem15.png" alt="" width="724" height="394" /></a></p>
+
+<p>Nessa tela não alteramos nada, deixe as duas opções marcadas None, e clique em Finish</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem16.png"><img class="aligncenter size-full wp-image-683" title="Finalizar a configuração" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem16.png" alt="" width="719" height="384" /></a></p>
+
+<p>Veja na listagem no nosso proxy criado.</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem17.png"><img class="aligncenter size-full wp-image-684" title="Listagem dos Proxys" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem17.png" alt="" width="723" height="315" /></a></p>
+
+<h2>4) Testando o serviço</h2>
+
+<p>Para testar o serviço clique em Try this service, preencha o campo nome e clique no botão.</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem18.png"><img class="aligncenter size-full wp-image-685" title="Teste  do serviço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem18.png" alt="" width="721" height="456" /></a></p>
+
+<p>Quando clicamos no botão fazemos o seguinte caminho:</p>
+
+<p> # A BUS recebe a requisição
+ # Encaminha para o WSAS
+ # Valida os dados
+ # Chama o DS
+ # Retorna os dados para o WSAS
+ # Executa regra de negócio
+ # Retorna os dados para a BUS</p>
+
+<p>Vamos testar a Exception, não coloque nenhum valor para o parâmetro nome e clique no botão</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem19.png"><img class="aligncenter size-full wp-image-686" title="Teste da Exception" src="http://www.leandroprado.com.br/wp-content/uploads/2010/10/ESB_imagem19.png" alt="" width="718" height="309" /></a></p>
+
+<p>Nesse caso fizemos o seguinte caminho:</p>
+
+<p> # A BUS recebe a requisição
+ # Encaminha para o WSAS
+ # Valida os dados
+ # Retorna erro para a BUS</p>
+
+<p>Chegamos ao fim desse peque How To de como criar um serviço usando as ferramenta do WSO2, espero que possa ter esclarecido as dúvidas. Se ainda tiverem alguma dúvida ou  alguma sugestão, critica favor entre em contato!</p>
+
+<p>Um Abraço!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Plataforma WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/plataforma-wso2/"/>
+    <updated>2010-05-31T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/plataforma-wso2</id>
+    <content type="html"><![CDATA[<p style="text-align: justify;">Neste post vou descrever o que cada solução do WSO2 é responsável.</p>
+
+
+<table border="0">
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Enterprise Service Bus</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-esb-logo.gif" alt="WSO2 Enterprise Service Bus" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">WSO2 ESB permite aos administradores de sistema e arquitetos de SOA de forma simples e fácil configurar o roteamento de mensagens, a virtualização, a intermediação, transformação, logs de requisições, agendamento de tarefas, balanceamento de carga, mediação de eventos e muito mais.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 240px;">
+<h3>WSO2 Governance Registry</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-registry-logo.gif" alt="WSO2 Governance Registry" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">Responsável por manter o controle de sua arquitetura SOA como um repositório de metadados, suporte para controle de versão, gestão de ciclo de vida, um modelo avançado para usuários / papéis / permissões, e as características sociais, tais como marcação, classificação e comentários. WSO2  Governance Registry se integra com outros produtos WSO2 para coletar metadados sobre serviços, centraliza a política de metadados, e gerencia dependências.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 190px;">
+<h3>WSO2 Identity Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-is-logo.gif" alt="WSO2 Identity Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Identity Server é o servidor de gerenciamento de identidade e direito. Ele suporta cartões de Informação e OpenID para autenticação, bem como autorização para XACML. Pode ser integrada facilmente com LDAP ou Active Directory.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 260px;">
+<h3>WSO2 Business Activity Monitor</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bam-logo.gif" alt="WSO2 Business Activity Monitor" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Business Activity Monitor (BAM WSO2) serve para suprir as necessidades dos especialistas em TI acompanharem e entenderem as atividades de negócios dentro de uma implantação SOA com isso permite que as organizações sejam pró-ativa ao invés de ser reativo.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Gadgat Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-gs-logo.gif" alt="WSO2 Gadgat Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">O Gadgat WSO2 Server permite que você possa oferecer aos seus executivos, funcionários, parceiros ou clientes uma maneira de obter todas as informações em um único lugar que eles precisam. Pordemos criar vários paineis para cada usuário permitindo-lhe adicionar, personalizar e reorganizar seus gadgets, assim como agrupá-las em conjuntos de tabulação.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Business Process Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bps-logo.gif" alt="WSO2 Business Process Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Business Process Server é um servidor responsável por executar os processos de negócios, são escritos usando o padrão WS-BPEL. Oferece um completo console gráfico para implantar, gerenciar e visualizar os processos, além de gerenciar e exibir instâncias do processo.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Mashup Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-mashup-logo.gif" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Mashup Server fornece uma plataforma para uma rápida implantação de serviços Web Mashups.  Combinando mashups simples, mas rica de reutilização, segurança, confiabilidade e governação, a WOS2 Mashup Server oferece a composição de serviços de classe empresarial. O servidor Mashup é voltada para desenvolvedores web (HTML + Javascript / competências XML) que permite um rápido desenvolvimento e compartilhamento de novos serviços.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Data Services</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-ds-logo.gif" alt="WSO2 Data Services" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Data Services fornece uma plataforma fácil de usar para criar serviços responsáveis por buscar os dados armazenados em locais heterogêneos, como banco de dados, arquivos CSV, Excel ou XML, permitindo a fácil integração de dados em processos de negócios, mashups, gadgets aplicações, BI e todos os serviços em geral.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 320px;">
+<h3>WSO2 Web Services Application Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-wsas-logo.gif" alt="WSO2 Web Services Application Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">WSO2 WSAS é um servidor de aplicativos para web services. Com o seu servidor Web incorporado de alto desempenho, suporte completo para XML, SOAP, WSDL, e suporte para comunicações confiáveis, seguras, WSO2 WSAS torna simples e eficaz para criar, consumir e gerenciar Web Services. tanbém podemos expor aplicativos como serviços na forma de POJOs ou JARs</p>
+
+
+<p style="text-align: justify;">Além dessas soluções, o WSO2 possui frameworks para fornecer aos desenvolvedores a infra-estrutura para criar e consumir serviços em sua linguagem de programação favorita como C, C++, PHP ou Spring.</p>
+
+]]></content>
+  </entry>
+  
+</feed>

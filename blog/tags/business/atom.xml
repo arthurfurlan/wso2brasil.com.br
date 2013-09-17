@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: business | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/business/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Criando serviços com o WSO2 - Parte 2 - WSO2 WSAS]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/"/>
+    <updated>2010-10-05T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas</id>
+    <content type="html"><![CDATA[<p>Hoje vamos dar continuidade ao exemplo de como criar um serviço usando as ferramentas do WSO2, no post anterior criamos o Data Services, hoje estaremos criando o nosso Business Service e publicar no WSO2 WSAS.</p>
+
+
+<p>O nosso Business Service será responsável por conter a regra de negócio do nosso serviço, ou seja, para uma determinada entrada vindo da BUS vamos consumir o Data Service aplicar a nossa regra de negócio e retornar os dados para a BUS. Esse é o momento onde vamos meter a mão na massa e codificar em Java.</p>
+
+
+<p>Para consumir o Data Service vamos estar usando o Apache Axis2, que é um framework para contrução e consumo de webservices, portanto <a title="Axis2" href="http://ws.apache.org/axis2/download.cgi" target="_blank">clique aqui</a> e faça o download, a versão que estou usando é 1.5.1. Depois de concluído o download descompactar o arquivo e copiar para um diretório de sua preferência.</p>
+
+
+
+
+<h3>Criando um Business Service</h3>
+
+
+
+
+<p>1. Abra o Eclipse e vamos criar um novo projeto, clique em File -&gt; New -&gt; Project</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem1.png"><img class="aligncenter size-medium wp-image-542" title="Criando novo projeto Java" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem1.png" alt="" width="541" height="486" /></a></p>
+
+
+<p>Na nova janela que abriu, selecione Java Project clique em Next.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png"><img class="aligncenter size-medium wp-image-543" title="Selecionar Java Project" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png" alt="" width="462" height="374" /></a></p>
+
+
+<p>Coloque o nome do projeto com <strong>RecursoHumanoServico</strong> depois clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png"><img class="aligncenter size-medium wp-image-544" title="Adicionando o nome do projeto" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png" alt="" width="467" height="522" /></a></p>
+
+
+<p>Para deixar nosso projeto mais organizado vamos criar duas Package, clique com o botão direito em cima da pasta src  e selecione a opção New -&gt; Package</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem4.png"><img class="aligncenter size-medium wp-image-545" title="Criando as packages" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem4.png" alt="" width="507" height="337" /></a></p>
+
+
+<p>Coloque o nome do package de <strong>br.leandroprado.webservices.recursohumano</strong></p>
+
+
+<p style="text-align: center;"><strong><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem5.png"><img class="aligncenter size-medium wp-image-546" title="Nome da Package" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem5.png" alt="" width="492" height="398" /></a><br />
+</strong></p>
+
+
+<p>Adicione mais um package com o nome de <strong>br.leandroprado.webservices.recursohumano.entidades</strong>, veja como seu projeto deve ficar depois de criado as duas packages<strong><br />
+</strong></p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem6.png"><img class="aligncenter size-medium wp-image-547" title="Packages criadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem6.png" alt="" width="498" height="251" /></a></p>
+
+
+<p>2. Depois de configurado o o projeto temos que adicionar as bibliotecas do Axis2 que vamos utilizar, clique em Project -&gt; Properties</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem8.png"><img class="aligncenter size-medium wp-image-548" title="Adicionando as bibliotecas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem8.png" alt="" width="522" height="332" /></a></p>
+
+
+<p>Na nova janela que abrir, clique em Java Build Path -&gt; Libraries</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem9.png"><img class="aligncenter size-medium wp-image-549" title="Selecionar External Jars" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem9.png" alt="" width="519" height="365" /></a></p>
+
+
+<p>Clique no botão Add External JARs e vá até o diretório onde esta o Axis2, que baixamos anteriormente e selecione os seguintes JARs.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem10.png"><img class="aligncenter size-medium wp-image-550" title="Selecionando os Jars necessários" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem10.png" alt="" width="515" height="417" /></a></p>
+
+
+<p>Veja que em Libraries foi adicionado os JARs do Axis2.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem11.png"><img class="aligncenter size-medium wp-image-551" title="Libraries adicionadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem11.png" alt="" width="526" height="368" /></a></p>
+
+
+<p>3. Agora vamos começar a codificar o nosso serviço, clique com o botão direito em cima da package  <strong>br.leandroprado.webservices.recursohumano </strong>e selecione a opção New -&gt; Class</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem12.png"><img class="aligncenter size-medium wp-image-552" title="Criando uma nova classe" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem12.png" alt="" width="528" height="265" /></a></p>
+
+
+<p>Coloque o nome da nova classe de RecursoHumanoServico e clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem13.png"><img class="aligncenter size-medium wp-image-553" title="Classe RecursoHumanoServico" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem13.png" alt="" width="428" height="460" /></a></p>
+
+
+<p>Vamos criar outra classe dentro da package <strong>br.leandroprado.webservices.recursohumano.entidades </strong>chamada Funcionario</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem14.png"><img class="aligncenter size-medium wp-image-555" title="Classes criadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem14.png" alt="" width="411" height="216" /></a></p>
+
+
+<p>Veja abaixo o conteúdo da classe Funcionario.java, ela contém os campos que o nosso DataService retorna.</p>
+
+
+
+
+<pre class="brush: java; title: ; notranslate">
+package br.leandroprado.webservices.recursohumano.entidades;
+
+import java.util.Date;
+
+public class Funcionario {
+
+    private int codigo;
+    private String nome;
+    private String endereco;
+    private String sexo;
+    private String dataAniversario;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getDataAniversario() {
+        return dataAniversario;
+    }
+
+    public void setDataAniversario(String dataAniversario) {
+        this.dataAniversario = dataAniversario;
+    }
+}
+</pre>
+
+
+
+
+<p>Agora vamos criar o serviço, na classe RecursoHumanoServico vamos adicionar um novo método onde vamos chamar o nosso método do DataService, veja abaixo o código;</p>
+
+
+
+
+<pre class="brush: java; title: ; notranslate">
+package br.leandroprado.webservices.recursohumano;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.xml.namespace.QName;
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
+
+import br.leandroprado.webservices.recursohumano.entidades.Funcionario;
+
+public class RecursoHumanoServico {
+
+    // endereco do WSDL do DataService
+    private static EndpointReference rhEndpoint = new EndpointReference(&quot;http://10.0.2.15:9764/services/RecursoHumanoServico?wsdl&quot;);
+
+    public Funcionario[] pesquisarFuncionario(String nome)
+    {
+        String nameSpace = &quot;http://webservices.leandroprado.com.br/DataServices/RecursoHumano/PesquisarFuncionario&quot;;
+        String nomeMetodo = &quot;PesquisarFuncionario&quot;;
+
+        List&lt;Funcionario&gt; lst = new ArrayList&lt;Funcionario&gt;();
+
+        try {
+                                      // verifica se o parametro esta preenchido
+            if(nome != null)
+            {
+                if(nome.equals(&quot;&quot;))
+                    throw new Exception(&quot;Campo Nome é obrigatório!&quot;);
+            }
+            else
+                throw new Exception(&quot;Campo Nome é obrigatório!&quot;);
+
+            // cria os parametros do servico com o EndPoint e o método que queremos usar
+            Options options = new Options();
+            options.setTo(rhEndpoint);
+            options.setAction(&quot;urn:&quot; + nomeMetodo);
+
+            // cria um client para o servico
+            ServiceClient sender = new ServiceClient();
+            sender.setOptions(options);
+
+            // para criar os parametros de entrada do servico
+            OMFactory fac = OMAbstractFactory.getOMFactory();
+            OMNamespace omNs = fac.createOMNamespace(
+                            nameSpace,    // namespace do método
+                             nomeMetodo); // nome do método que vamos invocar
+            OMElement payload = fac.createOMElement(nomeMetodo, omNs);
+
+            // seta o nome dos parametros de entrada e seu conteudo
+            OMElement param = fac.createOMElement(&quot;Nome&quot;, omNs);
+            param.setText(&quot;%&quot; + nome + &quot;%&quot;);
+            payload.addChild(param);
+
+            // Executa o DataService
+            OMElement result = sender.sendReceive(payload);
+
+            // Recupeara o retorno
+            Iterator rows = result.getChildElements();
+
+            // Enquanto houver linhas no retorno
+            while (rows.hasNext()) {
+                OMElement row = (OMElement) rows.next();
+
+                // recupera os elementos
+                OMElement codigo = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;CodigoFuncionario&quot;));
+                OMElement nme = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;NomeFuncionario&quot;));
+                OMElement endereco = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;EnderecoFuncionario&quot;));
+                OMElement sexo = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;SexoFuncionario&quot;));
+                OMElement dataAniver = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;DataAniversario&quot;));
+
+                // cria um objeto do tipo Funcionario
+                Funcionario _fun = new Funcionario();
+                _fun.setCodigo(Integer.parseInt(codigo.getText()));
+                _fun.setNome(nme.getText());
+                _fun.setEndereco(endereco.getText());
+                _fun.setSexo(sexo.getText());
+                _fun.setDataAniversario(dataAniver.getText());
+
+                // Adiciona na lista
+                lst.add(_fun);
+            }
+        }
+        catch(Exception ex)
+        {
+            throw new RuntimeException(ex.getMessage());
+        }
+
+        // verifica se a lista possui elementos
+        if(lst.size() &gt; 0)
+            return lst.toArray(new Funcionario[lst.size()-1]);
+        else
+            return lst.toArray(new Funcionario[0]);
+    }
+}
+</pre>
+
+
+<p>4. Agora vamos publicar o serviço no WSO2 WSAS, primeiro de tudo temos que iniciar os serviços WSO2 DataServices e WSO2 WSAS, já vimos no post <a href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/" target="_blank">Criando um ambiente SOA com WSO2</a> como criar o ambiente e iniciar os serviços.</p>
+
+
+<p>Uma das maneiras de fazer o deploy de um serviço para o WSAS é exportar nosso serviço para um arquivo .jar, então  clique com o botão direito em cima do projeto RecursoHumanoServico e selecione a opção Export.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem15.png"><img class="aligncenter size-medium wp-image-565" title="Exportar o serviço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem15.png" alt="" width="517" height="362" /></a></p>
+
+
+<p>Selecione a opção Jar File, e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem16.png"><img class="aligncenter size-medium wp-image-565" title="Selecione Jar File" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem16.png" alt="" width="511" height="409" /></a></p>
+
+
+<p>Agora selecione em qual diretório vamos salvar o arquivo .jar, nesse caso estou salvando no Desktop e clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem17.png"><img class="aligncenter size-medium wp-image-565" title="Selecione o local para salvar o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem17.png" alt="" width="431" height="395" /></a></p>
+
+
+<p>Acessando nosso diretório Desktop o arquivo exportado.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem18.png"><img class="aligncenter size-medium wp-image-565" title="Arquivo Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem18.png" alt="" width="397" height="128" /></a></p>
+
+
+<p>Agora vamos fazer o Deploy do arquivo .jar para o WSAS, acessar o console de administração do WSAS e selecionar a opção Services -&gt; Add -&gt; Jar Service</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem19.png"><img class="aligncenter size-medium wp-image-571" title="Selecionar a opção Jar Service" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem19.png" alt="" width="203" height="300" /></a></p>
+
+
+<p>Coloque o nome do seu serviço e procure o arquivo .jar que exportamos anteriormente, e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem20.png"><img class="aligncenter size-medium wp-image-571" title="Adicionando o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem20.png" alt="" width="526" height="162" /></a></p>
+
+
+<p>Na próxima tela temos que selecionar qual classe que queremos expor como serviço, em nosso exemplo é a classe RecursoHumanoServico.java, não esqueça de selecionar o escopo que é SOAP, depois clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem21.png"><img class="aligncenter size-medium wp-image-571" title="Configurando o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem21.png" alt="" width="526" height="129" /></a></p>
+
+
+<p>Selecione os métodos que deseja disponibilizar no serviço, em nosso exemplo só temos um método, mas se tivesse vários métodos poderiamos selecionar quais deles vamos disponibilizar para consumo, depois clique em Finish.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem22.png"><img class="aligncenter size-medium wp-image-571" title="Métodos do Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem22.png" alt="" width="525" height="115" /></a></p>
+
+
+<p>Se tudo ocorrer sem erros, uma mensagem será exibida e o nosso serviço vai aparecer na lista, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem23.png"><img class="aligncenter size-medium wp-image-571" title="Serviço adicionado" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem23.png" alt="" width="536" height="219" /></a></p>
+
+
+<p>Vamos testar nosso método, clique em Try this Service , preencha o parâmetro nome e clique no botão, o seguinte resultado deverá ocorrer:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem24.png"><img class="aligncenter size-medium wp-image-571" title="Testando o servço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem24.png" alt="" width="539" height="293" /></a></p>
+
+
+<p>Vamos testar se a nossa validação está sendo executada, se invocar o método sem nenhum valor para o parâmetro nome, deve retornar um erro, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem25.png"><img class="aligncenter size-medium wp-image-571" title="Testando a Exception" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem25.png" alt="" width="525" height="159" /></a></p>
+
+
+<h3>Conclusão</h3>
+
+
+<p>Podemos ver que para criar um BusinessServer usando o WSAS não tem muito segredo, para quem ja programa em JAVA não vai ter nehuma dificuldade.</p>
+
+
+<p>O que podemos fazer para facilitar o consumo é criar um componente onde só passamos o método que queremos consumir e ele nos retorna um objeto criado, fica por conta de vocês aprimorar esse código.</p>
+
+
+<p>O WSO2 lançou um plugin para o Eclipse que cria serviços para o WSAS, com esse plugin é possível fazer debug dos nossos métodos, dessa forma facilitando o desenvolvimento para o programador.</p>
+
+
+<p><a href="http://wso2.org/library/tutorials/create-axis2-web-service-in-3-steps-using-eclipse" target="_blank">Create an Axis2 Web Service in 3 Steps Using Eclipse</a></p>
+
+
+<p><a href="http://wso2.org/library/tutorials/debug-your-axis2-web-service-3-steps-using-eclipse" target="_blank">How to Debug Your Axis2 Web Service in 3 Steps Using Eclipse</a></p>
+
+
+<p>No próximo post estaremos criando a camada da BUS, vamos criar um proxy para disponibilizar os serviços aos nossos clientes.</p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/RecursoHumanoServico.zip" target="_blank">Download Parte 2</a></p>
+
+
+<p>Até a próxima!</p>
+
+]]></content>
+  </entry>
+  
+</feed>

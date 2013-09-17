@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: código aberto | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/codigo-aberto/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2: SOA Workshop em São Paulo]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/11/wso2-soa-workshop-em-sao-paulo/"/>
+    <updated>2011-11-12T19:18:34-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/11/wso2-soa-workshop-em-sao-paulo</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/junior-chintana-amani-nuwan-leonardo.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/junior-chintana-amani-nuwan-leonardo-300x225.jpg" width="300" height="225" title="Junior, Chintana, Amani, Nuwan e Leonardo" alt="Junior, Chintana, Amani, Nuwan e Leonardo"></a></p>
+
+<p>No último fim de semana estivemos participando do <a href="http://wso2.com/events/workshops/2011-november-sao-paulo-open-paas-workshop/">Open PaaS Workshop: Understanding the Stratos Cloud Platform</a> em São Paulo.</p>
+
+<p>O <em>workshop</em> foi uma ótima oportunidade para conhecermos outras pessoas que utilizam a plataforma. E, também, saber que um pessoal do WSO2 veio ao Brasil realizar um <em>quickstart</em> em duas empresas, uma de Uberlândia e outra de São Paulo. Esses dois <em>cases</em>, são os primeiros <em>cases</em> privados que ficamos sabendo, publicamente. Estamos atrás de maiores detalhes sobre os projetos para escrevermos sobre eles.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-150x150.jpg"></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-2-150x150.jpg"></a>
+<a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-3.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-galera-3-150x150.jpg"></a></p>
+
+<p>Isso mostra que o <a href="http://wso2.org">WSO2</a> está em crescimento no Brasil. E o que só ajuda a confirmar esse crescimento, é a participação da concorrência no <em>workshop</em> e também outras empresas interessadas em utilizar o WSO2.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-diogenes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-diogenes-300x225.jpg" alt="" /></a></p>
+
+<p>O <em>workshop</em> foi aberto pelo Diogenes Justo (<a href="http://www.indusval.com.br">Banco Indusval</a>) que deu uma introdução, falou um pouco do projeto, as opções estudadas e como chegou até o WSO2. Foi mais um bate-papo com a galera, passando uma visão muito interessante sobre o projeto deles. Conversamos com ele para que nos passasse mais detalhes sobre o projeto e a experiência de trabalhar com a plataforma, logo teremos boas novidades e mais conteúdo para vocês, vindo de outra fonte!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-chintana.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-chintana-150x150.jpg" alt="" /></a> <a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-nuwan.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-nuwan-150x150.jpg" alt="" /></a></p>
+
+<p>Também tivemos o <a href="http://wso2.com/about/team/chintana-wilamuna">Chintana Wilamuna</a> e o <a href="http://wso2.com/about/team/nuwan-bandara">Nuwan Bandara</a> falando sobre a plataforma em nuvem do WSO2 (<a href="http://stratoslive.wso2.com">Stratos Live</a>) e tirando várias dúvidas do pessoal! Todos estavam bastante curiosos e questionadores. As dúvidas foram bastante diversificadas, não apenas sobre <em>cloud</em>. O que gerou uma conversa legal e uma ótima troca de experiências.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-amani.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/11/wso2-soa-workshop-amani-300x225.jpg" alt="" /></a></p>
+
+<p>Fechando as palestras por parte do pessoal do WSO2, veio a <a href="http://wso2.com/about/team/amani-soysa/">Amani Soysa</a>, que falou e mostrou um pouco do poderio do <a href="http://wso2.org/library/dss">WSO2 Data Services Server</a>. O que é uma "sacanagem", uma das ferramentas mais úteis e práticas. Não sou o cara mais imparcial pra falar da palestra da Amani, pois sou um amante declarado dessa do WSO2 DSS, então passo a bola.</p>
+
+<p>E, para fechar o evento, falei um pouco sobre nossa implantação aqui no <a href="http://www.ici.curitiba.org.br">ICI</a>. Tracei o perfil da equipe que participou do projeto, das opções e escolhas que fizemos, um pouco das vantagens e, também, dos problemas enfrentados em uma implantação sem suporte algum, em uma realidade menos 'enterprise'. E, claro, falei um pouco da comunidade <a href="http://www.wso2brasil.com.br">WSO2 Brasil</a> para que a galera se anime a estudar, ajudar e contribuir.</p>
+
+<p>A minha parte da palestra foi gravada, assim que eu conseguir a gravação, compartilharei por aqui. Por enquanto segue a minha apresentação, abaixo:</p>
+
+<iframe src="https://docs.google.com/present/embed?id=dd38hq7r_18dpb73rcp" frameborder="0" width="410" height="342"></iframe>
+
+
+<p>Resumindo, o evento foi muito bom! E para fechar com chave de ouro, recebemos um convite para acompanhar o <em>quickstart</em> do pessoal do WSO2 (pequenos <em>workshops</em> e instalação de alguns produtos) no <a href="http://www.indusval.com.br">Banco Indusval</a> de São Paulo. Um dos motivos da demora para escrevermos sobre.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services Server e suas atualizações]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/"/>
+    <updated>2011-10-06T15:58:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg" alt="" /></a></p>
+
+<p>Se tem uma tarefa que toma muito tempo nosso, são os testes quando sai versão nova de algum produto do <a href="http://wso2.org">WSO2</a>.</p>
+
+<p>Estamos trabalhando na migração do <a href="/tag/data-services/">WSO2 Data Services Server</a> <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">2.5.1</a> para a <a href="/2011/06/novidades-wso2-data-services-server-2-6-x/">2.6.0</a> e isso gera uma árdua tarefa de testar todos os serviços que temos rodando, que rodam com diferentes banco de dados (<a href="http://dev.mysql.com">MySQL</a>, <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.microsoft.com/sqlserver/">SQL Server</a>, <a href="http://www.oracle.com/br/">Oracle</a>).</p>
+
+<p>Na maioria das vezes não encontramos problema algum ou apenas uma pequena
+mudança de atributo ou <em>tag</em> na definição dos .dbs. Mas as vezes encontramos
+problemas que fogem da simples configuração do data service, e como aconteceu
+agora conosco: um <em>bug</em>.</p>
+
+<p>Para tentar minimizar esse trabalho gerei um projeto que tem a ideia de
+automatizar ao máximo esse tipo de trabalho! E, para com isso, irmos além dos
+testes unitários que são realizados pelo pessoal do desenvolvimento do WSO2,
+testar as interfaces em real funcionamento, nos mais variados bancos de dados.</p>
+
+<p>E assim nasceu o pequeno projeto <a href="http://github.com/WSO2Brasil/wso2-ds-tests">wso2-ds-tests</a>. Que é um apanhando de data
+services, sql's e projeto do <a href="http://www.soapui.org/">SOAPUI</a>. Para maiores
+informações basta <a href="http://github.com/WSO2Brasil/wso2-ds-tests">acessar o projeto</a> no <a href="http://github.com">Github</a>!</p>
+
+<p>Deem uma olhadela por lá e qualquer contribuição é muito bem vinda, basta
+fazer um <em>fork</em> e mandar um <em>pull request</em>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o plugin do WSO2 Data Services Server para o Eclipse]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse/"/>
+    <updated>2009-12-18T12:21:41-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/12/compilando-o-plugin-do-wso2-data-services-para-o-eclipse</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/eclipse-wso2-ds.png" alt="Eclipse + WSO2 Data Service" /> Como não encontrei uma versão
+final do plugin para o <a href="http://www.eclipse.org">Eclipse</a> para criação, edição
+e deploy de serviços do <a href="http://wso2.org/projects/data-services-server/java">WSO2 Data Services Server</a> na página de downloads do site, o jeito foi
+compilar o plugin a partir do fonte disponível no
+<a href="http://wso2.org/svn">repositório</a> (e viva o código aberto). E seguem abaixo
+os passos necessário para o procedimento.</p>
+
+<h2>Requisitos</h2>
+
+<p>Será necessário que você tenha instalado os programas abaixo para poder
+realizar esse processo. Não é minha ideia ensinar como instalar, mas com uma
+busca no <a href="http://www.google.com.br">Google</a> esse problema deve ser facilmente
+resolvido:</p>
+
+<ul>
+<li><a href="http://subversion.tigris.org/">Subversion</a></li>
+<li><a href="http://maven.apache.org/">Maven2</a></li>
+</ul>
+
+
+<h2>Baixando fontes</h2>
+
+<p>Primeiro passo é baixar do <a href="http://wso2.org/svn">repositório</a> o código fonte
+da última versão:</p>
+
+<pre><code>svn co https://wso2.org/repos/wso2/trunk/tools/ide/eclipse/data-service/org.wso2.ws.dataservices.ide/
+</code></pre>
+
+<h2>Compilação</h2>
+
+<p>Depois de baixados os fontes, basta entrar na pasta que foi gerada e mandar
+compilar:</p>
+
+<pre><code>cd org.wso2.ws.dataservices.ide
+mvn install
+</code></pre>
+
+<p>Esse processo pode demorar um pouco, pois ele realiza o download de diversas
+dependências para compilação, mas no fim ele gera dentro do diretório "target"
+com o arquivo "org.wso2.ws.dataservices.ide_1.0.0.jar" que deve ser instalado
+no seu Eclipse.</p>
+
+<h2>Instalação</h2>
+
+<p>No meu caso, o Eclipse está instalado no meu <em>home</em> e é para lá que copiei o
+arquivo.</p>
+
+<pre><code>cp target/org.wso2.ws.dataservices.ide_1.0.0.jar ~/Applications/eclipse/plugins/.
+</code></pre>
+
+<h2>Finalização</h2>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-wizard-new.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/12/wso2-data-services-wizard-new-300x234.png" alt="WSO2 Data services: Wizard new" /></a></p>
+
+<p>E com isso, no menu de "Novo", do seu Eclipse, deve
+ter a opção de <em>wizard</em> para criação e após criado o serviço (que ficará para
+um outro post) você tem a opção de clicar com o botão direito no arquivo e
+editar (<em>Edit Data Service</em>) ou realizar o <a href="/glossario/#Deploy">deploy</a>
+(<em>Deploy Data Service</em>).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Software livre, código aberto e o mundo SOA]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/software-livre-codigo-aberto-e-o-mundo-soa/"/>
+    <updated>2009-11-26T19:08:32-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/software-livre-codigo-aberto-e-o-mundo-soa</id>
+    <content type="html"><![CDATA[<p>Procurando por suítes SOA é muito comum ouvir falar de Oracle, WebSphere e -
+meio de longe - BizTalk. Mas, além de pagas, não são nem um pouco baratas.</p>
+
+<p>Esse preço pode ser na maioria das vezes inviável para empresas de menor
+porte, sobrando apenas as soluções de menor porte (e preço) e as opções
+livres. E aí sobra pra quem "inventou" a moda, afinal, "quem inventa aguenta".</p>
+
+<p>Dois anos atrás, quando começamos os estudos para implementação de SOA aqui no
+trabalho, apanhamos - e muito - com esse problema. Tínhamos que implantar toda
+a arquitetura escolhida de maneira barata (entenda: de graça).</p>
+
+<p>Achamos muitas opções que prometiam resolver os problemas, mas que no fim
+trazia "N" dificuldades na implementação, desenvolvimento e/ou até instalação.
+Tudo parecia meio cru e o que diziam ser as melhores, não passavam de um
+serviço e um milhão de arquivos (em sua maioria XML) para serem editados quase
+que totalmente manual.</p>
+
+<p>Alguns dos problemas que enfrentamos na maioria das soluções foram:</p>
+
+<ul>
+<li><strong>Documentação</strong>: se não fosse nula, era fraca e muito pouco clara;</li>
+<li><strong>Desenvolvimento</strong>: o lançamento de novas versões e correções de bugs eram lentos (sem contar as frases do tipo "na versão Enterprise está resolvido");</li>
+<li><strong>Comunidade</strong>: praticamente o mesmo problema da documentação, nula; e</li>
+<li><strong>Código aberto</strong>: algumas ferramentas dizem "código aberto", porém abrem uma parte do código (que normalmente doam para a Apache Foundation) e o crucial não, impossibilitando corrigirmos ou descobrimos o que acontece.</li>
+</ul>
+
+
+<p>A lista acima não diz tudo pelo que passamos e enfrentamos, é apenas um
+resumo. Então, após testar algumas ferramentas e utilizar algumas outras,
+optamos pelo <a href="http://www.wso2.org/">WSO2</a>, que apesar de não resolver todos
+nossos problemas, pelo menos chegou mais perto.</p>
+
+<p>Vamos fazer uma comparação com os problemas listados e o que nos levou a
+escolhê-lo:</p>
+
+<ul>
+<li><strong>Documentação</strong>: quando começamos era praticamente nula, mas como eles utilizam outros projetos livres (como: <a href="http://synapse.apache.org">Apache Synapse</a>, <a href="http://ws.apache.org/axis2">Apache Axis2</a>, <a href="http://ws.apache.org/rampart">Apache Rampart</a> e etc) sem maiores modificações, fica mais fácil achar documentação para o seu problema naquele projeto ou biblioteca e atualmente eles estão melhorando um pouco nisso escrevendo <a href="http://wso2.org/library">artigos</a> e disponibilizando alguns webcasts grátis;</li>
+<li><strong>Desenvolvimento</strong>: os lançamentos de versões está numa velocidade boa e rápida, apenas os bugs ainda peca um pouco, mas olhando o JIRA é possível achar vários <em>patches</em>, nos deixando ainda a opção de alterar o código, caso queira;</li>
+<li><strong>Comunidade</strong>: é fraca como todos os outros, existe o <a href="http://wso2.org/forum">fórum</a>, mas é somente em inglês; e</li>
+<li><strong>Código aberto</strong>: como dito antes, o <a href="https://wso2.org/svn/browse/wso2/trunk/">código</a> é aberto e você pode alterar a vontade, que pode ajudar na necessidade de resolução de bugs mais críticos.</li>
+</ul>
+
+
+<p>Pode não ser a solução perfeita, mas foi o que mais nos deixou tranquilos para
+trabalhar. Alguns produtos ainda tem muito o que evoluir e alguns estão bem
+evoluídos, mas com muito a melhorar. Posso dizer que estamos bem com a opção
+que fizemos, mesmo que não tenhamos chego aos 100% de implantação da
+arquitetura que pensamos.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SOA está para WSO2 ou WSO2 está para o SOA?]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/soa-esta-para-wso2-ou-wso2-esta-para-o-soa/"/>
+    <updated>2009-11-26T07:00:27-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/soa-esta-para-wso2-ou-wso2-esta-para-o-soa</id>
+    <content type="html"><![CDATA[<p>Um toque do <a href="http://www.nivaldoarruda.com.br">Nivaldo</a> e percebi a necessidade
+de explicar melhor o que são os softwares que comento por aqui. Para tentar
+suprir essa necessidade dos "perdidos" que por acaso venham parar por aqui,
+farei alguns posts mais explicativos e menos práticos (assim digamos).</p>
+
+<p>E para começar vou tentar explicar o que o WSO2 representa para o SOA e o que
+o SOA representa para o WSO2, mas antes disso preciso explicar um pouco o que
+é cada um dos dois, então vamos lá:</p>
+
+<p><strong><a href="/glossario/#WSO2">WSO2</a>:</strong> Segundo o <a href="http://www.wso2.org">site</a> da plataforma (tradução livre): "Produtos de código-livre integrados e modulares que dão suporte para criação de uma plataforma SOA, suprindo a parte de criação, conexão, composição e governança de serviços".
+<strong><a href="/glossario/#SOA">SOA</a>:</strong> É uma estratégia que propõem organizar os ativos de software de forma que eles possam representar processos, atividades ou tarefas de negócio de forma direta. Tais representações são chamadas de serviço, que devem ser baseadas em padrões e facilmente combinados e reutilizados visando a satisfação dos requerimentos de negócio (para uma explicação um pouco mais detalhada, ver <a href="http://www.ici.curitiba.org.br/exibirArtigo.aspx?idf=13">aqui</a>, valeu AC!).</p>
+
+<p>E o que eu quero dizer com tudo isso? Digamos que para implementar e implantar
+SOA necessitamos escolher uma arquitetura e nesse ponto a participação do WSO2
+é muito importante. Pois alguns outros produtos tentam impor a arquitetura,
+diferente do WSO2, que dá a opção de você montar todo esse "quebra-cabeça" da
+forma que bem entender.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa.png" title="Arquitetura SOA (pequeno quebra-cabeça)"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa-300x225.png" alt="Arquitetura SOA (pequeno quebra-cabeça)" /></a></p>
+
+<p>E agora, nessa arquitetura de exemplo mostro onde encaixam alguns dos produtos
+do WSO2:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa-with-wso2.png" title="Arquitetura SOA com WSO2"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa-with-wso2-300x225.png" alt="&quot;Arquitetura SOA com WSO2&quot;" /></a></p>
+
+<p>É claro que no decorrer do desenvolvimento do projeto, algumas coisas podem ir
+se acertando. Até porque essa arquitetura que utilizei como exemplo não é a
+ideal para todo e qualquer caso, tudo deve ser pensado com muita calma.</p>
+
+<p>Existem outros produtos na plataforma que não estão mostrados na imagem acima
+e que em determinados casos podem (e devem) ser utilizados. Mas quis passar
+somente um pouco do que o WSO2 representa nesse mundo da sopa de letrinhas que
+é o mundo SOA.</p>
+
+<p>Com o tempo vou tentar explicar cada uma das "caixinhas" e como cada um dos
+produtos se comporta para suprir essa necessidade.</p>
+]]></content>
+  </entry>
+  
+</feed>

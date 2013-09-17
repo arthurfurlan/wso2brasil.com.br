@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: definição | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/definicao/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SOA está para WSO2 ou WSO2 está para o SOA?]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/soa-esta-para-wso2-ou-wso2-esta-para-o-soa/"/>
+    <updated>2009-11-26T07:00:27-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/soa-esta-para-wso2-ou-wso2-esta-para-o-soa</id>
+    <content type="html"><![CDATA[<p>Um toque do <a href="http://www.nivaldoarruda.com.br">Nivaldo</a> e percebi a necessidade
+de explicar melhor o que são os softwares que comento por aqui. Para tentar
+suprir essa necessidade dos "perdidos" que por acaso venham parar por aqui,
+farei alguns posts mais explicativos e menos práticos (assim digamos).</p>
+
+<p>E para começar vou tentar explicar o que o WSO2 representa para o SOA e o que
+o SOA representa para o WSO2, mas antes disso preciso explicar um pouco o que
+é cada um dos dois, então vamos lá:</p>
+
+<p><strong><a href="/glossario/#WSO2">WSO2</a>:</strong> Segundo o <a href="http://www.wso2.org">site</a> da plataforma (tradução livre): "Produtos de código-livre integrados e modulares que dão suporte para criação de uma plataforma SOA, suprindo a parte de criação, conexão, composição e governança de serviços".
+<strong><a href="/glossario/#SOA">SOA</a>:</strong> É uma estratégia que propõem organizar os ativos de software de forma que eles possam representar processos, atividades ou tarefas de negócio de forma direta. Tais representações são chamadas de serviço, que devem ser baseadas em padrões e facilmente combinados e reutilizados visando a satisfação dos requerimentos de negócio (para uma explicação um pouco mais detalhada, ver <a href="http://www.ici.curitiba.org.br/exibirArtigo.aspx?idf=13">aqui</a>, valeu AC!).</p>
+
+<p>E o que eu quero dizer com tudo isso? Digamos que para implementar e implantar
+SOA necessitamos escolher uma arquitetura e nesse ponto a participação do WSO2
+é muito importante. Pois alguns outros produtos tentam impor a arquitetura,
+diferente do WSO2, que dá a opção de você montar todo esse "quebra-cabeça" da
+forma que bem entender.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa.png" title="Arquitetura SOA (pequeno quebra-cabeça)"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa-300x225.png" alt="Arquitetura SOA (pequeno quebra-cabeça)" /></a></p>
+
+<p>E agora, nessa arquitetura de exemplo mostro onde encaixam alguns dos produtos
+do WSO2:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa-with-wso2.png" title="Arquitetura SOA com WSO2"><img src="http://assets.mcorp.com.br/wp-content/uploads/2009/11/arquitetura-soa-with-wso2-300x225.png" alt="&quot;Arquitetura SOA com WSO2&quot;" /></a></p>
+
+<p>É claro que no decorrer do desenvolvimento do projeto, algumas coisas podem ir
+se acertando. Até porque essa arquitetura que utilizei como exemplo não é a
+ideal para todo e qualquer caso, tudo deve ser pensado com muita calma.</p>
+
+<p>Existem outros produtos na plataforma que não estão mostrados na imagem acima
+e que em determinados casos podem (e devem) ser utilizados. Mas quis passar
+somente um pouco do que o WSO2 representa nesse mundo da sopa de letrinhas que
+é o mundo SOA.</p>
+
+<p>Com o tempo vou tentar explicar cada uma das "caixinhas" e como cada um dos
+produtos se comporta para suprir essa necessidade.</p>
+]]></content>
+  </entry>
+  
+</feed>

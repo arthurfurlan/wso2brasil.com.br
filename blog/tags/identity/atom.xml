@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: identity | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/identity/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ Segurança de informações através de filtragem de dados no WSO2 Data Services]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/"/>
+    <updated>2011-02-24T19:30:30-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/cadeado.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/cadeado-300x199.jpg" alt="" /></a></p>
+
+<p>Em alguns casos, podemos nos deparar com a necessidade de confidencializar
+alguns dados no retorno de <a href="http://www.mcorp.com.br/glossario/#DataServices">Data Services</a>,
+exibindo-os apenas
+para determinados grupos de usuários, tanto por questão de segurança (quando
+algum grupo específico não pode ter acesso a algumas informações),  quanto por
+não ter a necessidade de utilizar esse retorno, para que assim não precisemos
+criar dois serviços com a mesma finalidade. O WSO2 Data Services Server
+oferece a possibilidade de filtrar esses dados no retorno de uma <em>query</em>,
+através do <a href="http://www.mcorp.com.br/glossario/#WS-Security">WS-Security</a> (tem
+como foco principal o uso de <a href="http://www.mcorp.com.br/glossario%0A/#XML-Signature">XML Signature</a> e <a href="http://www.mcorp.com.br/glossario/#XML-Encryption">XML Encryption</a>). Nesse caso irei exemplificar a seguinte situação: um serviço que
+retorna dados referente aos funcionários, sendo consumido por dois
+departamentos: o RH (que necessita dos dados referente aos pagamentos dos
+honorários) e o setor de segurança (que utiliza apenas os dados cadastrais
+para acesso dos funcionários as dependências da empresa).</p>
+
+<p>Iremos utilizar nesse exemplo o WSO2 Data Services Server em sua versão 2.5.1
+(nesse caso considerando um conhecimento básico da suíte
+<a href="http://www.mcorp.com.br/glossario/#WSO2">WSO2</a>, caso contrário consulte os
+<a href="http://www.mcorp.com.br/tag/wso2"><em>posts</em> relacionados ao WSO2</a>):</p>
+
+<ul>
+<li><a href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/">Criando um ambiente SOA com WSO2</a></li>
+<li><a href="http://www.leandroprado.com.br/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/">Criando serviços com WSO2 Data Services</a></li>
+</ul>
+
+
+<p>Supondo que possuímos o banco de dados, com uma tabela simples chamada de
+TB_FUNCIONARIOS, com os campos: ID, NOME E SALARIO.</p>
+
+<h2>Etapa 1 - Criando o usuário</h2>
+
+<p>Logado ao WSO2 Data Services Server vá em "Home > Configure > User Management > Users",
+para que possamos criar novos usuários, nesse caso criaremos os
+usuários "Maria" que faz parte do departamento de RH da empresa e "Joao" que
+faz parte da segurança do prédio. Click em "Add User" para preenchermos os
+dados do usuário que será cadastrado.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.0-add-user-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.0-add-user-wso2-300x205.jpg" alt="add user wso2" /></a></p>
+
+<p>Após inserir os dados do usuário, clicar em "finish", repetir o procedimento
+pro cadastro do outro usuário. Podemos listar os usuários criados como mostra
+a imagem.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.1-list-user-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.1-list-user-wso2-300x149.jpg" alt="list user wso2" /></a></p>
+
+<h2>Etapa 2 - Criando grupos de usuários</h2>
+
+<p>Com nossos usuários criados, vamos gerar um grupo para vincular ao perfil do
+usuário. Vá em "Home > Configure > Users and Roles > Roles", serão listados os
+grupos existentes no WSO2, clique em "Add New Role" que abrirá a tela para
+cadastrarmos os grupos.</p>
+
+<p>Crie um grupo com o nome "RecursosHumanos", em seguida clique em "next",
+aparecerá a tela com os flags de permissões e previlégios para os membros do
+grupo. Nesse caso vamos selecionar a opção "All permissions", para que sejam
+marcadas todas as opções. Enquanto estamos criando o grupo, já podemos
+vincular os usuários que farão parte do mesmo, faça uma busca listando todos
+os usuários e selecione o usuário "Maria" criado anteriormente, como na imagem
+abaixo e finalize.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.2-select-user-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.2-select-user-wso2-300x170.jpg" alt="select user wso2" /></a></p>
+
+<p>Agora usando o mesmo processo vamos criar o grupo "Seguranca". Observe que
+quando selecionamos algum usuário criado e vinculado ao grupo, o mesmo possui
+um ou vários grupos selecionados.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.3-roles-of-users-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.3-roles-of-users-wso2-300x176.jpg" alt="roles of users wso2" /></a></p>
+
+<h2>Etapa 3 - Filtrando dados da consulta</h2>
+
+<p>Com os usuários e grupos devidamente criados vamos finalmente ao que
+interessa, filtrar os dados de acordo com o perfil de cada grupo. Considerando
+que já exista um serviço "empresa", vamos criar o método
+"pesquisarFuncionario" para demonstrar como filtrar os dados de retorno do
+método. Nesse caso, o método nos retornará os campos "ID" e "NOME" para o
+grupo Segurança, e "ID", "NOME" e "SALARIO" para o grupo RecursosHumanos.</p>
+
+<p>Iremos em "Home > Manage > Services > List > Service Dashboard > Service
+Details > Data Sources > Queries",  para inserirmos nosso novo método.
+Preenchemos com o SQL, o campo de entrada, e na hora em que formos preencher o
+retorno será onde a "mágica" acontecerá.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.4-edit-query-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.4-edit-query-wso2-300x176.jpg" alt="edit query wso2" /></a></p>
+
+<p>No item "Add new output Mapping" abriremos a tela para cadastrar um novo campo
+de retorno, preenchemos o tipo do campo, o nome de saída e o nome do campo no
+SQL. Abaixo dessas opções temos o item "Allowed User Roles", aonde aparecerão
+os grupos que criamos anteriormente, para os campos "ID E NOME" selecionaremos
+ambos os grupos, no caso do campo "SALARIO" selecionaremos apenas o grupo
+RecursosHumanos, com o método criado mostraremos como consumir esse método
+filtrando os dados.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.5-add-edit-output-mapping-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.5-add-edit-output-mapping-wso2-300x160.jpg" alt="add edit output mapping wso2" /></a></p>
+
+<h2>Etapa 4 - Testando a filtragem de dados</h2>
+
+<p>Agora vamos abrir a opção " Home > Manage > Services > List > Service
+Dashboard > Security for the service > Activate Security > Service Dashboard >
+Security for the service", selecionamos a opção "yes" no combo e setamos o
+flag "UsernameToken", assim estaremos habilitando segurança por grupo e
+usuário do cliente.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.6-security-for-the-service-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.6-security-for-the-service-wso2-300x130.jpg" alt="security for the service wso2" /></a></p>
+
+<p>Simulando a execução do serviço, no próprio WSO2 Data Services Server, podemos
+perceber que aparecem as opções "username" e "password". O retorno será
+filtrado de acordo com o usuário que for preenchido nesses campos. Executando
+a consulta, notaremos que o campo "SALARIO" só aparece no retorno se
+utilizarmos o usuário "Maria".</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.9-full-return-service-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.9-full-return-service-wso2-300x126.jpg" alt="full return service wso2" /></a></p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.8-parcial-return-service-wso2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/02/figura1.8-parcial-return-service-wso2-300x128.jpg" alt="parcial return service wso2" /></a></p>
+
+<p>Espero ter colaborado, sugestões e criticas são sempre bem vindas, focando o
+objetivo de transformar a comunidade <a href="http://www.wso2brasil.com.br/">WSO2 Brasil</a> cada vez mais forte, até o próximo
+post.</p>
+
+<p>Post baseado no artigo "<a href="http://wso2.org/library/articles/content-filtering-data-services-user-roles">content filtering data services user roles</a>" de Anjana Fernando - Software Engineer WSO2.</p>
+
+<p>Pode ser visto um exemplo de <a href="http://www.mcorp.com.br/2010/03/consumindo-um-servico-seguro-utilizando-php/">consumo um servico seguro utilizando php</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lançamento do WSO2 Stratos (alpha)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/lancamento-do-wso2-stratos-alpha/"/>
+    <updated>2010-06-01T15:50:24-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/lancamento-do-wso2-stratos-alpha</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos.png" alt="" />O
+pessoal do <a href="http://wso2.org">WSO2</a> anda com todo o vapor mesmo, hoje foi
+lançado (versão <em>alpha</em> ainda) o <a href="http://wso2.com/cloud/stratos/">WSO2 Stratos</a>, toda a plataforma rodando em <em>cloud
+computing</em>, ou seja, tudo "empacotado" e pronto para rodar, sem dependência de
+hardware e instalações.</p>
+
+<p>Você pode conseguir maiores informações no site do produto <a href="http://wso2.com/cloud/stratos/">WSO2 Stratos</a> (em inglês) e, também, testar tudo
+funcionando (lembrando que não é uma versão final ainda) fazendo seu cadastro
+- grátis. <a href="http://cloud.wso2.com/">Testar o WSO2 Stratos</a>.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos-home.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos-home-300x228.png" alt="" /></a></p>
+
+<p>Os produtos lançados nesse formato são:</p>
+
+<ul>
+<li>Governance</li>
+<li>Identity</li>
+<li>Application Server</li>
+<li>Gadgets</li>
+<li>Mashup Server</li>
+<li>Business Activity Monitor</li>
+<li>Enterprise Service Bus</li>
+</ul>
+
+
+<p>Assim que sobrar um tempo vou ver como ficariam implementações utilizando a
+versão livre deles e ver até onde ela está liberada para ser utilizada. E
+também a dificuldade de trabalhar dessa forma.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Business Activity Monitoring + SQL Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server/"/>
+    <updated>2010-04-06T15:44:57-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do "chefe", realizei o download
+e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
+testes.</p>
+
+<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
+para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
+(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
+(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
+
+<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
+de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
+propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
+"bam", e para minha não-surpresa, lá estavam mais dois diretórios:</p>
+
+<ul>
+<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
+<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
+</ul>
+
+
+<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
+configuração que pudesse conter a conexão apontando para esses arquivos.</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+</code></pre>
+
+<p>Ops, não encontrei nada. Nova tentativa:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
+[milhões de respostas - ocultadas por mim - que não ajudam em nada]
+</code></pre>
+
+<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+</code></pre>
+
+<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho "sujo".</p>
+
+<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
+criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
+
+<ul>
+<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
+<li>repository/dataservices/BAMConfigurationDS.dbs</li>
+<li>repository/dataservices/BAMStatQueryDS.dbs</li>
+<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
+<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
+</ul>
+
+
+<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e...
+<em>voilà</em>.</p>
+
+<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
+</code></pre>
+
+<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
+capítulo, sempre acompanhado de dicas e descobertas. (:</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Novidades nos lançamentos (nov/2009) da plataforma WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/novidades-nos-lancamentos-nov2009-da-plataforma-wso2/"/>
+    <updated>2009-11-24T12:28:20-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/novidades-nos-lancamentos-nov2009-da-plataforma-wso2</id>
+    <content type="html"><![CDATA[<p>Como avisei <a href="http://www.mcorp.com.br/2009/11/wso2-e-a-quinta-feira-agitada-muitos-lancamentos/">aqui</a> e no <a href="http://www.twitter.com/vyper">twitter</a>
+semana passada, o pessoal do <a href="http://www.wso2.org">WSO2</a> lançou algumas
+atualizações nos <a href="http://wso2.org/projects">projetos</a> da plataforma WSO2
+Carbon. Mas somente agora, com o lançamento oficial, é que podemos descobrir o
+que foi atualizado.</p>
+
+<p>Segue um resumão (baseado nas notas de lançamento) com o que foi atualizado em
+cada um dos projetos.</p>
+
+<h2>WSO2 Web Services Application Server (v3.1.2)</h2>
+
+<ul>
+<li>Correções em vários softwares que fazem parte dele: Apache Axis2, Apache Rampart, Apache Sandesha2, WSO2 Carbon e alguns outros projetos;</li>
+<li>Correção da limpeza de memória após reiniciar o servidor.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/wsas/java/3.1.2/docs/release_notes.html">aqui</a>.</p>
+
+<h2>WSO2 Enterprise Service Bus (v2.1.2)</h2>
+
+<ul>
+<li>Diversas melhorias e correções desde a versão 2.1.0 lançada em julho de 2009.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/esb/java/2.1.2/docs/release-notes.html">aqui</a>.</p>
+
+<h2>WSO2 Governance Registry (v3.0.2)</h2>
+
+<ul>
+<li>Melhoria no suporte a transação;</li>
+<li>Suporte ao WebSphere, WebLogic e JBoss;</li>
+<li>Baseado na suíte WSO2 Carbon;</li>
+<li>Suporte a clusterização;</li>
+<li>Correção de vários <em>bugs</em>.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/registry/3.0.2/docs/release-notes.html">aqui</a>.</p>
+
+<h2>WSO2 Business Process Server (v1.1.0)</h2>
+
+<ul>
+<li>Nova camada de integração WSO2 Carbon para o Apache ODE;</li>
+<li>Utilizando Apache ODE 2.0-beta (baseado no trunk) como engine BPEL;</li>
+<li>Suporte experimental para clusterização;</li>
+<li>Suporte para consumo de serviços seguros (usando WS-Security);</li>
+<li>Utilizando OpenJPA para camada de acesso a dados ODE;</li>
+<li>Recuperação de atividades utilizando o management console;</li>
+<li>Atualização online (<em>hot update</em>) do pacote BPEL facilitam o versionamento;</li>
+<li>Suporte a manipulação de dados utilizando E4X nos processos BPEL.</li>
+</ul>
+
+
+<p>Aqui deixo um adendo, baseado em alguns testes superficiais que fiz, posso
+dizer que não é indicado colocar essa versão em produção. Como disseram nas
+notas de lançamento, muita coisa está incompleta ainda e achei alguns
+probleminhas. Mas é interessante tentarmos colocar os processos BPEL e
+realizar testes para reportarmos os problemas e ajudarmos na correção dos
+mesmos para a versão 1.1.1 (que espero que chegue logo).</p>
+
+<p>Isso é até compreensível, já que se trata de uma nova versão e não apenas
+correções de bugs como as outras. (:</p>
+
+<p>Versão original com cada item comentado (inglês): <a href="http://wso2.org/project/bps/1.1.0/docs/release-note.html">aqui</a>.</p>
+
+<h2>WSO2 Identity Server (v2.0.2)</h2>
+
+<ul>
+<li>Correções em vários softwares que fazem parte dele: Apache Axis2, Apache Rampart, Apache Sandesha2, WSO2 Carbon e alguns outros projetos.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/solutions/identity/2.0.2/docs/release-%0Anotes.html">aqui</a>.</p>
+
+<h2>WSO2 Mashup Server (v2.0.1)</h2>
+
+<ul>
+<li>Interface visual para gerenciar as tarefas agendadas;</li>
+<li>Baseado no WSO2 Carbon SOA Framework que irá facilitar habilitação de funções a um clique, como o gerenciamento de Data Services nas futuras versões do Mashup Server.</li>
+</ul>
+
+
+<p>Versão original (inglês): <a href="http://wso2.org/project/mashup/2.0.1/docs/release_notes.html">aqui</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

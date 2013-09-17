@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: tarefa | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/tarefa/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Agendamento de tarefas na WSO2 Enterprise Service Bus]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/"/>
+    <updated>2013-03-15T11:11:13-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus</id>
+    <content type="html"><![CDATA[<p>Em alguns casos vemos a necessidade de agendar algumas tarefas para a execução de algum script ou rotina, no projeto que estou trabalhando atualmente surgiu a necessidade de monitorar um <em>WS</em> a cada 5 segundos. Pensei em criar uma tarefa no <a href="http://pt.wikipedia.org/wiki/Crontab">crontab</a>, mas com isso seria complicado eu ter um controle mais detalhado sobre a execução da mesma, então me lembrei que na <a href="http://wso2.com/products/enterprise-service-bus/">WSO2 Enterprise Service Bus</a> existe uma funcionalidade que provê exatamente essa funcionalidade.</p>
+
+<p>Nesse caso, especificamente, eu teria que controlar através de <em>log</em> as informações de execução, criei um <em>log</em> no meu programa e pude utilizar os gráficos e relatórios da própria ferramenta.</p>
+
+<h1>Vamos exemplificar na prática esse uso</h1>
+
+<p>As configurações abaixo foram feitas utilizando a versão 4.5.0 da WSO2 ESB.</p>
+
+<h2>Criando a aplicação a ser executada</h2>
+
+<p>Utilizando o jar <em><a href="http://mirrors.ibiblio.org/pub/mirrors/maven2/org/apache/synapse/synapse-core/1.1/synapse-core-1.1.jar">synapse-core.1.1.jar</a> digitacomo dependência da aplicação, a seguir temos uma classe que exemplifica como ficarão nossos métodos, o método </em>execute_ será invocado de tempo em tempo na execução da tarefa, podemos programar o que quisermos ali, tanto a execução de um processo, uma atualização de base, uma chamada de um webservices e etc.</p>
+
+<p><div><script src='https://gist.github.com/5090589.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/5090589&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
+</p>
+
+<p>Iremos gerar o arquivo .jar dessa aplicação e o colocaremos dentro de <em>[ESB - Home]/repository/components/lib</em></p>
+
+<h2>Criando o agendamento</h2>
+
+<p>Primeiramente vamos selecionar a opção "Scheduled Tasks", na sequência "Add Task".</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-1.png"></p>
+
+<p>Iremos visualizar a tela onde cadastraremos nosso agendamento:</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-2.png"></p>
+
+<p>Nessa tela devemos preencher as opções obrigatórias, na opção "Task Implementation" iremos colocar o endereço da classe que iremos chamar, a mesma do arquivo .jar que colocamos no diretório da ESB anteriormente.</p>
+
+<p>E após apontar o endereço da classe clicaremos em "Load Task Properties", caso ocorra algum erro do endereçamento, será nos avisado pela aplicação.</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-3.png"></p>
+
+<p>Podemos adicionar mais propriedades para o nosso agendamento (de acordo com a classe implementada), após isso iremos configurar a "trigger" do agendamento, podemos utilizar o padrão <em>crontab</em> ou um padrão mais simples, nesse exemplo iremos cadastrar a opção de agendamento mais simples.</p>
+
+<p>Na opção "Count" iremos dizer ao agendamento quantas vezes essa tarefa será executada, caso essa tarefa rode sempre podemos colocar o valor "-1".</p>
+
+<p>Na opção "Interval" iremos colocar o período de cada execução dessa tarefa, o padrão do valor está em segundos. Então, após isso podemos clicar em "Schedule" e finalizarmos o agendamento.</p>
+
+<p><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/03/agendamento-de-tarefas-na-wso2-esb-passo-4.png"></p>
+
+<p>É sempre interessante acompanharmos o <em>log</em> da aplicação para termos certeza que o agendamento funcionou perfeitamente.</p>
+]]></content>
+  </entry>
+  
+</feed>

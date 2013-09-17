@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: maven | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/maven/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o WSO2 Carbon 3.0.0 e corrigindo o WSO2 Data  Services Server 2.5.0]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/"/>
+    <updated>2010-06-16T10:17:12-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-data-services-server.gif" alt="" />Versões novas de produtos sempre são uma alegria, seja pelos
+recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
+nós desenvolvedores. Mas juntamente com as novas versões (principalmente nos
+primeiros releases) vem também problemas, bugs ou incompatibilidade de
+versões- os problemas mais comuns.</p>
+
+<p>E para não pararmos no tempo, vendo que <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">as novidades do WSO2 Data Services Server 2.5.0</a>
+seriam muito bem vindas para nós, resolvemos realizar testes para verificar a
+possibilidade de atualizarmos nossa versão da 2.2.1 para a 2.5.0, e surgiu
+aquela alegria quando vimos que não teríamos problemas de incompatibilidade
+como ocorreu nos testes de migração da 2.0 para <a href="/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/">WSO2 Data Services Server 2.2.1</a>.</p>
+
+<p>Mas como nem tudo são rosas, um velho <em>bug</em> conhecido nosso na versão 2.0 e
+discutido no <a href="http://wso2.org/forum/thread/5349">fórum - de não aceitar valores <em>null</em></a>, tinha sido corrigido na versão
+2.2.1; mas resolveu dar as caras na versão 2.5.0. E por necessitarmos das
+novidades dessa versão, tivemos que correr atrás e corrigir o problema, já
+corrigido anteriormente.</p>
+
+<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-carbon.gif" alt="" />Como já
+conhecemos a estrutura, fomos direto ao site do projeto para realizar o
+<a href="http://wso2.org/downloads/data-services-server">download do fonte do WSO2 Data Services Server</a> e fomos atrás do arquivo problemático (SQLQuery.java).
+Mas para nossa surpresa, o arquivo não estava mais lá, foi centralizado no
+projeto <a href="http://wso2.org/downloads/carbon">WSO2 Carbon</a>.</p>
+
+<p>Então com o arquivo de <a href="http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip">código-fonte do WSO2 Carbon
+3.0.0</a>
+devidamente baixado, vamos colocar a mão na massa.</p>
+
+<h2>Baixando e descompactando o fonte</h2>
+
+<pre><code>wget http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip
+unzip wso2carbon-3.0.0-src.zip
+</code></pre>
+
+<h2>Baixando e aplicando o <em>patch</em></h2>
+
+<pre><code>wget /wp-content/uploads/2010/06/wso2-dataservices-accept-null.txt
+cd wso2carbon-3.0.0-src patch -p1 wso2-dataservices-accept-null.patch
+</code></pre>
+
+<p>E a mensagem recebida aqui será algo como:</p>
+
+<pre><code>patching file components/data-services/org.wso2.carbon.dataservices.core/3.0.0/src/main/java/org/wso2/carbon/dataservices/dispatch/query/SQLQuery.java
+</code></pre>
+
+<h2>Compilando o componente</h2>
+
+<p>Levando em consideração que você tenha as dependências necessárias, vai ser um
+passo bem demorado. Vai fazer download de alguns pacotes, compilar, testar e
+gerar uma nova versão do componente, com a correção.</p>
+
+<pre><code>cd components/data-services
+mvn install
+</code></pre>
+
+<h2>Corrigindo o Data Services Server</h2>
+
+<p>Agora que temos o componente corrigido e devidamente compilado, vamos copiá-lo
+para a instância do WSO2 Data Services Server (levando em consideração que
+minha instalação fica em ~/Applications/wso2/wso2dataservices-2.5.0).</p>
+
+<pre><code>cp org.wso2.carbon.dataservices.core/3.0.0/target/org.wso2.carbon.dataservices.core-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.core-3.0.0.jar
+cp org.wso2.carbon.dataservices.ui/3.0.0/target/org.wso2.carbon.dataservices.ui-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.ui-3.0.0.jar
+</code></pre>
+
+<h2>Conclusão</h2>
+
+<p>Com o <em>patch</em> criado, testado e aplicado. Abrimos um <a href="https://wso2.org/jira/browse/CARBON-7589">pedido de correção no JIRA do WSO2</a>, para que eles possam
+corrigir na próxima <em>release</em> (provavelmente a 2.5.1). Caso você não tenha
+disponibilidade (de tempo ou paciência), pode baixar os componente do WSO2
+Data Services Server corrigido (bastando apenas descompactá-los).</p>
+
+<ul>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-core-3.0.0.tar.gz">org.wso2.carbon.dataservices.core-3.0.0.jar</a></li>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-ui-3.0.0.tar.gz">org.wso2.carbon.dataservices.ui-3.0.0.jar</a></li>
+</ul>
+
+
+<p>E tenho que falar, viva o código aberto e o software livre! (;</p>
+]]></content>
+  </entry>
+  
+</feed>

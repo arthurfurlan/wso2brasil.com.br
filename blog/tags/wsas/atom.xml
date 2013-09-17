@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: wsas | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/wsas/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Série criando serviços com WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/10/serie-criando-servicos-com-wso2/"/>
+    <updated>2010-10-22T00:00:00-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/10/serie-criando-servicos-com-wso2</id>
+    <content type="html"><![CDATA[<p>Veja abaixo os links para a série de posts de como criar serviços com o WSO2</p>
+
+<ul>
+<li><a href="http://www.leandroprado.com.br/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/">Criando um WSO2 DataServices</a></li>
+<li><a href="http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/">Criando um WSO2 Application Service</a></li>
+<li><a href="http://www.leandroprado.com.br/2010/10/criando-servicos-com-o-wso2-parte-3-wso2-esb">Criando roteamento na BUS</a></li>
+</ul>
+
+
+<p>Um Abraço!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Criando serviços com o WSO2 - Parte 2 - WSO2 WSAS]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/"/>
+    <updated>2010-10-05T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas</id>
+    <content type="html"><![CDATA[<p>Hoje vamos dar continuidade ao exemplo de como criar um serviço usando as ferramentas do WSO2, no post anterior criamos o Data Services, hoje estaremos criando o nosso Business Service e publicar no WSO2 WSAS.</p>
+
+
+<p>O nosso Business Service será responsável por conter a regra de negócio do nosso serviço, ou seja, para uma determinada entrada vindo da BUS vamos consumir o Data Service aplicar a nossa regra de negócio e retornar os dados para a BUS. Esse é o momento onde vamos meter a mão na massa e codificar em Java.</p>
+
+
+<p>Para consumir o Data Service vamos estar usando o Apache Axis2, que é um framework para contrução e consumo de webservices, portanto <a title="Axis2" href="http://ws.apache.org/axis2/download.cgi" target="_blank">clique aqui</a> e faça o download, a versão que estou usando é 1.5.1. Depois de concluído o download descompactar o arquivo e copiar para um diretório de sua preferência.</p>
+
+
+
+
+<h3>Criando um Business Service</h3>
+
+
+
+
+<p>1. Abra o Eclipse e vamos criar um novo projeto, clique em File -&gt; New -&gt; Project</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem1.png"><img class="aligncenter size-medium wp-image-542" title="Criando novo projeto Java" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem1.png" alt="" width="541" height="486" /></a></p>
+
+
+<p>Na nova janela que abriu, selecione Java Project clique em Next.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png"><img class="aligncenter size-medium wp-image-543" title="Selecionar Java Project" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem2.png" alt="" width="462" height="374" /></a></p>
+
+
+<p>Coloque o nome do projeto com <strong>RecursoHumanoServico</strong> depois clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png"><img class="aligncenter size-medium wp-image-544" title="Adicionando o nome do projeto" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem3.png" alt="" width="467" height="522" /></a></p>
+
+
+<p>Para deixar nosso projeto mais organizado vamos criar duas Package, clique com o botão direito em cima da pasta src  e selecione a opção New -&gt; Package</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem4.png"><img class="aligncenter size-medium wp-image-545" title="Criando as packages" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem4.png" alt="" width="507" height="337" /></a></p>
+
+
+<p>Coloque o nome do package de <strong>br.leandroprado.webservices.recursohumano</strong></p>
+
+
+<p style="text-align: center;"><strong><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem5.png"><img class="aligncenter size-medium wp-image-546" title="Nome da Package" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem5.png" alt="" width="492" height="398" /></a><br />
+</strong></p>
+
+
+<p>Adicione mais um package com o nome de <strong>br.leandroprado.webservices.recursohumano.entidades</strong>, veja como seu projeto deve ficar depois de criado as duas packages<strong><br />
+</strong></p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem6.png"><img class="aligncenter size-medium wp-image-547" title="Packages criadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem6.png" alt="" width="498" height="251" /></a></p>
+
+
+<p>2. Depois de configurado o o projeto temos que adicionar as bibliotecas do Axis2 que vamos utilizar, clique em Project -&gt; Properties</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem8.png"><img class="aligncenter size-medium wp-image-548" title="Adicionando as bibliotecas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem8.png" alt="" width="522" height="332" /></a></p>
+
+
+<p>Na nova janela que abrir, clique em Java Build Path -&gt; Libraries</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem9.png"><img class="aligncenter size-medium wp-image-549" title="Selecionar External Jars" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem9.png" alt="" width="519" height="365" /></a></p>
+
+
+<p>Clique no botão Add External JARs e vá até o diretório onde esta o Axis2, que baixamos anteriormente e selecione os seguintes JARs.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem10.png"><img class="aligncenter size-medium wp-image-550" title="Selecionando os Jars necessários" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem10.png" alt="" width="515" height="417" /></a></p>
+
+
+<p>Veja que em Libraries foi adicionado os JARs do Axis2.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem11.png"><img class="aligncenter size-medium wp-image-551" title="Libraries adicionadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem11.png" alt="" width="526" height="368" /></a></p>
+
+
+<p>3. Agora vamos começar a codificar o nosso serviço, clique com o botão direito em cima da package  <strong>br.leandroprado.webservices.recursohumano </strong>e selecione a opção New -&gt; Class</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem12.png"><img class="aligncenter size-medium wp-image-552" title="Criando uma nova classe" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem12.png" alt="" width="528" height="265" /></a></p>
+
+
+<p>Coloque o nome da nova classe de RecursoHumanoServico e clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem13.png"><img class="aligncenter size-medium wp-image-553" title="Classe RecursoHumanoServico" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem13.png" alt="" width="428" height="460" /></a></p>
+
+
+<p>Vamos criar outra classe dentro da package <strong>br.leandroprado.webservices.recursohumano.entidades </strong>chamada Funcionario</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem14.png"><img class="aligncenter size-medium wp-image-555" title="Classes criadas" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem14.png" alt="" width="411" height="216" /></a></p>
+
+
+<p>Veja abaixo o conteúdo da classe Funcionario.java, ela contém os campos que o nosso DataService retorna.</p>
+
+
+
+
+<pre class="brush: java; title: ; notranslate">
+package br.leandroprado.webservices.recursohumano.entidades;
+
+import java.util.Date;
+
+public class Funcionario {
+
+    private int codigo;
+    private String nome;
+    private String endereco;
+    private String sexo;
+    private String dataAniversario;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getDataAniversario() {
+        return dataAniversario;
+    }
+
+    public void setDataAniversario(String dataAniversario) {
+        this.dataAniversario = dataAniversario;
+    }
+}
+</pre>
+
+
+
+
+<p>Agora vamos criar o serviço, na classe RecursoHumanoServico vamos adicionar um novo método onde vamos chamar o nosso método do DataService, veja abaixo o código;</p>
+
+
+
+
+<pre class="brush: java; title: ; notranslate">
+package br.leandroprado.webservices.recursohumano;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.xml.namespace.QName;
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
+
+import br.leandroprado.webservices.recursohumano.entidades.Funcionario;
+
+public class RecursoHumanoServico {
+
+    // endereco do WSDL do DataService
+    private static EndpointReference rhEndpoint = new EndpointReference(&quot;http://10.0.2.15:9764/services/RecursoHumanoServico?wsdl&quot;);
+
+    public Funcionario[] pesquisarFuncionario(String nome)
+    {
+        String nameSpace = &quot;http://webservices.leandroprado.com.br/DataServices/RecursoHumano/PesquisarFuncionario&quot;;
+        String nomeMetodo = &quot;PesquisarFuncionario&quot;;
+
+        List&lt;Funcionario&gt; lst = new ArrayList&lt;Funcionario&gt;();
+
+        try {
+                                      // verifica se o parametro esta preenchido
+            if(nome != null)
+            {
+                if(nome.equals(&quot;&quot;))
+                    throw new Exception(&quot;Campo Nome é obrigatório!&quot;);
+            }
+            else
+                throw new Exception(&quot;Campo Nome é obrigatório!&quot;);
+
+            // cria os parametros do servico com o EndPoint e o método que queremos usar
+            Options options = new Options();
+            options.setTo(rhEndpoint);
+            options.setAction(&quot;urn:&quot; + nomeMetodo);
+
+            // cria um client para o servico
+            ServiceClient sender = new ServiceClient();
+            sender.setOptions(options);
+
+            // para criar os parametros de entrada do servico
+            OMFactory fac = OMAbstractFactory.getOMFactory();
+            OMNamespace omNs = fac.createOMNamespace(
+                            nameSpace,    // namespace do método
+                             nomeMetodo); // nome do método que vamos invocar
+            OMElement payload = fac.createOMElement(nomeMetodo, omNs);
+
+            // seta o nome dos parametros de entrada e seu conteudo
+            OMElement param = fac.createOMElement(&quot;Nome&quot;, omNs);
+            param.setText(&quot;%&quot; + nome + &quot;%&quot;);
+            payload.addChild(param);
+
+            // Executa o DataService
+            OMElement result = sender.sendReceive(payload);
+
+            // Recupeara o retorno
+            Iterator rows = result.getChildElements();
+
+            // Enquanto houver linhas no retorno
+            while (rows.hasNext()) {
+                OMElement row = (OMElement) rows.next();
+
+                // recupera os elementos
+                OMElement codigo = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;CodigoFuncionario&quot;));
+                OMElement nme = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;NomeFuncionario&quot;));
+                OMElement endereco = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;EnderecoFuncionario&quot;));
+                OMElement sexo = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;SexoFuncionario&quot;));
+                OMElement dataAniver = row.getFirstChildWithName(new QName(omNs.getNamespaceURI(), &quot;DataAniversario&quot;));
+
+                // cria um objeto do tipo Funcionario
+                Funcionario _fun = new Funcionario();
+                _fun.setCodigo(Integer.parseInt(codigo.getText()));
+                _fun.setNome(nme.getText());
+                _fun.setEndereco(endereco.getText());
+                _fun.setSexo(sexo.getText());
+                _fun.setDataAniversario(dataAniver.getText());
+
+                // Adiciona na lista
+                lst.add(_fun);
+            }
+        }
+        catch(Exception ex)
+        {
+            throw new RuntimeException(ex.getMessage());
+        }
+
+        // verifica se a lista possui elementos
+        if(lst.size() &gt; 0)
+            return lst.toArray(new Funcionario[lst.size()-1]);
+        else
+            return lst.toArray(new Funcionario[0]);
+    }
+}
+</pre>
+
+
+<p>4. Agora vamos publicar o serviço no WSO2 WSAS, primeiro de tudo temos que iniciar os serviços WSO2 DataServices e WSO2 WSAS, já vimos no post <a href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/" target="_blank">Criando um ambiente SOA com WSO2</a> como criar o ambiente e iniciar os serviços.</p>
+
+
+<p>Uma das maneiras de fazer o deploy de um serviço para o WSAS é exportar nosso serviço para um arquivo .jar, então  clique com o botão direito em cima do projeto RecursoHumanoServico e selecione a opção Export.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem15.png"><img class="aligncenter size-medium wp-image-565" title="Exportar o serviço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem15.png" alt="" width="517" height="362" /></a></p>
+
+
+<p>Selecione a opção Jar File, e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem16.png"><img class="aligncenter size-medium wp-image-565" title="Selecione Jar File" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem16.png" alt="" width="511" height="409" /></a></p>
+
+
+<p>Agora selecione em qual diretório vamos salvar o arquivo .jar, nesse caso estou salvando no Desktop e clique em Finish</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem17.png"><img class="aligncenter size-medium wp-image-565" title="Selecione o local para salvar o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem17.png" alt="" width="431" height="395" /></a></p>
+
+
+<p>Acessando nosso diretório Desktop o arquivo exportado.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem18.png"><img class="aligncenter size-medium wp-image-565" title="Arquivo Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem18.png" alt="" width="397" height="128" /></a></p>
+
+
+<p>Agora vamos fazer o Deploy do arquivo .jar para o WSAS, acessar o console de administração do WSAS e selecionar a opção Services -&gt; Add -&gt; Jar Service</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem19.png"><img class="aligncenter size-medium wp-image-571" title="Selecionar a opção Jar Service" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem19.png" alt="" width="203" height="300" /></a></p>
+
+
+<p>Coloque o nome do seu serviço e procure o arquivo .jar que exportamos anteriormente, e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem20.png"><img class="aligncenter size-medium wp-image-571" title="Adicionando o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem20.png" alt="" width="526" height="162" /></a></p>
+
+
+<p>Na próxima tela temos que selecionar qual classe que queremos expor como serviço, em nosso exemplo é a classe RecursoHumanoServico.java, não esqueça de selecionar o escopo que é SOAP, depois clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem21.png"><img class="aligncenter size-medium wp-image-571" title="Configurando o Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem21.png" alt="" width="526" height="129" /></a></p>
+
+
+<p>Selecione os métodos que deseja disponibilizar no serviço, em nosso exemplo só temos um método, mas se tivesse vários métodos poderiamos selecionar quais deles vamos disponibilizar para consumo, depois clique em Finish.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem22.png"><img class="aligncenter size-medium wp-image-571" title="Métodos do Jar" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem22.png" alt="" width="525" height="115" /></a></p>
+
+
+<p>Se tudo ocorrer sem erros, uma mensagem será exibida e o nosso serviço vai aparecer na lista, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem23.png"><img class="aligncenter size-medium wp-image-571" title="Serviço adicionado" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem23.png" alt="" width="536" height="219" /></a></p>
+
+
+<p>Vamos testar nosso método, clique em Try this Service , preencha o parâmetro nome e clique no botão, o seguinte resultado deverá ocorrer:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem24.png"><img class="aligncenter size-medium wp-image-571" title="Testando o servço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem24.png" alt="" width="539" height="293" /></a></p>
+
+
+<p>Vamos testar se a nossa validação está sendo executada, se invocar o método sem nenhum valor para o parâmetro nome, deve retornar um erro, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem25.png"><img class="aligncenter size-medium wp-image-571" title="Testando a Exception" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/bs_imagem25.png" alt="" width="525" height="159" /></a></p>
+
+
+<h3>Conclusão</h3>
+
+
+<p>Podemos ver que para criar um BusinessServer usando o WSAS não tem muito segredo, para quem ja programa em JAVA não vai ter nehuma dificuldade.</p>
+
+
+<p>O que podemos fazer para facilitar o consumo é criar um componente onde só passamos o método que queremos consumir e ele nos retorna um objeto criado, fica por conta de vocês aprimorar esse código.</p>
+
+
+<p>O WSO2 lançou um plugin para o Eclipse que cria serviços para o WSAS, com esse plugin é possível fazer debug dos nossos métodos, dessa forma facilitando o desenvolvimento para o programador.</p>
+
+
+<p><a href="http://wso2.org/library/tutorials/create-axis2-web-service-in-3-steps-using-eclipse" target="_blank">Create an Axis2 Web Service in 3 Steps Using Eclipse</a></p>
+
+
+<p><a href="http://wso2.org/library/tutorials/debug-your-axis2-web-service-3-steps-using-eclipse" target="_blank">How to Debug Your Axis2 Web Service in 3 Steps Using Eclipse</a></p>
+
+
+<p>No próximo post estaremos criando a camada da BUS, vamos criar um proxy para disponibilizar os serviços aos nossos clientes.</p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/RecursoHumanoServico.zip" target="_blank">Download Parte 2</a></p>
+
+
+<p>Até a próxima!</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Criando um ambiente SOA com WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/07/criando-um-ambiente-soa-com-wso2/"/>
+    <updated>2010-07-15T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/07/criando-um-ambiente-soa-com-wso2</id>
+    <content type="html"><![CDATA[<p style="text-align: justify;">Nesse post vou descrever como criar um ambiente SOA completo usando as ferramentas WSO2.</p>
+
+
+<p style="text-align: justify;">O ambiente que estou usando é Ubuntu 10 como Java 6 (esse tutorial parte do princípio que o Ubuntu e o Java já estão instalados e configurados)</p>
+
+
+<h3>Passo 1- Criar diretório</h3>
+
+
+<p>Vamos criar um diretório onde vamos instalar todas as ferramentas do WSO2</p>
+
+
+<pre class="brush:java">     cd /home/leandro-prado
+     mkdir wso2
+     cd wso2/
+     pwd
+     /home/leandro-prado/wso2</pre>
+
+
+<h3>Passo 2 &#8211; WSO2 Governance Registry</h3>
+
+
+<p style="text-align: justify;">Baixar o arquivo em <a title="WSO3 Governance Registry" href="http://wso2.com/products/governance-registry/" target="_blank">http://wso2.com/products/governance-registry/</a> (a versão que usamos foi a 3.5.0) descompactar e depois mover para o diretório criado acima</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2greg-3.5.0.zip
+     mv wso2greg-3.5.0 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2greg-3.5.0/bin/
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Para iniciar o serviço entrar no diretório bin e executar o arquivo wso2server.sh, se tudo ocorrer sem erros, a seguinte saída deverá ser exibida no console</p>
+
+
+<pre class="brush:java">     [2010-06-05 17:46:15,887]  INFO -  Connection established with the registry
+     [2010-06-05 17:46:16,732]  INFO -  HTTPS port       : 9443
+     [2010-06-05 17:46:16,761]  INFO -  HTTP port        : 9763
+     [2010-06-05 17:46:18,911]  INFO -  Successfully Initialized Eventing on Registry
+     [2010-06-05 17:46:27,749]  INFO -  Mgt Console URL  : https://10.0.2.15:9443/carbon/
+     [2010-06-05 17:46:28,702]  INFO -  Started Transport Listener Manager
+     [2010-06-05 17:46:28,703]  INFO -  Server           :  WSO2 Governance Registry-3.5.0
+     [2010-06-05 17:46:28,703]  INFO -  WSO2 Carbon started in 65 sec</pre>
+
+
+<p>Agora podemos acessar o browser e verificar se esta tudo correto:</p>
+
+
+<p>Endereco: https://10.0.2.15:9443/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/06/GovernanceRegistry.png"><img class="size-medium wp-image-165 aligncenter" title="WSO2 Governance Registry" src="http://www.leandroprado.com.br/wp-content/uploads/2010/06/GovernanceRegistry-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 3 &#8211; WSO2 Data Services</h3>
+
+
+<p style="text-align: justify;">Agora vamos instalar o Data Service, baixar o arquivo em <a title="WSO2 Data Services" href="http://wso2.com/products/data-services-server/" target="_blank">http://wso2.com/products/data-services-server/</a> (a versão que usamos foi a 2.2.1) descompactar e depois mover para o diretório criado no passo 1, podemos perceber que a intalação é igual para todas as ferramentas.</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2dataservices-2.2.1.zip
+     mv wso2dataservices-2.2.1 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2dataservices-2.2.1/bin/
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Quando mandamos iniciar o servidor do Data Service pela primeira vez vamos receber o seguinte erro:</p>
+
+
+<pre class="brush:java">     [2010-06-05 18:43:35,233]  INFO -  Repository       : /home/leandro-prado/wso2/wso2dataservices-2.2.1/repository/
+     [2010-06-05 18:43:35,720]  INFO -  HTTPS port       : 9443
+     [2010-06-05 18:43:35,721]  INFO -  HTTP port        : 9763
+     [2010-06-05 18:43:35,954] ERROR -  Error initializing endpoint
+     java.net.BindException: Address already in use:9443</pre>
+
+
+<p style="text-align: justify;">Esse erro ocorre porque a porta 9443 ja esta sendo usanda pelo WSO2 Governance Registry, por esse motivo temos que configurar manualmente outra porta para o Data Service, para isso temos que editar o arquivo transports.xml que fica na pasta conf</p>
+
+
+<pre class="brush:java">     cd ..
+     cd conf/
+     sudo gedit transports.xml</pre>
+
+
+<p style="text-align: justify;">Temos que alterar o parâmetro port tanto para HTTP e HTTPS, essa configuração está na a linha 3 e na linha 30  e depois iniciar o serviço novamente, conforme abaixo:</p>
+
+
+<pre class="brush:java">     &lt;parameter name="port"&gt;9764&lt;/parameter&gt;
+     &lt;parameter name="port"&gt;9444&lt;/parameter&gt;
+     cd ..
+     cd bin/
+     ./wsoeserver.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-03 00:21:01,928]  INFO -  Initializing transport descriptions and their associated parameters
+     [2010-07-03 00:21:01,992]  INFO -  Repository       : /home/leandro-prado/wso2/wso2dataservices-2.2.1/repository/
+     [2010-07-03 00:21:02,363]  INFO -  HTTPS port       : 9444
+     [2010-07-03 00:21:02,363]  INFO -  HTTP port        : 9764
+     [2010-07-03 00:21:04,398]  INFO -  Mgt Console URL  : https://10.0.2.15:9444/carbon/
+     [2010-07-03 00:21:04,399]  INFO -  Started Transport Listener Manager
+     [2010-07-03 00:21:04,399]  INFO -  Server           :  WSO2 Data Services-2.2.1
+     [2010-07-03 00:21:04,400]  INFO -  WSO2 Carbon started in 50 sec</pre>
+
+
+<p style="text-align: justify;">Para ver se tudo esta correto podemos acessar o administrador do Data Service no browser.</p>
+
+
+<p>Endereço: https://10.0.2.15:9444/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/DataServices.png"><img class="aligncenter size-medium wp-image-182" title="WSO2 Data Services" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/DataServices-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 4 &#8211; WSO2 Application Server</h3>
+
+
+<p style="text-align: justify;">Agora vamos instalar o Application Server, baixar o arquivo em <a href="http://wso2.com/products/web-services-application-server/" target="_blank">http://wso2.com/products/web-services-application-server/</a> (a versão que usamos foi a 3.2.0) para instalar seguir o mesmo padrão, descompactar, mover para o diretório, configurar o arquivo transports.xml (port HTTP 9445 e HTTPS 9765) e iniciar o serviço</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2wsas-3.2.0.zip
+     mv wso2wsas-3.2.0 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2wsas-3.2.0
+     cd repository/conf
+     gedit mgt-transports.xml
+     cd ../../bin
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-03 00:49:45,404]  INFO -  Repository       : /home/leandro-prado/wso2/wso2wsas-3.2.0/repository/deployment/server/
+     [2010-07-03 00:49:45,657]  INFO -  Connection established with the registry
+     [2010-07-03 00:49:47,821]  INFO -  HTTPS port       : 9445
+     [2010-07-03 00:49:47,829]  INFO -  HTTP port        : 9765
+     [2010-07-03 00:49:50,774]  INFO -  Mgt Console URL  : https://10.0.2.15:9445/carbon/
+     [2010-07-03 00:49:50,787]  INFO -  Started Transport Listener Manager
+     [2010-07-03 00:49:50,795]  INFO -  Server           :  WSO2 WSAS-3.2.0
+     [2010-07-03 00:49:50,796]  INFO -  WSO2 Carbon started in 33 sec</pre>
+
+
+<p style="text-align: justify;">Para ver se tudo esta correto podemos acessar o administrador do Application Server no browser.</p>
+
+
+<p>Endereco: https://10.0.2.15:9445/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/ApplicationServer.png"><img class="aligncenter size-medium wp-image-187" title="WSO2 Application Server" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/ApplicationServer-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 5 &#8211; WSO2 Enterprise Service Bus</h3>
+
+
+<p style="text-align: justify;">Agora vamos instalar a BUS, baixar o arquivo em <a href="http://wso2.com/products/web-services-application-server/" target="_blank">http://wso2.com/products/enterprise-service-bus/</a> (a versão que usamos foi a 3.0.0) novamente a instalação segue o mesmo padrão, descompactar, mover para o diretório, configurar o arquivo transports.xml (port HTTP 9446 e HTTPS 9766) e iniciar o serviço</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2esb-3.0.0.zip
+     mv wso2esb-3.0.0 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2esb-3.0.0
+     cd repository/conf
+     gedit mgt-transports.xml
+     cd ../../bin
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-03 01:15:19,725]  INFO - CarbonUIServiceComponent Mgt Console URL  : https://10.0.2.15:9446/carbon/
+     [2010-07-03 01:15:19,783]  INFO - StartupFinalizerServiceComponent Started Transport Listener Manager
+     [2010-07-03 01:15:19,784]  INFO - StartupFinalizerServiceComponent Server           :  WSO2 ESB-3.0.0
+     [2010-07-03 01:15:19,784]  INFO - StartupFinalizerServiceComponent WSO2 Carbon started in 114 sec</pre>
+
+
+<p style="text-align: justify;">Para ver se tudo esta correto podemos acessar o administrador do Application Server no browser.</p>
+
+
+<p>Endereco: https://10.0.2.15:9446/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/EnterpriseServiceBus.png"><img class="aligncenter size-medium wp-image-191" title="WSO2 Enterprise Service Bus" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/EnterpriseServiceBus-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 6 &#8211; WSO2 Business Activity Monitor</h3>
+
+
+<p>Agora vamos instalar a BAM, baixar o arquivo em <a href="http://wso2.com/products/business-activity-monitor/">http://wso2.com/products/business-activity-monitor/</a> (a versão que usamos foi a 1.0.1) novamente a instalação segue o mesmo padrão, descompactar, mover para o diretório, configurar o arquivo transports.xml (port HTTP 9447 e HTTPS 9767) e iniciar o serviço.</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2bam-1.0.1.zip
+     mv wso2bam-1.0.1 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2bam-1.0.1
+     cd conf/
+     gedit transports.xml
+     cd ../bin
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-07 16:06:32,854]  INFO -  Connection established with the registry
+     [2010-07-07 16:06:33,816]  INFO -  Successfully Initialized Eventing on Registry
+     [2010-07-07 16:06:47,166]  INFO -  Mgt Console URL  : https://10.0.2.15:9447/carbon/
+     [2010-07-07 16:06:47,167]  INFO -  Started Transport Listener Manager
+     [2010-07-07 16:06:47,168]  INFO -  Server           :  WSO2 Business Activity Monitor-1.0.1
+     [2010-07-07 16:06:47,168]  INFO -  WSO2 Carbon started in 96 sec</pre>
+
+
+<p>Para ver se tudo esta correto podemos acessar o administrador da BAM no browser.</p>
+
+
+<p>Endereco: https://10.0.2.15:9447/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/BAM.png"><img class="aligncenter size-medium wp-image-230" title="WSO2 Business Activity Monitor" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/BAM-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<p>Podemos ver como é fácil instalar as ferrametas do WSO2, nos próximos posts vamos configurar os servers para se conectar com o baco de dados MySQL.</p>
+
+
+<p>Até a próxima!</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Plataforma WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/plataforma-wso2/"/>
+    <updated>2010-05-31T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/plataforma-wso2</id>
+    <content type="html"><![CDATA[<p style="text-align: justify;">Neste post vou descrever o que cada solução do WSO2 é responsável.</p>
+
+
+<table border="0">
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Enterprise Service Bus</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-esb-logo.gif" alt="WSO2 Enterprise Service Bus" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">WSO2 ESB permite aos administradores de sistema e arquitetos de SOA de forma simples e fácil configurar o roteamento de mensagens, a virtualização, a intermediação, transformação, logs de requisições, agendamento de tarefas, balanceamento de carga, mediação de eventos e muito mais.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 240px;">
+<h3>WSO2 Governance Registry</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-registry-logo.gif" alt="WSO2 Governance Registry" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">Responsável por manter o controle de sua arquitetura SOA como um repositório de metadados, suporte para controle de versão, gestão de ciclo de vida, um modelo avançado para usuários / papéis / permissões, e as características sociais, tais como marcação, classificação e comentários. WSO2  Governance Registry se integra com outros produtos WSO2 para coletar metadados sobre serviços, centraliza a política de metadados, e gerencia dependências.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 190px;">
+<h3>WSO2 Identity Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-is-logo.gif" alt="WSO2 Identity Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Identity Server é o servidor de gerenciamento de identidade e direito. Ele suporta cartões de Informação e OpenID para autenticação, bem como autorização para XACML. Pode ser integrada facilmente com LDAP ou Active Directory.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 260px;">
+<h3>WSO2 Business Activity Monitor</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bam-logo.gif" alt="WSO2 Business Activity Monitor" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Business Activity Monitor (BAM WSO2) serve para suprir as necessidades dos especialistas em TI acompanharem e entenderem as atividades de negócios dentro de uma implantação SOA com isso permite que as organizações sejam pró-ativa ao invés de ser reativo.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Gadgat Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-gs-logo.gif" alt="WSO2 Gadgat Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">O Gadgat WSO2 Server permite que você possa oferecer aos seus executivos, funcionários, parceiros ou clientes uma maneira de obter todas as informações em um único lugar que eles precisam. Pordemos criar vários paineis para cada usuário permitindo-lhe adicionar, personalizar e reorganizar seus gadgets, assim como agrupá-las em conjuntos de tabulação.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Business Process Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bps-logo.gif" alt="WSO2 Business Process Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Business Process Server é um servidor responsável por executar os processos de negócios, são escritos usando o padrão WS-BPEL. Oferece um completo console gráfico para implantar, gerenciar e visualizar os processos, além de gerenciar e exibir instâncias do processo.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Mashup Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-mashup-logo.gif" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Mashup Server fornece uma plataforma para uma rápida implantação de serviços Web Mashups.  Combinando mashups simples, mas rica de reutilização, segurança, confiabilidade e governação, a WOS2 Mashup Server oferece a composição de serviços de classe empresarial. O servidor Mashup é voltada para desenvolvedores web (HTML + Javascript / competências XML) que permite um rápido desenvolvimento e compartilhamento de novos serviços.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Data Services</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-ds-logo.gif" alt="WSO2 Data Services" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Data Services fornece uma plataforma fácil de usar para criar serviços responsáveis por buscar os dados armazenados em locais heterogêneos, como banco de dados, arquivos CSV, Excel ou XML, permitindo a fácil integração de dados em processos de negócios, mashups, gadgets aplicações, BI e todos os serviços em geral.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 320px;">
+<h3>WSO2 Web Services Application Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-wsas-logo.gif" alt="WSO2 Web Services Application Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">WSO2 WSAS é um servidor de aplicativos para web services. Com o seu servidor Web incorporado de alto desempenho, suporte completo para XML, SOAP, WSDL, e suporte para comunicações confiáveis, seguras, WSO2 WSAS torna simples e eficaz para criar, consumir e gerenciar Web Services. tanbém podemos expor aplicativos como serviços na forma de POJOs ou JARs</p>
+
+
+<p style="text-align: justify;">Além dessas soluções, o WSO2 possui frameworks para fornecer aos desenvolvedores a infra-estrutura para criar e consumir serviços em sua linguagem de programação favorita como C, C++, PHP ou Spring.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ferramentas SOA Open Source]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/ferramentas-soa-open-source/"/>
+    <updated>2010-05-19T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/ferramentas-soa-open-source</id>
+    <content type="html"><![CDATA[<p>Quando decidimos criar um ambiente SOA, um dos requisitos impostos pela maioria dos diretores é se é uma solução livre, ou seja, OpenSource. Partindo desse pré-requisito, pesquisamos algumas ferramentas que poderíamos utilizar.</p>
+
+<p>A primeira ferramenta que testamos foi o Intalio, que, na verdade, é uma ferramenta de BPM em que podemos modelar os processos em BPEL e depois fazer um deploy como um serviço para expor na BUS. Um dos problemas que encontramos com essa ferramenta, foi que não conseguimos levantar uma excessão e retornar para o usuário.</p>
+
+<p>Também estudamos o Mule, que é uma BUS para expor todos os serviços criados a partir do Intalio.</p>
+
+<p>Outra opção foi o JBOSS SOA Plataform; chegamos a fazer um piloto com consultores da Red Hat, porém não supriu todas as nossas necessidades, tinhamos os mesmos problemas da ferramenta Intalio.</p>
+
+<p>Até que descobrimos uma ferramenta chamada WSO2, a qual possui várias ferramentas para SOA como DataServices, Business Process Server, Web Services Application, Governance Registry, Enterprise Service Bus, etc.</p>
+
+<p>A grande vantagem de usar o WSO2 é que temos um grande suporte em fóruns, e-mail, acesso ao código-fonte e atualizações frequentes de suas ferramentas, isso significa que os desenvolvedores estão aprimorando cada vez mais cada uma das ferramentas.</p>
+
+<p>Outra grande vantagem é a sua fácil instalação, na maioria das vezes é necessário somente descompactar a pasta e iniciar o serviço que o servidor já está funcionando.</p>
+
+<p>Atualmente estamos usando DataServices, Web Services Application, Governance Registry e Enterprise Service Bus, todos rodando em um mesmo servidor, porém em portas diferentes.</p>
+
+<p>Veja abaixo a solução completa que o WSO2 implementa.</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/05/product-platform.gif"><img class="aligncenter" src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/product-platform.gif" title="Plataforma WSO2" alt="Plataforma WSO2" /></a></p>
+
+<p>Nos próximos posts vou explicar a funcionalidade de cada produto.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Instalando o WSO2 Web Services Framework for PHP (2.0.0) - WSO2Brasil</title>
+  <meta name="author" content="WSO2Brasil">
+
+  
+  <meta name="description" content="Como eu disse anteriormente, em Consumindo um serviço seguro utilizando PHP, vou mostrar uma das maneiras para instalar o framework que o pessoal do &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="WSO2Brasil" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.colorbox.min.js" type="text/javascript"></script>
+<link href="/stylesheets/colorbox.css" rel="stylesheet" type="text/css">
+
+<script>
+jQuery = jQuery.noConflict(true);
+jQuery(document).ready( function() {
+  var thumbnails = 'a:has(img)[href$=".bmp"],a:has(img)[href$=".gif"],a:has(img)[href$=".jpg"],a:has(img)[href$=".jpeg"],a:has(img)[href$=".png"],a:has(img)[href$=".BMP"],a:has(img)[href$=".GIF"],a:has(img)[href$=".JPG"],a:has(img)[href$=".JPEG"],a:has(img)[href$=".PNG"],a:has(img)[rel^="lightbox"]';
+  jQuery(thumbnails).colorbox({
+    transition: "none"
+  });
+});
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39120636-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/"><img src="/images/wso2brasil.png" /></a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com.br/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wso2brasil.com.br" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Arquivos</a></li>
+  <li><a href="/sobre">Sobre</a></li>
+  <li><a href="/sobre/#contato">Contato</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+  
+    <h1 class="entry-title">Instalando O WSO2 Web Services Framework for PHP (2.0.0)</h1>
+  
+
+
+
+  <p class="meta">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-20T21:47:45-03:00" pubdate data-updated="true">Apr 20<span>th</span>, 2010</time>
+    
+     | <a href="#disqus_thread">Comments</a>
+    
+  </p>
+
+
+  </header>
+
+
+<div class="entry-content"><p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsf-php.gif" alt="" />Como eu disse anteriormente, em <a href="http://www.mcorp.com.br/2010/03/consumindo-um-servico-seguro-utilizando-php/">Consumindo um serviço seguro utilizando PHP</a>, vou mostrar uma das maneiras para instalar o framework que o pessoal do
+WSO2 disponibiliza para criação e consumo de serviços em PHP, conhecido como:
+<a href="http://wso2.org/downloads/wsf/php">WSO2 Web Services Framework <em>for PHP</em></a>.</p>
+
+<p>Na página de <a href="http://wso2.org/downloads/wsf/php">downloads do WSO2 Web Services Framework <em>for PHP</em></a>, é possível escolher entre 3 opções
+de instalação, então exemplificar a fundo apenas uma e colocar uma breve
+descrição das outras.</p>
+
+<h2>Binary Distribution</h2>
+
+<p>É o framework já compilado e com a DLL dentro que serve para as pessoas que a
+utilizarão em ambientes Windows, não terá muito trabalho, apenas colocar a DLL
+na pasta correta e configurar o seu <em>php.ini</em>. Essa é a opção mais prática -
+na minha opinião - para Windows (deixarei essa para uma próxima, não tenho
+ambiente para isso - ainda).</p>
+
+<h2>PECL Distribution</h2>
+
+<p>Em teoria é a mais fácil de todas. Mas por que &#8220;em teoria&#8221;? Passei dois dias
+realizando diversas configurações na minha máquina para que isso funcionasse
+corretamente, perguntei no <a href="http://wso2.org/forum/thread/9553">fórum</a> se
+alguém poderia me ajudar a solucionar, mas desisti. Parti para a maneira
+&#8220;clássica&#8221;, o famoso <a href="/glossario/#CMM">CMM</a>, que descrevo abaixo.</p>
+
+<h2>Source Distribution</h2>
+
+<p>Essa versão é o <a href="https://wso2.org/repos/wso2/trunk/wsf/php/">código-fonte do WSO2 Web Services Framework <em>for
+PHP</em></a> (aberto, hein!) e aqui temos
+duas opções de download, com apenas uma diferença mínima: o compactador. Uma
+foi compactada utilizando ZIP e outra TAR/GZ. E ambas será necessário
+compilação, com os bons e velhos comandos: <em>./configure</em>, <em>make &amp;&amp; make
+install</em>.</p>
+
+<p>Mas, chega de papo, vamos por a mão na &#8220;massa&#8221;.</p>
+
+<h3>Instalando as dependências</h3>
+
+<p>As dependências para funcionamento do framework, não são muitas:</p>
+
+<ul>
+<li><a href="http://wso2.org/downloads/wsf/c">WSO2 Web Services Framework <em>for C</em></a></li>
+<li>PHP 5.1.1 ou superior</li>
+<li>Bibliotecas libxml2 e OpenSSL</li>
+</ul>
+
+
+<h3>WSO2 Web Services Framework <em>for C</em></h3>
+
+<p>Para quem tá acostumado, são os velhos conhecidos, bastando baixar a última
+versão (no meu caso a 2.0.0):</p>
+
+<pre><code>wget http://dist.wso2.org/products/wsf/c/2.0.0/wso2-wsf-c-src-2.0.0.tar.gz
+tar xfvz wso2-wsf-c-src-2.0.0.tar.gz
+cd wso2-wsf-c-src-2.0.0
+./configure
+make
+sudo make install
+</code></pre>
+
+<h3>PHP 5.1.1 ou superior</h3>
+
+<p>Não vou entrar nos méritos de instalação do PHP, pois imagino que isso esteja
+mais do que documentado na internet por aí a fora (para os preguiçosos -
+google: <a href="http://www.google.com.br/#hl=pt-BR&amp;source=hp&amp;q=instala%C3%A7%C3%A3o+do+php+no+ubuntu&amp;btnG=Pesquisa+Google&amp;meta=&amp;aq=f&amp;aqi=&amp;aql=&amp;oq=instala%C3%A7%C3%A3o+do+php+no+ubuntu&amp;gs_rfai=&amp;fp=fbe0f18c81cbb156">instalação do php no ubuntu</a>).</p>
+
+<h3>Bibliotecas libxml2 e OpenSSL</h3>
+
+<p>O comando para instalar as dependências é:</p>
+
+<pre><code>sudo apt-get install libxml2 openssl
+</code></pre>
+
+<p>E com todas as dependências já instaladas e funcionando, podemos utilizar um
+<em>phpinfo()</em>; para conferir:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/config-php-libxml2-openssl.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/config-php-libxml2-openssl-300x187.png" alt="" /></a></p>
+
+<h3>Compilação do WSF/PHP</h3>
+
+<h4>CMM</h4>
+
+<p>E agora, a instalação propriamente dita, utilizando novamente os pacotes da
+versão 2.0.0:</p>
+
+<pre><code>wget http://dist.wso2.org/products/wsf/php/2.0.0/wso2-wsf-php-src-2.0.0.tar.gz
+./configure
+make
+sudo make install
+</code></pre>
+
+<h4>1, 2, 3, testando&#8230;</h4>
+
+<p>Estamos quase chegando lá&#8230;</p>
+
+<p>Vamos copiar dois arquivos do diretório <em>samples</em> (um cliente e um servidor)
+para o diretório do servidor web (no meu caso: <em>/var/www/samples</em>) e ver se
+tudo funcionou:</p>
+
+<pre><code>sudo mkdir -p /var/www/samples/
+sudo cp samples/math_* /var/www/samples/.
+</code></pre>
+
+<p>Indo ao navegador, basta abrir o endereço <a href="http://localhost/samples/math_client.php">http://localhost/samples/math_client.php</a> e conferir tudo funcionando:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsf-php-sample-math.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsf-php-sample-math-300x176.png" alt="" /></a></p>
+
+<h3>Conclusão</h3>
+
+<p>Ainda não consigo avaliar até onde é válido ou interessante utilizar esse
+framework, não pesquisei a fundo ainda o funcionamento e as vantagens dele
+sobre as implementações como <a href="http://www.php.net/soap">SOAP</a> (nativa do PHP)
+<a href="http://nusoap.sourceforge.net/">NuSOAP</a>.</p>
+
+<p>Mas o fato de ser uma instalação que não pode ser feita em &#8220;qualquer&#8221;
+servidor, ainda mais no Brasil onde as empresas de hospedagens normalmente não
+instalam extensões de terceiros e o preço para ter um servidor próprio não é
+tão acessível, pode acabar ficando inviável.</p>
+
+<p>Realizarei testes mais profundos para verificar as verdadeiras vantagens dessa
+abordagem na implementação dos serviços, só que - novamente - ficará para um
+outro post.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Leonardo Saraiva</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-20T21:47:45-03:00" pubdate data-updated="true">Apr 20<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categorias/desenvolvimento/'>desenvolvimento</a>
+  
+</span>
+
+
+      
+
+<span class="tags">
+  
+    <a class='tag' href='/blog/tags/c/'>c</a>, <a class='tag' href='/blog/tags/cmm/'>cmm</a>, <a class='tag' href='/blog/tags/dll/'>dll</a>, <a class='tag' href='/blog/tags/framework/'>framework</a>, <a class='tag' href='/blog/tags/libxml2/'>libxml2</a>, <a class='tag' href='/blog/tags/linux/'>linux</a>, <a class='tag' href='/blog/tags/nusoap/'>nusoap</a>, <a class='tag' href='/blog/tags/openssl/'>openssl</a>, <a class='tag' href='/blog/tags/pecl/'>pecl</a>, <a class='tag' href='/blog/tags/php/'>php</a>, <a class='tag' href='/blog/tags/soap/'>soap</a>, <a class='tag' href='/blog/tags/ubuntu/'>ubuntu</a>, <a class='tag' href='/blog/tags/web-services/'>web services</a>, <a class='tag' href='/blog/tags/windows/'>windows</a>, <a class='tag' href='/blog/tags/wsf/'>wsf</a>, <a class='tag' href='/blog/tags/wso2/'>wso2</a>
+  
+</span>
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0/" data-via="wso2brasil" data-counturl="http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/04/wso2-enterprise-service-bus-manipulando-erros-em-endpoints/" title="Previous Post: WSO2 Enterprise Service Bus - Manipulando erros em Endpoints">&laquo; WSO2 Enterprise Service Bus - Manipulando erros em Endpoints</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/05/utilizando-o-array-type-do-wso2-data-services-server-2-5-x/" title="Next Post: Utilizando o Array Type do WSO2 Data Services Server 2.5.x">Utilizando o Array Type do WSO2 Data Services Server 2.5.x &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/8o-solisc-nos-vemos-la/">8º SoLiSC - Nos vemos lá</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0/">Lançado: WSO2 User Engagement Server - 1.0.0!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/nos-no-fisl-14/">Nós no FISL14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/participaremos-do-fisl-14/">Participaremos do FISL 14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/">Agendamento de tarefas na WSO2 Enterprise Service Bus</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+    <h1>Related Posts</h1>
+    <ul class="posts">
+    
+        <li class="related">
+        <a href="/blog/2010/03/consumindo-um-servico-seguro-utilizando-php/">Consumindo um serviço seguro utilizando PHP</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/">Compilando o WSO2 Carbon 3.0.0 e corrigindo o WSO2 Data  Services Server 2.5.0</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2009/12/instalando-wso2-enterprise-service-bus-eclipse-tools-no-ubuntu-karmic-koala-9-10/">Instalando WSO2 Enterprise Service Bus Eclipse Tools no Ubuntu Karmic Koala (9.10)</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2013/09/8o-solisc-nos-vemos-la/">8º SoLiSC - Nos vemos lá</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0/">Lançado: WSO2 User Engagement Server - 1.0.0!</a>
+        </li>
+    
+    </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (8)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/business-process' style='font-size: 104.28571428571429%'>business process(3)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/web-services-application' style='font-size: 104.28571428571429%'>web services application(3)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/soa' style='font-size: 108.57142857142857%'>soa(6)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> </span>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("wso2brasil", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/wso2brasil" class="twitter-follow-button" data-show-count="false">Follow @wso2brasil</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/wso2brasil">@wso2brasil</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'wso2brasil',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - WSO2Brasil -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'wso2brasil';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0/';
+        var disqus_url = 'http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

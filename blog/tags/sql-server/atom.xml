@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: sql server | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/sql-server/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services Server e suas atualizações]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/"/>
+    <updated>2011-10-06T15:58:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg" alt="" /></a></p>
+
+<p>Se tem uma tarefa que toma muito tempo nosso, são os testes quando sai versão nova de algum produto do <a href="http://wso2.org">WSO2</a>.</p>
+
+<p>Estamos trabalhando na migração do <a href="/tag/data-services/">WSO2 Data Services Server</a> <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">2.5.1</a> para a <a href="/2011/06/novidades-wso2-data-services-server-2-6-x/">2.6.0</a> e isso gera uma árdua tarefa de testar todos os serviços que temos rodando, que rodam com diferentes banco de dados (<a href="http://dev.mysql.com">MySQL</a>, <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.microsoft.com/sqlserver/">SQL Server</a>, <a href="http://www.oracle.com/br/">Oracle</a>).</p>
+
+<p>Na maioria das vezes não encontramos problema algum ou apenas uma pequena
+mudança de atributo ou <em>tag</em> na definição dos .dbs. Mas as vezes encontramos
+problemas que fogem da simples configuração do data service, e como aconteceu
+agora conosco: um <em>bug</em>.</p>
+
+<p>Para tentar minimizar esse trabalho gerei um projeto que tem a ideia de
+automatizar ao máximo esse tipo de trabalho! E, para com isso, irmos além dos
+testes unitários que são realizados pelo pessoal do desenvolvimento do WSO2,
+testar as interfaces em real funcionamento, nos mais variados bancos de dados.</p>
+
+<p>E assim nasceu o pequeno projeto <a href="http://github.com/WSO2Brasil/wso2-ds-tests">wso2-ds-tests</a>. Que é um apanhando de data
+services, sql's e projeto do <a href="http://www.soapui.org/">SOAPUI</a>. Para maiores
+informações basta <a href="http://github.com/WSO2Brasil/wso2-ds-tests">acessar o projeto</a> no <a href="http://github.com">Github</a>!</p>
+
+<p>Deem uma olhadela por lá e qualquer contribuição é muito bem vinda, basta
+fazer um <em>fork</em> e mandar um <em>pull request</em>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Business Activity Monitoring + SQL Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server/"/>
+    <updated>2010-04-06T15:44:57-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do "chefe", realizei o download
+e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
+testes.</p>
+
+<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
+para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
+(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
+(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
+
+<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
+de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
+propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
+"bam", e para minha não-surpresa, lá estavam mais dois diretórios:</p>
+
+<ul>
+<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
+<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
+</ul>
+
+
+<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
+configuração que pudesse conter a conexão apontando para esses arquivos.</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+</code></pre>
+
+<p>Ops, não encontrei nada. Nova tentativa:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
+[milhões de respostas - ocultadas por mim - que não ajudam em nada]
+</code></pre>
+
+<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+</code></pre>
+
+<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho "sujo".</p>
+
+<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
+criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
+
+<ul>
+<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
+<li>repository/dataservices/BAMConfigurationDS.dbs</li>
+<li>repository/dataservices/BAMStatQueryDS.dbs</li>
+<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
+<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
+</ul>
+
+
+<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e...
+<em>voilà</em>.</p>
+
+<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
+</code></pre>
+
+<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
+capítulo, sempre acompanhado de dicas e descobertas. (:</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: cep | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/cep/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Lançamento do WSO2 Complex Event Processing Server 1.0.0 (Alpha)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/01/lancamento-do-wso2-complex-event-processing-server-1-0-0-alpha/"/>
+    <updated>2011-01-04T07:28:06-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/01/lancamento-do-wso2-complex-event-processing-server-1-0-0-alpha</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/01/wso2-complex-event-processing-server-300x28.gif" alt="" /></p>
+
+<p>Foi lançado ontem na lista de desenvolvedores do WSO2 (carbon-dev@wso2.org) o
+WSO2 Complex Event Processing Server, em sua versão 1.0.0 (alpha), faz com que
+tenhamos processamento de eventos complexos em nosso ambiente SOA.</p>
+
+<p>Alguns dos recursos que podemos encontrar no WSO2 CEP:</p>
+
+<ul>
+<li>Plugable back end rutime support - WSO2 CEP supports following back end run time engines.
+
+<ul>
+<li>Drools Fusion - This back end runtime engine is distributed with the CEP pack</li>
+<li>Esper     - This back end runtime is available at WSO2 GPL P2 repository : <a href="http://dist.wso2.org/wso2-gpl-p2/carbon/releases/3.1.0-alpha/">http://dist.wso2.org/wso2-gpl-p2/carbon/releases/3.1.0-alpha/</a> and can be added as a feature with WSO2 Carbon Feature Management.</li>
+</ul>
+</li>
+<li>Support Multiple Broker Types - WSO2 CEP supports WS-Event and JMS-Qpid broker types;</li>
+<li>GUI Support -  WSO2 CEP supports create,edit,delete operations on Buckets, Inputs and Queries;</li>
+<li>Use Registry resources - WSO2 CEP supports using resources stored in registry (Queries) to create buckets;</li>
+<li>Persistence   - WSO2 CEP supports persisting created buckets in the registry;</li>
+<li>I18n Support for CEP - WSO2 CEP supports internationalization.</li>
+</ul>
+
+
+<p>O povo do WSO2 nos convida para <a href="http://wso2.org/downloads/cep">baixar o WSO2 CEP</a>, instalar, testar e reportar bugs
+(utilizando o <a href="https://wso2.org/jira/secure/project/ViewProject.jspa?pid=10190">Jira do WSO2</a>) - caso
+encontremos!</p>
+]]></content>
+  </entry>
+  
+</feed>

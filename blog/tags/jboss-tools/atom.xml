@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: jboss tools | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/jboss-tools/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[BPEL Editor VS JBoss Tools]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/09/bpel-editor-vs-jboss-tools/"/>
+    <updated>2009-09-29T07:23:41-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/09/bpel-editor-vs-jboss-tools</id>
+    <content type="html"><![CDATA[<p>Cansado de apanhar dos bugs e problemas do <a href="http://www.eclipse.org/bpel/">BPEL Eclipse</a>, resolvi tentar a sorte com o <a href="http://www.jboss.org/tools">JBoss Tools (3.1)</a>.</p>
+
+<p>O JBoss Tools não atende só BPEL, tem diversas funcionalidades, mas o que me
+importava realmente era o BPEL.</p>
+
+<p>Após duas semanas trabalhando com ele e fazendo os processos o utilizando,
+cheguei as conclusões abaixo:</p>
+
+<p><strong>Boas notícias:</strong></p>
+
+<ul>
+<li>auto-completation para xsl;</li>
+<li>atalho para criação de arquivo xsl;</li>
+<li>adicionar elemento no schema tem menu "antes" e "depois".</li>
+</ul>
+
+
+<p><strong>Más notícias:</strong></p>
+
+<ul>
+<li>na criação do arquivo de deploy, além de o nome ficar diferente (fica bpel-deploy.xml e não deploy.xml), não consigo selecionar os serviços os targets, tive que fazer o arquivo manualmente;</li>
+<li>continua não alterando o nome da operação no bpel ao alterar no wsdl;</li>
+<li>continua (as vezes) não criando um novo "assign" quando pergunta se quer que seja criado (mas não dá exception que obrigava abrir e fechar o bpel);</li>
+<li>o problema ao alterar o nome da variável de "request" ou "response", fechar o bpel e verificar no "Details" do "Invoke" continua;</li>
+<li>continua incluido as variáveis em um local do bpel que o editor não lê;</li>
+<li>simplesmente os botões de "add" e "delete" do "details" de um "assign" continua parando de responder simplesmente;</li>
+<li>continua perdendo as referências aos wsdl do nada.</li>
+</ul>
+
+
+<p>Ou seja, não resolveu meus maiores problemas além de criar alguns novos...
+Definitivamente não conheço um editor BPEL livre decente. Alguém conhece?</p>
+]]></content>
+  </entry>
+  
+</feed>

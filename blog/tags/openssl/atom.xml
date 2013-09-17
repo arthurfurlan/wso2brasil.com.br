@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: openssl | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/openssl/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o WSO2 Carbon 3.0.0 e corrigindo o WSO2 Data  Services Server 2.5.0]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/"/>
+    <updated>2010-06-16T10:17:12-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-data-services-server.gif" alt="" />Versões novas de produtos sempre são uma alegria, seja pelos
+recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
+nós desenvolvedores. Mas juntamente com as novas versões (principalmente nos
+primeiros releases) vem também problemas, bugs ou incompatibilidade de
+versões- os problemas mais comuns.</p>
+
+<p>E para não pararmos no tempo, vendo que <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">as novidades do WSO2 Data Services Server 2.5.0</a>
+seriam muito bem vindas para nós, resolvemos realizar testes para verificar a
+possibilidade de atualizarmos nossa versão da 2.2.1 para a 2.5.0, e surgiu
+aquela alegria quando vimos que não teríamos problemas de incompatibilidade
+como ocorreu nos testes de migração da 2.0 para <a href="/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/">WSO2 Data Services Server 2.2.1</a>.</p>
+
+<p>Mas como nem tudo são rosas, um velho <em>bug</em> conhecido nosso na versão 2.0 e
+discutido no <a href="http://wso2.org/forum/thread/5349">fórum - de não aceitar valores <em>null</em></a>, tinha sido corrigido na versão
+2.2.1; mas resolveu dar as caras na versão 2.5.0. E por necessitarmos das
+novidades dessa versão, tivemos que correr atrás e corrigir o problema, já
+corrigido anteriormente.</p>
+
+<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-carbon.gif" alt="" />Como já
+conhecemos a estrutura, fomos direto ao site do projeto para realizar o
+<a href="http://wso2.org/downloads/data-services-server">download do fonte do WSO2 Data Services Server</a> e fomos atrás do arquivo problemático (SQLQuery.java).
+Mas para nossa surpresa, o arquivo não estava mais lá, foi centralizado no
+projeto <a href="http://wso2.org/downloads/carbon">WSO2 Carbon</a>.</p>
+
+<p>Então com o arquivo de <a href="http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip">código-fonte do WSO2 Carbon
+3.0.0</a>
+devidamente baixado, vamos colocar a mão na massa.</p>
+
+<h2>Baixando e descompactando o fonte</h2>
+
+<pre><code>wget http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip
+unzip wso2carbon-3.0.0-src.zip
+</code></pre>
+
+<h2>Baixando e aplicando o <em>patch</em></h2>
+
+<pre><code>wget /wp-content/uploads/2010/06/wso2-dataservices-accept-null.txt
+cd wso2carbon-3.0.0-src patch -p1 wso2-dataservices-accept-null.patch
+</code></pre>
+
+<p>E a mensagem recebida aqui será algo como:</p>
+
+<pre><code>patching file components/data-services/org.wso2.carbon.dataservices.core/3.0.0/src/main/java/org/wso2/carbon/dataservices/dispatch/query/SQLQuery.java
+</code></pre>
+
+<h2>Compilando o componente</h2>
+
+<p>Levando em consideração que você tenha as dependências necessárias, vai ser um
+passo bem demorado. Vai fazer download de alguns pacotes, compilar, testar e
+gerar uma nova versão do componente, com a correção.</p>
+
+<pre><code>cd components/data-services
+mvn install
+</code></pre>
+
+<h2>Corrigindo o Data Services Server</h2>
+
+<p>Agora que temos o componente corrigido e devidamente compilado, vamos copiá-lo
+para a instância do WSO2 Data Services Server (levando em consideração que
+minha instalação fica em ~/Applications/wso2/wso2dataservices-2.5.0).</p>
+
+<pre><code>cp org.wso2.carbon.dataservices.core/3.0.0/target/org.wso2.carbon.dataservices.core-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.core-3.0.0.jar
+cp org.wso2.carbon.dataservices.ui/3.0.0/target/org.wso2.carbon.dataservices.ui-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.ui-3.0.0.jar
+</code></pre>
+
+<h2>Conclusão</h2>
+
+<p>Com o <em>patch</em> criado, testado e aplicado. Abrimos um <a href="https://wso2.org/jira/browse/CARBON-7589">pedido de correção no JIRA do WSO2</a>, para que eles possam
+corrigir na próxima <em>release</em> (provavelmente a 2.5.1). Caso você não tenha
+disponibilidade (de tempo ou paciência), pode baixar os componente do WSO2
+Data Services Server corrigido (bastando apenas descompactá-los).</p>
+
+<ul>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-core-3.0.0.tar.gz">org.wso2.carbon.dataservices.core-3.0.0.jar</a></li>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-ui-3.0.0.tar.gz">org.wso2.carbon.dataservices.ui-3.0.0.jar</a></li>
+</ul>
+
+
+<p>E tenho que falar, viva o código aberto e o software livre! (;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Instalando o WSO2 Web Services Framework for PHP (2.0.0)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0/"/>
+    <updated>2010-04-20T21:47:45-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/instalando-o-wso2-web-services-framework-for-php-2-0-0</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsf-php.gif" alt="" />Como eu disse anteriormente, em <a href="http://www.mcorp.com.br/2010/03/consumindo-um-servico-seguro-utilizando-php/">Consumindo um serviço seguro utilizando PHP</a>, vou mostrar uma das maneiras para instalar o framework que o pessoal do
+WSO2 disponibiliza para criação e consumo de serviços em PHP, conhecido como:
+<a href="http://wso2.org/downloads/wsf/php">WSO2 Web Services Framework <em>for PHP</em></a>.</p>
+
+<p>Na página de <a href="http://wso2.org/downloads/wsf/php">downloads do WSO2 Web Services Framework <em>for PHP</em></a>, é possível escolher entre 3 opções
+de instalação, então exemplificar a fundo apenas uma e colocar uma breve
+descrição das outras.</p>
+
+<h2>Binary Distribution</h2>
+
+<p>É o framework já compilado e com a DLL dentro que serve para as pessoas que a
+utilizarão em ambientes Windows, não terá muito trabalho, apenas colocar a DLL
+na pasta correta e configurar o seu <em>php.ini</em>. Essa é a opção mais prática -
+na minha opinião - para Windows (deixarei essa para uma próxima, não tenho
+ambiente para isso - ainda).</p>
+
+<h2>PECL Distribution</h2>
+
+<p>Em teoria é a mais fácil de todas. Mas por que "em teoria"? Passei dois dias
+realizando diversas configurações na minha máquina para que isso funcionasse
+corretamente, perguntei no <a href="http://wso2.org/forum/thread/9553">fórum</a> se
+alguém poderia me ajudar a solucionar, mas desisti. Parti para a maneira
+"clássica", o famoso <a href="/glossario/#CMM">CMM</a>, que descrevo abaixo.</p>
+
+<h2>Source Distribution</h2>
+
+<p>Essa versão é o <a href="https://wso2.org/repos/wso2/trunk/wsf/php/">código-fonte do WSO2 Web Services Framework <em>for
+PHP</em></a> (aberto, hein!) e aqui temos
+duas opções de download, com apenas uma diferença mínima: o compactador. Uma
+foi compactada utilizando ZIP e outra TAR/GZ. E ambas será necessário
+compilação, com os bons e velhos comandos: <em>./configure</em>, <em>make &amp;&amp; make
+install</em>.</p>
+
+<p>Mas, chega de papo, vamos por a mão na "massa".</p>
+
+<h3>Instalando as dependências</h3>
+
+<p>As dependências para funcionamento do framework, não são muitas:</p>
+
+<ul>
+<li><a href="http://wso2.org/downloads/wsf/c">WSO2 Web Services Framework <em>for C</em></a></li>
+<li>PHP 5.1.1 ou superior</li>
+<li>Bibliotecas libxml2 e OpenSSL</li>
+</ul>
+
+
+<h3>WSO2 Web Services Framework <em>for C</em></h3>
+
+<p>Para quem tá acostumado, são os velhos conhecidos, bastando baixar a última
+versão (no meu caso a 2.0.0):</p>
+
+<pre><code>wget http://dist.wso2.org/products/wsf/c/2.0.0/wso2-wsf-c-src-2.0.0.tar.gz
+tar xfvz wso2-wsf-c-src-2.0.0.tar.gz
+cd wso2-wsf-c-src-2.0.0
+./configure
+make
+sudo make install
+</code></pre>
+
+<h3>PHP 5.1.1 ou superior</h3>
+
+<p>Não vou entrar nos méritos de instalação do PHP, pois imagino que isso esteja
+mais do que documentado na internet por aí a fora (para os preguiçosos -
+google: <a href="http://www.google.com.br/#hl=pt-BR&amp;source=hp&amp;q=instala%C3%A7%C3%A3o+do+php+no+ubuntu&amp;btnG=Pesquisa+Google&amp;meta=&amp;aq=f&amp;aqi=&amp;aql=&amp;oq=instala%C3%A7%C3%A3o+do+php+no+ubuntu&amp;gs_rfai=&amp;fp=fbe0f18c81cbb156">instalação do php no ubuntu</a>).</p>
+
+<h3>Bibliotecas libxml2 e OpenSSL</h3>
+
+<p>O comando para instalar as dependências é:</p>
+
+<pre><code>sudo apt-get install libxml2 openssl
+</code></pre>
+
+<p>E com todas as dependências já instaladas e funcionando, podemos utilizar um
+<em>phpinfo()</em>; para conferir:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/config-php-libxml2-openssl.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/config-php-libxml2-openssl-300x187.png" alt="" /></a></p>
+
+<h3>Compilação do WSF/PHP</h3>
+
+<h4>CMM</h4>
+
+<p>E agora, a instalação propriamente dita, utilizando novamente os pacotes da
+versão 2.0.0:</p>
+
+<pre><code>wget http://dist.wso2.org/products/wsf/php/2.0.0/wso2-wsf-php-src-2.0.0.tar.gz
+./configure
+make
+sudo make install
+</code></pre>
+
+<h4>1, 2, 3, testando...</h4>
+
+<p>Estamos quase chegando lá...</p>
+
+<p>Vamos copiar dois arquivos do diretório <em>samples</em> (um cliente e um servidor)
+para o diretório do servidor web (no meu caso: <em>/var/www/samples</em>) e ver se
+tudo funcionou:</p>
+
+<pre><code>sudo mkdir -p /var/www/samples/
+sudo cp samples/math_* /var/www/samples/.
+</code></pre>
+
+<p>Indo ao navegador, basta abrir o endereço <a href="http://localhost/samples/math_client.php">http://localhost/samples/math_client.php</a> e conferir tudo funcionando:</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsf-php-sample-math.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wsf-php-sample-math-300x176.png" alt="" /></a></p>
+
+<h3>Conclusão</h3>
+
+<p>Ainda não consigo avaliar até onde é válido ou interessante utilizar esse
+framework, não pesquisei a fundo ainda o funcionamento e as vantagens dele
+sobre as implementações como <a href="http://www.php.net/soap">SOAP</a> (nativa do PHP)
+<a href="http://nusoap.sourceforge.net/">NuSOAP</a>.</p>
+
+<p>Mas o fato de ser uma instalação que não pode ser feita em "qualquer"
+servidor, ainda mais no Brasil onde as empresas de hospedagens normalmente não
+instalam extensões de terceiros e o preço para ter um servidor próprio não é
+tão acessível, pode acabar ficando inviável.</p>
+
+<p>Realizarei testes mais profundos para verificar as verdadeiras vantagens dessa
+abordagem na implementação dos serviços, só que - novamente - ficará para um
+outro post.</p>
+]]></content>
+  </entry>
+  
+</feed>

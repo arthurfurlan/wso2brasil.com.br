@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: user engagement server | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/user-engagement-server/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Lançado: WSO2 User Engagement Server - 1.0.0!]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0/"/>
+    <updated>2013-07-12T10:58:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-main.png"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-main-600x311.png" width="600" height="311"></a></p>
+
+<p>O WSO2 User Engagement Server (UES) libera os dados de inteligência de negócios da sua empresa, monitoramento e outros requisitos empresariais. Não apenas para desenvolvedores, mas para usuários da área de negócios, o WSO2 UES ajuda a criar componentes web rapidamente e com visual atrativo, como: dashboard, microsite e gadgets. O UES provê capacidades "fora da caixinha", expor seus dados na tela nunca foi tão fácil.</p>
+
+<p>O WSO2 UES inclui um editor Jaggery.js embutido, navegador e uma maneira gráfica de compor seus dashboards. Totalmente integrado com a sua loja (<strong>nota de tradução:</strong> "loja" para eles não é seu e-commerce, é o <em>store</em> de gadgets, microsites e afins da sua empresa) de Open Social Gadgets e Microsites, usuários podem montar dashoards, microsites ou gadgets com fonte de dados de terceiros e podem compartilhar entre os usuários, autenticados ou anônimos, da sua empresa.</p>
+
+<p>Aproveite a qualidade de recursos da premiada plataforma WSO2 Carbon e a flexibilidade do Jaggery.js para escrever código-fonte server-side sem compilação, com o WSO2 User Engagement Server.</p>
+
+<h2>Algumas telas</h2>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-dashboard.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-dashboard-80x60.png" width="80" height="60" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-jaggery-ide-governance.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-jaggery-ide-governance-80x60.png" width="80" height="60" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-jaggery-ide-menu.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-jaggery-ide-menu-80x60.png" width="80" height="60" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-jaggery-ide-source.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-jaggery-ide-source-80x60.png" width="80" height="60" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-microsite.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-microsite-80x60.png" width="80" height="60" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-publish-settings.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-publish-settings-80x60.png" width="80" height="60" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-store.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/wso2-ues-store-80x60.png" width="80" height="60" /></a>
+</p>
+
+
+<h2>Recursos</h2>
+
+<ul>
+<li>Criação visual de Dashboards
+
+<ul>
+<li>Editor gráfico de dashboard</li>
+<li>Adicione os gadgets da loja da sua empresa</li>
+<li>Use o layout padrão ou crie o seu</li>
+<li>Aplicação de temas customizados</li>
+<li>Aplicação de segurança baseada em usuários ou perfis</li>
+<li>Out-of-the-box Single-Sign-On (SSO)</li>
+</ul>
+</li>
+<li>Criação de Microsites
+
+<ul>
+<li>Desenvolvimento com Jaggery.js, HTML, CSS e JavaScript</li>
+<li>Com autenticação via básica ou form</li>
+<li>Out-of-the-box Single-Sign-On (SSO)</li>
+</ul>
+</li>
+<li>Publicação de Dashboard, Microsite e Gadgets
+
+<ul>
+<li>Publique e compartilhe dashboards, microsites e gadgets usando a loja da empresa</li>
+<li>Acesso para compartilhamento contorlado</li>
+<li>Adicione tags e outras meta-informações como thumbnails e banners</li>
+</ul>
+</li>
+<li>Descoberta de componentes web
+
+<ul>
+<li>Integrado com a loja da empresa</li>
+<li>Suporte a recursos sociais como votação e comentários</li>
+<li>Alta capcidade de busca baseada nas tags, títulos e conteúdo</li>
+<li>Favoritos para componentes web</li>
+<li>Pequenos trechos de código para embutir</li>
+</ul>
+</li>
+<li>Jaggery.js Web IDE
+
+<ul>
+<li>Editor de código completo</li>
+<li><em>Auto-complete</em> Jaggery.js, HTML e JavaScript</li>
+<li>Salvamento automático e recuperação em caso de erros</li>
+<li>Formatação de código</li>
+<li>Adicione trechos de html</li>
+<li>Adicione gadgets da loja da sua empresa</li>
+<li>Use bibliotecas externas</li>
+<li>Múltiplas abas</li>
+<li>Governança dos componentes web</li>
+<li>Navegador de arquivos baseado na web</li>
+<li>Crie, altere, apague, copie, cole e recorte arquivos e diretórios</li>
+<li>Visualize as informações de arquivos e diretórios</li>
+<li>Edite, selecione e publique dashboards e microsites</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Outras informações</h2>
+
+<ul>
+<li><a href="http://wso2.com/products/user-engagement-server">Download</a></li>
+<li><a href="http://docs.wso2.org/wiki/display/UES100/WSO2+User+Engagement+Server+1.0.0+Documentation">Documentação</a></li>
+<li><a href="https://wso2.org/jira/browse/UES-257?filter=11174">Issues</a></li>
+<li><a href="https://github.com/wso2/ues">Código-fonte</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: comunidade | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/comunidade/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Software livre, código aberto e o mundo SOA]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/software-livre-codigo-aberto-e-o-mundo-soa/"/>
+    <updated>2009-11-26T19:08:32-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/software-livre-codigo-aberto-e-o-mundo-soa</id>
+    <content type="html"><![CDATA[<p>Procurando por suítes SOA é muito comum ouvir falar de Oracle, WebSphere e -
+meio de longe - BizTalk. Mas, além de pagas, não são nem um pouco baratas.</p>
+
+<p>Esse preço pode ser na maioria das vezes inviável para empresas de menor
+porte, sobrando apenas as soluções de menor porte (e preço) e as opções
+livres. E aí sobra pra quem "inventou" a moda, afinal, "quem inventa aguenta".</p>
+
+<p>Dois anos atrás, quando começamos os estudos para implementação de SOA aqui no
+trabalho, apanhamos - e muito - com esse problema. Tínhamos que implantar toda
+a arquitetura escolhida de maneira barata (entenda: de graça).</p>
+
+<p>Achamos muitas opções que prometiam resolver os problemas, mas que no fim
+trazia "N" dificuldades na implementação, desenvolvimento e/ou até instalação.
+Tudo parecia meio cru e o que diziam ser as melhores, não passavam de um
+serviço e um milhão de arquivos (em sua maioria XML) para serem editados quase
+que totalmente manual.</p>
+
+<p>Alguns dos problemas que enfrentamos na maioria das soluções foram:</p>
+
+<ul>
+<li><strong>Documentação</strong>: se não fosse nula, era fraca e muito pouco clara;</li>
+<li><strong>Desenvolvimento</strong>: o lançamento de novas versões e correções de bugs eram lentos (sem contar as frases do tipo "na versão Enterprise está resolvido");</li>
+<li><strong>Comunidade</strong>: praticamente o mesmo problema da documentação, nula; e</li>
+<li><strong>Código aberto</strong>: algumas ferramentas dizem "código aberto", porém abrem uma parte do código (que normalmente doam para a Apache Foundation) e o crucial não, impossibilitando corrigirmos ou descobrimos o que acontece.</li>
+</ul>
+
+
+<p>A lista acima não diz tudo pelo que passamos e enfrentamos, é apenas um
+resumo. Então, após testar algumas ferramentas e utilizar algumas outras,
+optamos pelo <a href="http://www.wso2.org/">WSO2</a>, que apesar de não resolver todos
+nossos problemas, pelo menos chegou mais perto.</p>
+
+<p>Vamos fazer uma comparação com os problemas listados e o que nos levou a
+escolhê-lo:</p>
+
+<ul>
+<li><strong>Documentação</strong>: quando começamos era praticamente nula, mas como eles utilizam outros projetos livres (como: <a href="http://synapse.apache.org">Apache Synapse</a>, <a href="http://ws.apache.org/axis2">Apache Axis2</a>, <a href="http://ws.apache.org/rampart">Apache Rampart</a> e etc) sem maiores modificações, fica mais fácil achar documentação para o seu problema naquele projeto ou biblioteca e atualmente eles estão melhorando um pouco nisso escrevendo <a href="http://wso2.org/library">artigos</a> e disponibilizando alguns webcasts grátis;</li>
+<li><strong>Desenvolvimento</strong>: os lançamentos de versões está numa velocidade boa e rápida, apenas os bugs ainda peca um pouco, mas olhando o JIRA é possível achar vários <em>patches</em>, nos deixando ainda a opção de alterar o código, caso queira;</li>
+<li><strong>Comunidade</strong>: é fraca como todos os outros, existe o <a href="http://wso2.org/forum">fórum</a>, mas é somente em inglês; e</li>
+<li><strong>Código aberto</strong>: como dito antes, o <a href="https://wso2.org/svn/browse/wso2/trunk/">código</a> é aberto e você pode alterar a vontade, que pode ajudar na necessidade de resolução de bugs mais críticos.</li>
+</ul>
+
+
+<p>Pode não ser a solução perfeita, mas foi o que mais nos deixou tranquilos para
+trabalhar. Alguns produtos ainda tem muito o que evoluir e alguns estão bem
+evoluídos, mas com muito a melhorar. Posso dizer que estamos bem com a opção
+que fizemos, mesmo que não tenhamos chego aos 100% de implantação da
+arquitetura que pensamos.</p>
+]]></content>
+  </entry>
+  
+</feed>

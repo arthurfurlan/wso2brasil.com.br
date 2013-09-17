@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: bam | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/bam/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Lançamento do WSO2 Stratos (alpha)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/lancamento-do-wso2-stratos-alpha/"/>
+    <updated>2010-06-01T15:50:24-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/lancamento-do-wso2-stratos-alpha</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos.png" alt="" />O
+pessoal do <a href="http://wso2.org">WSO2</a> anda com todo o vapor mesmo, hoje foi
+lançado (versão <em>alpha</em> ainda) o <a href="http://wso2.com/cloud/stratos/">WSO2 Stratos</a>, toda a plataforma rodando em <em>cloud
+computing</em>, ou seja, tudo "empacotado" e pronto para rodar, sem dependência de
+hardware e instalações.</p>
+
+<p>Você pode conseguir maiores informações no site do produto <a href="http://wso2.com/cloud/stratos/">WSO2 Stratos</a> (em inglês) e, também, testar tudo
+funcionando (lembrando que não é uma versão final ainda) fazendo seu cadastro
+- grátis. <a href="http://cloud.wso2.com/">Testar o WSO2 Stratos</a>.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos-home.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos-home-300x228.png" alt="" /></a></p>
+
+<p>Os produtos lançados nesse formato são:</p>
+
+<ul>
+<li>Governance</li>
+<li>Identity</li>
+<li>Application Server</li>
+<li>Gadgets</li>
+<li>Mashup Server</li>
+<li>Business Activity Monitor</li>
+<li>Enterprise Service Bus</li>
+</ul>
+
+
+<p>Assim que sobrar um tempo vou ver como ficariam implementações utilizando a
+versão livre deles e ver até onde ela está liberada para ser utilizada. E
+também a dificuldade de trabalhar dessa forma.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Plataforma WSO2]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/plataforma-wso2/"/>
+    <updated>2010-05-31T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/plataforma-wso2</id>
+    <content type="html"><![CDATA[<p style="text-align: justify;">Neste post vou descrever o que cada solução do WSO2 é responsável.</p>
+
+
+<table border="0">
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Enterprise Service Bus</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-esb-logo.gif" alt="WSO2 Enterprise Service Bus" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">WSO2 ESB permite aos administradores de sistema e arquitetos de SOA de forma simples e fácil configurar o roteamento de mensagens, a virtualização, a intermediação, transformação, logs de requisições, agendamento de tarefas, balanceamento de carga, mediação de eventos e muito mais.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 240px;">
+<h3>WSO2 Governance Registry</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-registry-logo.gif" alt="WSO2 Governance Registry" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">Responsável por manter o controle de sua arquitetura SOA como um repositório de metadados, suporte para controle de versão, gestão de ciclo de vida, um modelo avançado para usuários / papéis / permissões, e as características sociais, tais como marcação, classificação e comentários. WSO2  Governance Registry se integra com outros produtos WSO2 para coletar metadados sobre serviços, centraliza a política de metadados, e gerencia dependências.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 190px;">
+<h3>WSO2 Identity Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-is-logo.gif" alt="WSO2 Identity Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Identity Server é o servidor de gerenciamento de identidade e direito. Ele suporta cartões de Informação e OpenID para autenticação, bem como autorização para XACML. Pode ser integrada facilmente com LDAP ou Active Directory.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 260px;">
+<h3>WSO2 Business Activity Monitor</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bam-logo.gif" alt="WSO2 Business Activity Monitor" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Business Activity Monitor (BAM WSO2) serve para suprir as necessidades dos especialistas em TI acompanharem e entenderem as atividades de negócios dentro de uma implantação SOA com isso permite que as organizações sejam pró-ativa ao invés de ser reativo.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Gadgat Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-gs-logo.gif" alt="WSO2 Gadgat Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">O Gadgat WSO2 Server permite que você possa oferecer aos seus executivos, funcionários, parceiros ou clientes uma maneira de obter todas as informações em um único lugar que eles precisam. Pordemos criar vários paineis para cada usuário permitindo-lhe adicionar, personalizar e reorganizar seus gadgets, assim como agrupá-las em conjuntos de tabulação.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 250px;">
+<h3>WSO2 Business Process Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-bps-logo.gif" alt="WSO2 Business Process Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Business Process Server é um servidor responsável por executar os processos de negócios, são escritos usando o padrão WS-BPEL. Oferece um completo console gráfico para implantar, gerenciar e visualizar os processos, além de gerenciar e exibir instâncias do processo.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Mashup Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-mashup-logo.gif" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Mashup Server fornece uma plataforma para uma rápida implantação de serviços Web Mashups.  Combinando mashups simples, mas rica de reutilização, segurança, confiabilidade e governação, a WOS2 Mashup Server oferece a composição de serviços de classe empresarial. O servidor Mashup é voltada para desenvolvedores web (HTML + Javascript / competências XML) que permite um rápido desenvolvimento e compartilhamento de novos serviços.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 180px;">
+<h3>WSO2 Data Services</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-ds-logo.gif" alt="WSO2 Data Services" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">A WSO2 Data Services fornece uma plataforma fácil de usar para criar serviços responsáveis por buscar os dados armazenados em locais heterogêneos, como banco de dados, arquivos CSV, Excel ou XML, permitindo a fácil integração de dados em processos de negócios, mashups, gadgets aplicações, BI e todos os serviços em geral.</p>
+
+
+<table>
+<tbody>
+<tr>
+<td style="width: 320px;">
+<h3>WSO2 Web Services Application Server</h3>
+</td>
+<td><img src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/mini-wsas-logo.gif" alt="WSO2 Web Services Application Server" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<p style="text-align: justify;">WSO2 WSAS é um servidor de aplicativos para web services. Com o seu servidor Web incorporado de alto desempenho, suporte completo para XML, SOAP, WSDL, e suporte para comunicações confiáveis, seguras, WSO2 WSAS torna simples e eficaz para criar, consumir e gerenciar Web Services. tanbém podemos expor aplicativos como serviços na forma de POJOs ou JARs</p>
+
+
+<p style="text-align: justify;">Além dessas soluções, o WSO2 possui frameworks para fornecer aos desenvolvedores a infra-estrutura para criar e consumir serviços em sua linguagem de programação favorita como C, C++, PHP ou Spring.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ferramentas SOA Open Source]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/05/ferramentas-soa-open-source/"/>
+    <updated>2010-05-19T00:00:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/05/ferramentas-soa-open-source</id>
+    <content type="html"><![CDATA[<p>Quando decidimos criar um ambiente SOA, um dos requisitos impostos pela maioria dos diretores é se é uma solução livre, ou seja, OpenSource. Partindo desse pré-requisito, pesquisamos algumas ferramentas que poderíamos utilizar.</p>
+
+<p>A primeira ferramenta que testamos foi o Intalio, que, na verdade, é uma ferramenta de BPM em que podemos modelar os processos em BPEL e depois fazer um deploy como um serviço para expor na BUS. Um dos problemas que encontramos com essa ferramenta, foi que não conseguimos levantar uma excessão e retornar para o usuário.</p>
+
+<p>Também estudamos o Mule, que é uma BUS para expor todos os serviços criados a partir do Intalio.</p>
+
+<p>Outra opção foi o JBOSS SOA Plataform; chegamos a fazer um piloto com consultores da Red Hat, porém não supriu todas as nossas necessidades, tinhamos os mesmos problemas da ferramenta Intalio.</p>
+
+<p>Até que descobrimos uma ferramenta chamada WSO2, a qual possui várias ferramentas para SOA como DataServices, Business Process Server, Web Services Application, Governance Registry, Enterprise Service Bus, etc.</p>
+
+<p>A grande vantagem de usar o WSO2 é que temos um grande suporte em fóruns, e-mail, acesso ao código-fonte e atualizações frequentes de suas ferramentas, isso significa que os desenvolvedores estão aprimorando cada vez mais cada uma das ferramentas.</p>
+
+<p>Outra grande vantagem é a sua fácil instalação, na maioria das vezes é necessário somente descompactar a pasta e iniciar o serviço que o servidor já está funcionando.</p>
+
+<p>Atualmente estamos usando DataServices, Web Services Application, Governance Registry e Enterprise Service Bus, todos rodando em um mesmo servidor, porém em portas diferentes.</p>
+
+<p>Veja abaixo a solução completa que o WSO2 implementa.</p>
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/05/product-platform.gif"><img class="aligncenter" src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/product-platform.gif" title="Plataforma WSO2" alt="Plataforma WSO2" /></a></p>
+
+<p>Nos próximos posts vou explicar a funcionalidade de cada produto.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Business Activity Monitoring + SQL Server]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server/"/>
+    <updated>2010-04-06T15:44:57-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/04/wso2-business-activity-monitoring-sql-server</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do "chefe", realizei o download
+e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
+testes.</p>
+
+<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
+para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
+(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
+(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
+
+<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
+de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
+propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
+"bam", e para minha não-surpresa, lá estavam mais dois diretórios:</p>
+
+<ul>
+<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
+<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
+</ul>
+
+
+<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
+configuração que pudesse conter a conexão apontando para esses arquivos.</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+</code></pre>
+
+<p>Ops, não encontrei nada. Nova tentativa:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
+[milhões de respostas - ocultadas por mim - que não ajudam em nada]
+</code></pre>
+
+<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
+
+<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
+conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
+conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
+repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
+</code></pre>
+
+<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho "sujo".</p>
+
+<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
+criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
+
+<ul>
+<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
+<li>repository/dataservices/BAMConfigurationDS.dbs</li>
+<li>repository/dataservices/BAMStatQueryDS.dbs</li>
+<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
+<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
+</ul>
+
+
+<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e...
+<em>voilà</em>.</p>
+
+<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
+</code></pre>
+
+<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
+capítulo, sempre acompanhado de dicas e descobertas. (:</p>
+]]></content>
+  </entry>
+  
+</feed>

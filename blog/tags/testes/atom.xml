@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: testes | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/testes/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services Server e suas atualizações]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/"/>
+    <updated>2011-10-06T15:58:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg" alt="" /></a></p>
+
+<p>Se tem uma tarefa que toma muito tempo nosso, são os testes quando sai versão nova de algum produto do <a href="http://wso2.org">WSO2</a>.</p>
+
+<p>Estamos trabalhando na migração do <a href="/tag/data-services/">WSO2 Data Services Server</a> <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">2.5.1</a> para a <a href="/2011/06/novidades-wso2-data-services-server-2-6-x/">2.6.0</a> e isso gera uma árdua tarefa de testar todos os serviços que temos rodando, que rodam com diferentes banco de dados (<a href="http://dev.mysql.com">MySQL</a>, <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.microsoft.com/sqlserver/">SQL Server</a>, <a href="http://www.oracle.com/br/">Oracle</a>).</p>
+
+<p>Na maioria das vezes não encontramos problema algum ou apenas uma pequena
+mudança de atributo ou <em>tag</em> na definição dos .dbs. Mas as vezes encontramos
+problemas que fogem da simples configuração do data service, e como aconteceu
+agora conosco: um <em>bug</em>.</p>
+
+<p>Para tentar minimizar esse trabalho gerei um projeto que tem a ideia de
+automatizar ao máximo esse tipo de trabalho! E, para com isso, irmos além dos
+testes unitários que são realizados pelo pessoal do desenvolvimento do WSO2,
+testar as interfaces em real funcionamento, nos mais variados bancos de dados.</p>
+
+<p>E assim nasceu o pequeno projeto <a href="http://github.com/WSO2Brasil/wso2-ds-tests">wso2-ds-tests</a>. Que é um apanhando de data
+services, sql's e projeto do <a href="http://www.soapui.org/">SOAPUI</a>. Para maiores
+informações basta <a href="http://github.com/WSO2Brasil/wso2-ds-tests">acessar o projeto</a> no <a href="http://github.com">Github</a>!</p>
+
+<p>Deem uma olhadela por lá e qualquer contribuição é muito bem vinda, basta
+fazer um <em>fork</em> e mandar um <em>pull request</em>.</p>
+]]></content>
+  </entry>
+  
+</feed>

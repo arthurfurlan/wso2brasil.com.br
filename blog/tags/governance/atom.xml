@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: governance | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/governance/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Lançamento do WSO2 Stratos (alpha)]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/lancamento-do-wso2-stratos-alpha/"/>
+    <updated>2010-06-01T15:50:24-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/lancamento-do-wso2-stratos-alpha</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos.png" alt="" />O
+pessoal do <a href="http://wso2.org">WSO2</a> anda com todo o vapor mesmo, hoje foi
+lançado (versão <em>alpha</em> ainda) o <a href="http://wso2.com/cloud/stratos/">WSO2 Stratos</a>, toda a plataforma rodando em <em>cloud
+computing</em>, ou seja, tudo "empacotado" e pronto para rodar, sem dependência de
+hardware e instalações.</p>
+
+<p>Você pode conseguir maiores informações no site do produto <a href="http://wso2.com/cloud/stratos/">WSO2 Stratos</a> (em inglês) e, também, testar tudo
+funcionando (lembrando que não é uma versão final ainda) fazendo seu cadastro
+- grátis. <a href="http://cloud.wso2.com/">Testar o WSO2 Stratos</a>.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos-home.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-stratos-home-300x228.png" alt="" /></a></p>
+
+<p>Os produtos lançados nesse formato são:</p>
+
+<ul>
+<li>Governance</li>
+<li>Identity</li>
+<li>Application Server</li>
+<li>Gadgets</li>
+<li>Mashup Server</li>
+<li>Business Activity Monitor</li>
+<li>Enterprise Service Bus</li>
+</ul>
+
+
+<p>Assim que sobrar um tempo vou ver como ficariam implementações utilizando a
+versão livre deles e ver até onde ela está liberada para ser utilizada. E
+também a dificuldade de trabalhar dessa forma.</p>
+]]></content>
+  </entry>
+  
+</feed>

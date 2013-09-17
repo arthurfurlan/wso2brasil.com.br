@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Criando serviços com o WSO2 - Parte 1 - WSO2 Data Services - WSO2Brasil</title>
+  <meta name="author" content="WSO2Brasil">
+
+  
+  <meta name="description" content="Depois de publicar o post Criando um ambiente SOA com WSO2 estamos recebendo vários emails e comentários de usuários que estão com diversas dúvidas e &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wso2brasil.com.br/blog/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="WSO2Brasil" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.colorbox.min.js" type="text/javascript"></script>
+<link href="/stylesheets/colorbox.css" rel="stylesheet" type="text/css">
+
+<script>
+jQuery = jQuery.noConflict(true);
+jQuery(document).ready( function() {
+  var thumbnails = 'a:has(img)[href$=".bmp"],a:has(img)[href$=".gif"],a:has(img)[href$=".jpg"],a:has(img)[href$=".jpeg"],a:has(img)[href$=".png"],a:has(img)[href$=".BMP"],a:has(img)[href$=".GIF"],a:has(img)[href$=".JPG"],a:has(img)[href$=".JPEG"],a:has(img)[href$=".PNG"],a:has(img)[rel^="lightbox"]';
+  jQuery(thumbnails).colorbox({
+    transition: "none"
+  });
+});
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39120636-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/"><img src="/images/wso2brasil.png" /></a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com.br/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wso2brasil.com.br" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Arquivos</a></li>
+  <li><a href="/sobre">Sobre</a></li>
+  <li><a href="/sobre/#contato">Contato</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+  
+    <h1 class="entry-title"><a href="http://www.leandroprado.com.br/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/">Criando Serviços Com O WSO2 - Parte 1 - WSO2 Data Services →</a></h1>
+    
+
+
+
+  <p class="meta">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-22T00:00:00-03:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2010</time>
+    
+     | <a href="#disqus_thread">Comments</a>
+    
+  </p>
+
+
+  </header>
+
+
+<div class="entry-content"><p><img class="alignleft size-thumbnail wp-image-490" title="WSO2 Logo" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/logo_wso2.jpg" alt="" width="200" height="100" />Depois de publicar o post <a title="Criando um ambiente SOA com WSO2" href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/" target="_blank">Criando um ambiente SOA com WSO2</a> estamos recebendo vários emails e comentários de usuários que estão com diversas dúvidas e como usar as ferramentas do WSO2 integrada, por esse motivo, hoje vamos começar uma série de posts explicativos de como criar um serviço completo (DS, WSAS, BUS) usando as ferramentas WSO2.</p>
+
+
+<p>Antes de começar vamos entender a arquitetura que vamos estar utilizando, veja abaixo:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/arquitetura.png"><img class="size-thumbnail wp-image-492 aligncenter" title="Arquitetura do ambiente" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/arquitetura.png" alt="" width="326" height="326" /></a></p>
+
+
+<ul>
+<li>DataService será responsável por recuperar as informações em uma origem de dedos, pode ser um banco de dados (MySQL, Postegres, SQLServer, Oracle, etc&#8230;) pode ser em um arquivo XML ou em um arquivo CSV.</li>
+<li>Application Server que será responsável por fazer a orquestração dos nossos serviços e pela regra de negócio</li>
+<li>BUS será responsável por expor nosso serviços para os clientes (Mobile, Portals, Desktop, etc&#8230;)</li>
+</ul>
+
+
+<p>O nosso cenário para o serviço de teste será um cadastro de funcionário para o setor de RH de uma empresa, vamos estar utilizando o banco de dados MySQL 5. Então mãos no teclado!!</p>
+
+
+<h3>Criando a Base de Dados</h3>
+
+
+<pre class="brush: sql; title: ; notranslate">
+
+create database rh;
+use rh;
+
+CREATE TABLE funcionario (
+  id_funcionario int(10) NOT NULL AUTO_INCREMENT,
+  nome_funcionario varchar(100) NOT NULL,
+  endereco_funcionario varchar(100) NOT NULL,
+  sexo_funcionario char(1) NOT NULL,
+  data_aniversario datetime NOT NULL,
+  PRIMARY KEY (id_funcionario),
+  UNIQUE KEY PK_Funcionario (id_funcionario)
+);
+
+INSERT INTO funcionario (nome_funcionario, endereco_funcionario, sexo_funcionario, data_aniversario) VALUES ('Leandro Prado 1', 'Rua xyz 367', 'M', '2000-10-10');
+INSERT INTO funcionario (nome_funcionario, endereco_funcionario, sexo_funcionario, data_aniversario) VALUES ('Leandro Prado 2', 'Rua xyz 367', 'M', '2000-10-10');
+
+</pre>
+
+
+<h3>Criando um WSO2 DataService</h3>
+
+
+<p>1. Dentro do Management Console do DataService clique no menu DataServices -&gt; Create</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem1.png"><img class="aligncenter size-medium wp-image-502" title="Selecione a opção Create" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem1.png" alt="" width="136" height="300" /></a></p>
+
+
+<p>2. Coloque no nome e a descrição do Serviço e clique em Next</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem2.png"><img class="aligncenter size-medium wp-image-503" title="Adicione o nome do Serviço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem2.png" alt="" width="514" height="190" /></a></p>
+
+
+<p>3. Agora vamos adionar a nossa fonte de dados, selecione Add New Data Source</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem3.png"><img class="aligncenter size-medium wp-image-505" title="Adicione uma fonte de dados" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem3.png" alt="" width="514" height="107" /></a></p>
+
+
+<p>4. Na tela de configuração do DataSource temos os seguintes campos:</p>
+
+
+<ul>
+<li>DataSource id:</li>
+<li>DataSource Type:</li>
+<li>Database Engine:</li>
+<li>Driver Class:</li>
+<li>JDBC URL:</li>
+<li>User Name:</li>
+<li>Password:</li>
+<li>Min. Pool Size:</li>
+<li>Max. Pool Size:</li>
+<li>AutoCommit:</li>
+</ul>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem4.png"><img class="aligncenter size-medium wp-image-504" title="Configurando o MySQL" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem4.png" alt="" width="512" height="279" /></a></p>
+
+
+<p>Clique no botão Test Connection para verificar se a conexão com o banco está correta.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem5.png"><img class="aligncenter size-medium wp-image-507" title="Testando a conexão com o BD" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem5.png" alt="" width="513" height="279" /></a></p>
+
+
+<p>Se esse o erro acima ocorrer significa que está faltando o jar de conexão com o MySQL, então acesse esse <a title="MySQL Connector" href="http://www.mysql.com/downloads/connector/j/" target="_blank">link</a> e baixe o conector e copie o jar para a pasta  wso2/wso2dataservices-2.2.1/repository/components/lib e depois restart o  serviço do WSO2 DataServices.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem6.png"><img class="aligncenter size-medium wp-image-508" title="Adicionando a fonte de Dados" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem6.png" alt="" width="513" height="278" /></a></p>
+
+
+<p>5. Na próxima tela vamos criar as querys que nosso serviço vai executar</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem18.png"><img class="aligncenter size-medium wp-image-509" title="Criando uma nova query" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem18.png" alt="" width="512" height="88" /></a></p>
+
+
+<p>6. Na tela para adicionar uma nova query temos os seguintes campos:</p>
+
+
+<ul>
+<li>Query ID:</li>
+<li>Data Source:</li>
+<li>SQL:</li>
+<li>Input Mappging</li>
+<li>Grouped by element:</li>
+<li>Row name:</li>
+<li>Row namespace:</li>
+<li>Output Mappging:</li>
+</ul>
+
+
+<p>7. Se sua query possuir parâmetros de entrada deve ser adicionado clicando no botão Input Mappings, essa tela possui os seguintes campos:</p>
+
+
+<ul>
+<li>Mapping Name</li>
+<li>SQL Type</li>
+<li>IN/OUT Type</li>
+<li>Ordinal</li>
+</ul>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem8.png"><img class="aligncenter size-medium wp-image-514" title="Adicionando os parâmetros de entrada" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem8.png" alt="" width="513" height="210" /></a></p>
+
+
+<p>8. Para recuperar os dados de retorno da sua query clique no botão Output Mappings e adicione os campos que deseja retornar, essa tela possui os seguintes campos:</p>
+
+
+<ul>
+<li>Mapping Type</li>
+<li>Output field name</li>
+<li>Data source column Name</li>
+<li>Schema Type</li>
+<li>Allowed User Roles</li>
+</ul>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem81.png"></a><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem9.png"><img class="aligncenter size-medium wp-image-517" title="Adicionando os parâmetros de saída" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem9.png" alt="" width="510" height="302" /></a></p>
+
+
+<p>Veja como vai ficar com todos nossos campos de saída mapeados</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem10.png"><img class="aligncenter size-medium wp-image-518" title="Mapeamento da query" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem10.png" alt="" width="513" height="321" /></a></p>
+
+
+<p>9. Na próxima tela é para adicionar as operações (métodos) do serviço, cada query vai ter uma operação:</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem13.png"><img class="aligncenter size-medium wp-image-522" title="Criando os métodos" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem13.png" alt="" width="530" height="100" /></a></p>
+
+
+<p>10. Na tela Add New Operation temos um campo para colocar o nome da operação (método) e uma combo para selecionar qual query essa operação vai chamar</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem14.png"><img class="aligncenter size-medium wp-image-523" title="Adicionando uma nova operação" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem14.png" alt="" width="512" height="177" /></a></p>
+
+
+<p>Veja como fica a nossa operação PesquisarFuncionario.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem15.png"><img class="aligncenter size-medium wp-image-524" title="Operação PesquisarFuncionario" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem15.png" alt="" width="513" height="115" /></a></p>
+
+
+<p>11. Clique em Finish para criar o nosso DataService, não precisamos preencher os Resources. Veja que nosso serviço já é listado.</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem16.png"><img class="aligncenter size-medium wp-image-526" title="Serviço adicionado" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem16.png" alt="" width="513" height="144" /></a></p>
+
+
+<p>12. Vamos fazer o teste para verificar se tudo está correto e funcionando, clique em Try this service</p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem17.png"><img class="aligncenter size-medium wp-image-527" title="Testando o serviço" src="http://www.leandroprado.com.br/wp-content/uploads/2010/09/ds_imagem17.png" alt="" width="510" height="212" /></a></p>
+
+
+<h3>Conclusão</h3>
+
+
+<p>Criar DataServices usando a ferramenta do WSO2 é muito fácil, intuitivo e produtivo, em apenas alguns minutos conectamos na base de dados, fazemos uma query e retornamos os dados via XML sem escrever nenhuma linha de código.</p>
+
+
+<p>Os serviços de DataServices também pode ser criados através de um plugin para o eclipse, <a title="WSO2 Data Services Plugin" href="http://wso2.org/library/tutorials/create-dataservice-with-eclipse-dataservice-plugin" target="_blank">veja aqui</a>.</p>
+
+
+<p>No próximo post estaremos criando a camada de negócio usando o WSAS</p>
+
+
+<p>Até a próxima!</p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Leandro Prado</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-22T00:00:00-03:00" pubdate data-updated="true">Sep 22<span>nd</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categorias/desenvolvimento/'>desenvolvimento</a>
+  
+</span>
+
+
+      
+
+<span class="tags">
+  
+    <a class='tag' href='/blog/tags/data-services/'>data services</a>, <a class='tag' href='/blog/tags/dss/'>dss</a>, <a class='tag' href='/blog/tags/wso2/'>wso2</a>
+  
+</span>
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wso2brasil.com.br/blog/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/" data-via="wso2brasil" data-counturl="http://wso2brasil.com.br/blog/2010/09/criando-servicos-com-o-wso2-parte-1-wso2-data-services/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/07/criando-um-ambiente-soa-com-wso2/" title="Previous Post: Criando um ambiente SOA com WSO2">&laquo; Criando um ambiente SOA com WSO2</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/10/criando-servicos-com-o-wso2-parte-2-wso2-wsas/" title="Next Post: Criando serviços com o WSO2 - Parte 2 - WSO2 WSAS">Criando serviços com o WSO2 - Parte 2 - WSO2 WSAS &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/8o-solisc-nos-vemos-la/">8º SoLiSC - Nos vemos lá</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/lancado-wso2-user-engagement-server-1-0-0/">Lançado: WSO2 User Engagement Server - 1.0.0!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/nos-no-fisl-14/">Nós no FISL14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/participaremos-do-fisl-14/">Participaremos do FISL 14</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/">Agendamento de tarefas na WSO2 Enterprise Service Bus</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+    <h1>Related Posts</h1>
+    <ul class="posts">
+    
+        <li class="related">
+        <a href="/blog/2012/11/treinamento-celepar/">Treinamento: Celepar</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/">WSO2 Data Services Server e suas atualizações</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2011/06/novidades-wso2-data-services-server-2-6-x/">Novidades WSO2 Data Services Server (2.6.x)</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2011/02/seguranca-de-informacoes-atraves-de-filtragem-de-dados-no-wso2-data-services/"> Segurança de informações através de filtragem de dados no WSO2 Data Services</a>
+        </li>
+    
+        <li class="related">
+        <a href="/blog/2010/10/serie-criando-servicos-com-wso2/">Série criando serviços com WSO2</a>
+        </li>
+    
+    </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (8)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/business-process' style='font-size: 104.28571428571429%'>business process(3)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> <a href='/blog/tags/soa' style='font-size: 108.57142857142857%'>soa(6)</a> <a href='/blog/tags/web-services-application' style='font-size: 104.28571428571429%'>web services application(3)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> </span>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("wso2brasil", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/wso2brasil" class="twitter-follow-button" data-show-count="false">Follow @wso2brasil</a>
+  
+</section>
+
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/wso2brasil">@wso2brasil</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'wso2brasil',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - WSO2Brasil -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'wso2brasil';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

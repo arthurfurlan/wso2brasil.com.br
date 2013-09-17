@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: software livre | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/software-livre/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Nós no FISL14]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/nos-no-fisl-14/"/>
+    <updated>2013-07-09T15:35:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/nos-no-fisl-14</id>
+    <content type="html"><![CDATA[<p>Como dito anteriormente, fomos ao <a href="http://softwarelivre.org/fisl14">FISL 14</a>! Temos que admitir uma "vergonha": apesar de ser um evento muito famoso e referência para todos, nunca havíamos ido ao evento.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-entrada-450x253.jpg" width="450" height="253"></a></p>
+
+<p>Ficamos impressionados com o tamanho e a organização do evento, uma <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-agenda.jpg">agenda</a> de 4 dias e 10 trilhas, com milhões de opções de palestras com temas e linhas variadas. Incrível quanta informação foi "distribuída" no evento, além das 10 salas, tinha um enorme salão com vários estandes e muitas coisas pra entreter <em>nerds</em>!</p>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-estandes-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-160x120.jpg" width="160" height="120" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-grupos-de-usuarios-2-160x120.jpg" width="160" height="120" /></a>
+</p>
+
+
+<p>Isso traz alguns problemas, no meu ver. Palestras vazias por outras concorrentes de mais peso, por exemplo: participamos do fim de uma palestra que tinha UM ouvinte, o que é praticamente um bate-papo. E a não parada para o almoço, tudo bem que ajuda a desafogar um pouco os restaurantes mas, faz com que muitas pessoas percam palestras pois em algum momento terão fome.</p>
+
+<p style="text-align: center">
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-jose-nogueira-falando-200x113.jpg" width="200" height="113" /></a>
+  <a href="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14-apresentacao-leonardo-saraiva-falando-200x113.jpg" width="200" height="113" /></a>
+</p>
+
+
+<p>Nós também palestramos, com o tema: "WSO2 - Apresentando e desmitificando a complexidade do SOA e suas "letrinhas" e caso tenham curiosidade de ver a palestra, fiquem de olho no site do FISL14, pois logo eles devem liberar os vídeos.</p>
+
+<p style="text-align: center">
+  <iframe src="https://docs.google.com/presentation/d/1EwbfJXR3swL1pmvBRIyCrBYu7p-E9XAqqKvus40DBdQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="533" height="429" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</p>
+
+
+<p>Gostaríamos de agradecer o pessoal do <a href="http://wso2.com">WSO2</a>, principalmente a <strong>Asangi</strong>, pela ajuda nos custos e paciência para nos responder prontamente em todas nossas dúvidas.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Participaremos do FISL 14]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/07/participaremos-do-fisl-14/"/>
+    <updated>2013-07-03T13:34:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/07/participaremos-do-fisl-14</id>
+    <content type="html"><![CDATA[<p>Sabemos que está muito em cima para avisar vocês, mas a correria da vida não está fácil pra ninguém (nem pro Eike Batista, <a href="http://g1.globo.com/economia/noticia/2013/07/cenario-economico-acumula-novo-reves-com-crise-de-empresa-de-eike-batista.html">não é</a>?).</p>
+
+<p><a href="http://softwarelivre.org/fisl14"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/07/fisl14.png"></a></p>
+
+<p>Mas... antes tarde do que nunca! Estaremos no <a href="http://softwarelivre.org/fisl14">FISL 14</a>, que ocorre entre os dias 3 e 6 de julho, "passeando" pelos corredores e assistindo as palestras, caso queiram conversar conosco, basta dar um grito.</p>
+
+<p>Nós vamos palestrar no <strong>dia 6</strong>, sala <strong>41C</strong>, as <strong>14:00</strong>. Mas tem muitas palestras interessantes, dêem uma olhada na <a href="http://fisl.org.br/14/papers_ng/public/fast_grid?event_id=3">grade de palestras</a> que você se perderá na quantidade e na qualidade das palestras.</p>
+
+<p>Nos vemos lá!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WSO2 Data Services Server e suas atualizações]]></title>
+    <link href="http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes/"/>
+    <updated>2011-10-06T15:58:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2011/10/wso2-data-services-server-e-suas-atualizacoes</id>
+    <content type="html"><![CDATA[<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg"><img src="http://assets.mcorp.com.br/wp-content/uploads/2011/10/testes-e-a-neura.jpg" alt="" /></a></p>
+
+<p>Se tem uma tarefa que toma muito tempo nosso, são os testes quando sai versão nova de algum produto do <a href="http://wso2.org">WSO2</a>.</p>
+
+<p>Estamos trabalhando na migração do <a href="/tag/data-services/">WSO2 Data Services Server</a> <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">2.5.1</a> para a <a href="/2011/06/novidades-wso2-data-services-server-2-6-x/">2.6.0</a> e isso gera uma árdua tarefa de testar todos os serviços que temos rodando, que rodam com diferentes banco de dados (<a href="http://dev.mysql.com">MySQL</a>, <a href="http://www.postgresql.org">PostgreSQL</a>, <a href="http://www.microsoft.com/sqlserver/">SQL Server</a>, <a href="http://www.oracle.com/br/">Oracle</a>).</p>
+
+<p>Na maioria das vezes não encontramos problema algum ou apenas uma pequena
+mudança de atributo ou <em>tag</em> na definição dos .dbs. Mas as vezes encontramos
+problemas que fogem da simples configuração do data service, e como aconteceu
+agora conosco: um <em>bug</em>.</p>
+
+<p>Para tentar minimizar esse trabalho gerei um projeto que tem a ideia de
+automatizar ao máximo esse tipo de trabalho! E, para com isso, irmos além dos
+testes unitários que são realizados pelo pessoal do desenvolvimento do WSO2,
+testar as interfaces em real funcionamento, nos mais variados bancos de dados.</p>
+
+<p>E assim nasceu o pequeno projeto <a href="http://github.com/WSO2Brasil/wso2-ds-tests">wso2-ds-tests</a>. Que é um apanhando de data
+services, sql's e projeto do <a href="http://www.soapui.org/">SOAPUI</a>. Para maiores
+informações basta <a href="http://github.com/WSO2Brasil/wso2-ds-tests">acessar o projeto</a> no <a href="http://github.com">Github</a>!</p>
+
+<p>Deem uma olhadela por lá e qualquer contribuição é muito bem vinda, basta
+fazer um <em>fork</em> e mandar um <em>pull request</em>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Compilando o WSO2 Carbon 3.0.0 e corrigindo o WSO2 Data  Services Server 2.5.0]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/"/>
+    <updated>2010-06-16T10:17:12-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0</id>
+    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-data-services-server.gif" alt="" />Versões novas de produtos sempre são uma alegria, seja pelos
+recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
+nós desenvolvedores. Mas juntamente com as novas versões (principalmente nos
+primeiros releases) vem também problemas, bugs ou incompatibilidade de
+versões- os problemas mais comuns.</p>
+
+<p>E para não pararmos no tempo, vendo que <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">as novidades do WSO2 Data Services Server 2.5.0</a>
+seriam muito bem vindas para nós, resolvemos realizar testes para verificar a
+possibilidade de atualizarmos nossa versão da 2.2.1 para a 2.5.0, e surgiu
+aquela alegria quando vimos que não teríamos problemas de incompatibilidade
+como ocorreu nos testes de migração da 2.0 para <a href="/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/">WSO2 Data Services Server 2.2.1</a>.</p>
+
+<p>Mas como nem tudo são rosas, um velho <em>bug</em> conhecido nosso na versão 2.0 e
+discutido no <a href="http://wso2.org/forum/thread/5349">fórum - de não aceitar valores <em>null</em></a>, tinha sido corrigido na versão
+2.2.1; mas resolveu dar as caras na versão 2.5.0. E por necessitarmos das
+novidades dessa versão, tivemos que correr atrás e corrigir o problema, já
+corrigido anteriormente.</p>
+
+<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-carbon.gif" alt="" />Como já
+conhecemos a estrutura, fomos direto ao site do projeto para realizar o
+<a href="http://wso2.org/downloads/data-services-server">download do fonte do WSO2 Data Services Server</a> e fomos atrás do arquivo problemático (SQLQuery.java).
+Mas para nossa surpresa, o arquivo não estava mais lá, foi centralizado no
+projeto <a href="http://wso2.org/downloads/carbon">WSO2 Carbon</a>.</p>
+
+<p>Então com o arquivo de <a href="http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip">código-fonte do WSO2 Carbon
+3.0.0</a>
+devidamente baixado, vamos colocar a mão na massa.</p>
+
+<h2>Baixando e descompactando o fonte</h2>
+
+<pre><code>wget http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip
+unzip wso2carbon-3.0.0-src.zip
+</code></pre>
+
+<h2>Baixando e aplicando o <em>patch</em></h2>
+
+<pre><code>wget /wp-content/uploads/2010/06/wso2-dataservices-accept-null.txt
+cd wso2carbon-3.0.0-src patch -p1 wso2-dataservices-accept-null.patch
+</code></pre>
+
+<p>E a mensagem recebida aqui será algo como:</p>
+
+<pre><code>patching file components/data-services/org.wso2.carbon.dataservices.core/3.0.0/src/main/java/org/wso2/carbon/dataservices/dispatch/query/SQLQuery.java
+</code></pre>
+
+<h2>Compilando o componente</h2>
+
+<p>Levando em consideração que você tenha as dependências necessárias, vai ser um
+passo bem demorado. Vai fazer download de alguns pacotes, compilar, testar e
+gerar uma nova versão do componente, com a correção.</p>
+
+<pre><code>cd components/data-services
+mvn install
+</code></pre>
+
+<h2>Corrigindo o Data Services Server</h2>
+
+<p>Agora que temos o componente corrigido e devidamente compilado, vamos copiá-lo
+para a instância do WSO2 Data Services Server (levando em consideração que
+minha instalação fica em ~/Applications/wso2/wso2dataservices-2.5.0).</p>
+
+<pre><code>cp org.wso2.carbon.dataservices.core/3.0.0/target/org.wso2.carbon.dataservices.core-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.core-3.0.0.jar
+cp org.wso2.carbon.dataservices.ui/3.0.0/target/org.wso2.carbon.dataservices.ui-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.ui-3.0.0.jar
+</code></pre>
+
+<h2>Conclusão</h2>
+
+<p>Com o <em>patch</em> criado, testado e aplicado. Abrimos um <a href="https://wso2.org/jira/browse/CARBON-7589">pedido de correção no JIRA do WSO2</a>, para que eles possam
+corrigir na próxima <em>release</em> (provavelmente a 2.5.1). Caso você não tenha
+disponibilidade (de tempo ou paciência), pode baixar os componente do WSO2
+Data Services Server corrigido (bastando apenas descompactá-los).</p>
+
+<ul>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-core-3.0.0.tar.gz">org.wso2.carbon.dataservices.core-3.0.0.jar</a></li>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-ui-3.0.0.tar.gz">org.wso2.carbon.dataservices.ui-3.0.0.jar</a></li>
+</ul>
+
+
+<p>E tenho que falar, viva o código aberto e o software livre! (;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Software livre, código aberto e o mundo SOA]]></title>
+    <link href="http://wso2brasil.com.br/blog/2009/11/software-livre-codigo-aberto-e-o-mundo-soa/"/>
+    <updated>2009-11-26T19:08:32-02:00</updated>
+    <id>http://wso2brasil.com.br/blog/2009/11/software-livre-codigo-aberto-e-o-mundo-soa</id>
+    <content type="html"><![CDATA[<p>Procurando por suítes SOA é muito comum ouvir falar de Oracle, WebSphere e -
+meio de longe - BizTalk. Mas, além de pagas, não são nem um pouco baratas.</p>
+
+<p>Esse preço pode ser na maioria das vezes inviável para empresas de menor
+porte, sobrando apenas as soluções de menor porte (e preço) e as opções
+livres. E aí sobra pra quem "inventou" a moda, afinal, "quem inventa aguenta".</p>
+
+<p>Dois anos atrás, quando começamos os estudos para implementação de SOA aqui no
+trabalho, apanhamos - e muito - com esse problema. Tínhamos que implantar toda
+a arquitetura escolhida de maneira barata (entenda: de graça).</p>
+
+<p>Achamos muitas opções que prometiam resolver os problemas, mas que no fim
+trazia "N" dificuldades na implementação, desenvolvimento e/ou até instalação.
+Tudo parecia meio cru e o que diziam ser as melhores, não passavam de um
+serviço e um milhão de arquivos (em sua maioria XML) para serem editados quase
+que totalmente manual.</p>
+
+<p>Alguns dos problemas que enfrentamos na maioria das soluções foram:</p>
+
+<ul>
+<li><strong>Documentação</strong>: se não fosse nula, era fraca e muito pouco clara;</li>
+<li><strong>Desenvolvimento</strong>: o lançamento de novas versões e correções de bugs eram lentos (sem contar as frases do tipo "na versão Enterprise está resolvido");</li>
+<li><strong>Comunidade</strong>: praticamente o mesmo problema da documentação, nula; e</li>
+<li><strong>Código aberto</strong>: algumas ferramentas dizem "código aberto", porém abrem uma parte do código (que normalmente doam para a Apache Foundation) e o crucial não, impossibilitando corrigirmos ou descobrimos o que acontece.</li>
+</ul>
+
+
+<p>A lista acima não diz tudo pelo que passamos e enfrentamos, é apenas um
+resumo. Então, após testar algumas ferramentas e utilizar algumas outras,
+optamos pelo <a href="http://www.wso2.org/">WSO2</a>, que apesar de não resolver todos
+nossos problemas, pelo menos chegou mais perto.</p>
+
+<p>Vamos fazer uma comparação com os problemas listados e o que nos levou a
+escolhê-lo:</p>
+
+<ul>
+<li><strong>Documentação</strong>: quando começamos era praticamente nula, mas como eles utilizam outros projetos livres (como: <a href="http://synapse.apache.org">Apache Synapse</a>, <a href="http://ws.apache.org/axis2">Apache Axis2</a>, <a href="http://ws.apache.org/rampart">Apache Rampart</a> e etc) sem maiores modificações, fica mais fácil achar documentação para o seu problema naquele projeto ou biblioteca e atualmente eles estão melhorando um pouco nisso escrevendo <a href="http://wso2.org/library">artigos</a> e disponibilizando alguns webcasts grátis;</li>
+<li><strong>Desenvolvimento</strong>: os lançamentos de versões está numa velocidade boa e rápida, apenas os bugs ainda peca um pouco, mas olhando o JIRA é possível achar vários <em>patches</em>, nos deixando ainda a opção de alterar o código, caso queira;</li>
+<li><strong>Comunidade</strong>: é fraca como todos os outros, existe o <a href="http://wso2.org/forum">fórum</a>, mas é somente em inglês; e</li>
+<li><strong>Código aberto</strong>: como dito antes, o <a href="https://wso2.org/svn/browse/wso2/trunk/">código</a> é aberto e você pode alterar a vontade, que pode ajudar na necessidade de resolução de bugs mais críticos.</li>
+</ul>
+
+
+<p>Pode não ser a solução perfeita, mas foi o que mais nos deixou tranquilos para
+trabalhar. Alguns produtos ainda tem muito o que evoluir e alguns estão bem
+evoluídos, mas com muito a melhorar. Posso dizer que estamos bem com a opção
+que fizemos, mesmo que não tenhamos chego aos 100% de implantação da
+arquitetura que pensamos.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: livro | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/livro/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-09-17T09:59:27-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Livro grátis: SOA Adoption for Dummies]]></title>
+    <link href="http://wso2brasil.com.br/blog/2010/02/livro-gratis-soa-adoption-for-dummies/"/>
+    <updated>2010-02-25T13:25:05-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2010/02/livro-gratis-soa-adoption-for-dummies</id>
+    <content type="html"><![CDATA[<p>Para os interessados em aprender mais sobre <a href="/glossario/#SOA">SOA</a>, uma boa
+oportunidade é a leitura do livro <strong>SOA Adoption for Dummies</strong>, ainda não tive
+tempo de ler todo ele pra "garantir" a qualidade, mas logo postarei minha
+impressão sobre ele.</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/02/Free_Book_SOA_Adoption_for_Dummies.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/02/Free_Book_SOA_Adoption_for_Dummies-194x300.png" title="Free Book: SOA Adoption for Dummies (somente em inglês)" alt="&quot;Free Book: SOA Adoption for Dummies (somente em inglês)&quot;" /></a></p>
+
+<p>Você pode realizar o download dele por este link: <a href="http://www.softwareag.com/Corporate/res/books/soa_adoption_for_dummies/default.%0Aasp">SOA Adoption for Dummies</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
