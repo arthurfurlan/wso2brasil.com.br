@@ -9,10 +9,9 @@
   <meta name="author" content="WSO2Brasil">
 
   
-  <meta name="description" content="O
-pessoal do WSO2 anda com todo o vapor mesmo, hoje foi
-lançado (versão alpha ainda) o WSO2 Stratos, toda a plataforma rodando em cloud
-computing, ou &hellip;">
+  <meta name="description" content="Versões novas de produtos sempre são uma alegria, seja pelos
+recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
+nós &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,6 +92,126 @@ jQuery(document).ready( function() {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+  
+    <h1 class="entry-title"><a href="/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/">Compilando O WSO2 Carbon 3.0.0 E Corrigindo O WSO2 Data Services Server 2.5.0</a></h1>
+    
+    
+
+
+  <p class="meta">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-16T10:17:12-03:00" pubdate data-updated="true">Jun 16<span>th</span>, 2010</time>
+    
+     | <a href="/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/#disqus_thread">Comments</a>
+    
+  </p>
+
+
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-data-services-server.gif" alt="" />Versões novas de produtos sempre são uma alegria, seja pelos
+recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
+nós desenvolvedores. Mas juntamente com as novas versões (principalmente nos
+primeiros releases) vem também problemas, bugs ou incompatibilidade de
+versões- os problemas mais comuns.</p>
+
+<p>E para não pararmos no tempo, vendo que <a href="/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">as novidades do WSO2 Data Services Server 2.5.0</a>
+seriam muito bem vindas para nós, resolvemos realizar testes para verificar a
+possibilidade de atualizarmos nossa versão da 2.2.1 para a 2.5.0, e surgiu
+aquela alegria quando vimos que não teríamos problemas de incompatibilidade
+como ocorreu nos testes de migração da 2.0 para <a href="/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/">WSO2 Data Services Server 2.2.1</a>.</p>
+
+<p>Mas como nem tudo são rosas, um velho <em>bug</em> conhecido nosso na versão 2.0 e
+discutido no <a href="http://wso2.org/forum/thread/5349">fórum - de não aceitar valores <em>null</em></a>, tinha sido corrigido na versão
+2.2.1; mas resolveu dar as caras na versão 2.5.0. E por necessitarmos das
+novidades dessa versão, tivemos que correr atrás e corrigir o problema, já
+corrigido anteriormente.</p>
+
+<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-carbon.gif" alt="" />Como já
+conhecemos a estrutura, fomos direto ao site do projeto para realizar o
+<a href="http://wso2.org/downloads/data-services-server">download do fonte do WSO2 Data Services Server</a> e fomos atrás do arquivo problemático (SQLQuery.java).
+Mas para nossa surpresa, o arquivo não estava mais lá, foi centralizado no
+projeto <a href="http://wso2.org/downloads/carbon">WSO2 Carbon</a>.</p>
+
+<p>Então com o arquivo de <a href="http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip">código-fonte do WSO2 Carbon
+3.0.0</a>
+devidamente baixado, vamos colocar a mão na massa.</p>
+
+<h2>Baixando e descompactando o fonte</h2>
+
+<pre><code>wget http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip
+unzip wso2carbon-3.0.0-src.zip
+</code></pre>
+
+<h2>Baixando e aplicando o <em>patch</em></h2>
+
+<pre><code>wget /wp-content/uploads/2010/06/wso2-dataservices-accept-null.txt
+cd wso2carbon-3.0.0-src patch -p1 wso2-dataservices-accept-null.patch
+</code></pre>
+
+<p>E a mensagem recebida aqui será algo como:</p>
+
+<pre><code>patching file components/data-services/org.wso2.carbon.dataservices.core/3.0.0/src/main/java/org/wso2/carbon/dataservices/dispatch/query/SQLQuery.java
+</code></pre>
+
+<h2>Compilando o componente</h2>
+
+<p>Levando em consideração que você tenha as dependências necessárias, vai ser um
+passo bem demorado. Vai fazer download de alguns pacotes, compilar, testar e
+gerar uma nova versão do componente, com a correção.</p>
+
+<pre><code>cd components/data-services
+mvn install
+</code></pre>
+
+<h2>Corrigindo o Data Services Server</h2>
+
+<p>Agora que temos o componente corrigido e devidamente compilado, vamos copiá-lo
+para a instância do WSO2 Data Services Server (levando em consideração que
+minha instalação fica em ~/Applications/wso2/wso2dataservices-2.5.0).</p>
+
+<pre><code>cp org.wso2.carbon.dataservices.core/3.0.0/target/org.wso2.carbon.dataservices.core-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.core-3.0.0.jar
+cp org.wso2.carbon.dataservices.ui/3.0.0/target/org.wso2.carbon.dataservices.ui-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.ui-3.0.0.jar
+</code></pre>
+
+<h2>Conclusão</h2>
+
+<p>Com o <em>patch</em> criado, testado e aplicado. Abrimos um <a href="https://wso2.org/jira/browse/CARBON-7589">pedido de correção no JIRA do WSO2</a>, para que eles possam
+corrigir na próxima <em>release</em> (provavelmente a 2.5.1). Caso você não tenha
+disponibilidade (de tempo ou paciência), pode baixar os componente do WSO2
+Data Services Server corrigido (bastando apenas descompactá-los).</p>
+
+<ul>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-core-3.0.0.tar.gz">org.wso2.carbon.dataservices.core-3.0.0.jar</a></li>
+<li><a href="/wp-content/uploads/2010/06/carbon-dataservices-ui-3.0.0.tar.gz">org.wso2.carbon.dataservices.ui-3.0.0.jar</a></li>
+</ul>
+
+
+<p>E tenho que falar, viva o código aberto e o software livre! (;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1621,99 +1740,6 @@ capítulo, sempre acompanhado de dicas e descobertas. (:</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-  
-    <h1 class="entry-title"><a href="/blog/2010/03/consumindo-um-servico-seguro-utilizando-php/">Consumindo Um Serviço Seguro Utilizando PHP</a></h1>
-    
-    
-
-
-  <p class="meta">
-    
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-03-08T20:03:58-03:00" pubdate data-updated="true">Mar 8<span>th</span>, 2010</time>
-    
-     | <a href="/blog/2010/03/consumindo-um-servico-seguro-utilizando-php/#disqus_thread">Comments</a>
-    
-  </p>
-
-
-  </header>
-
-
-  <div class="entry-content"><p>Dia desses precisei colocar autenticação em um serviço que desenvolvi e
-passeando pelas opções da interface administrativa da <a href="http://wso2.org/downloads/esb">WSO2 Enterprise Service
-Bus</a> encontrei facilmente minha solução. Um
-pouco depois, li no twitter do @<a href="http://twitter.com/wso2">WSO2</a> um comentário
-sobre um novo artigo publicado sobre segurança nos <a href="/glossario/#DataServices">Data Services</a>, onde ensinava a fazer toda a parte de
-configuração: <a href="http://wso2.org/library/articles/content-filtering-data-services-user-roles">Content Filtering in Data Services with User Roles</a>.</p>
-
-<p>Só que pouco tempo depois de configurar e entregar ao cliente o serviço, veio
-o problema: como consumir em <a href="http://www.php.net/">PHP</a> o serviço? No artigo a
-solução entregue por eles para consumo é em <a href="http://java.sun.com/">Java</a>, como
-a capacidade do cliente deixa a desejar, fiquei de fazer e enviar um exemplo
-de consumo do serviço desenvolvido.</p>
-
-<p>Então&#8230; mãos na massa!</p>
-
-<h2>Configurando a ESB</h2>
-
-<p>Nesse ponto não irei escrever passo-a-passo a configuração que deve ser feita,
-o trabalho realizado pelo pessoal do WSO2 está muito bem feito nessa parte do
-artigo: <a href="http://wso2.org/library/articles/content-filtering-data-services-user-roles#step_4">Step 4 – Enable User Authentication for the Data Service</a>.</p>
-
-<h2>Consumo sem segurança</h2>
-
-<p>Um pequeno trecho de PHP que mostra como consumir o serviço sem nenhum tipo de
-segurança. Código pequeno, limpo e objetivo.</p>
-
-<div><script src='https://gist.github.com/2907833.js'></script>
-<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/2907833&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
-
-
-<p>Mas mesmo com toda essa objetividade, o problema do cliente não estava
-resolvido e eu recebia o seguinte erro:</p>
-
-<pre><code>ERRO: SOAP header missing
-</code></pre>
-
-<p>E, para resolver, faltava adicionar o cabeçalho com os dados de segurança.</p>
-
-<h2>Consumo com segurança</h2>
-
-<p>Agora um não-tão-pequeno trecho em PHP.</p>
-
-<div><script src='https://gist.github.com/2907844.js'></script>
-<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/2907844&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
-
-
-<p>E tudo rodou normalmente, sem problemas, o cliente ficou feliz e eu matei um
-pouco da saudade de programar em PHP.</p>
-
-<p>Na pesquisa por soluções, tentei utilizar o <a href="http://wso2.org/projects/wsf/php">WSO2 Web Services Framework <em>for PHP</em></a> mas descobri que depende de instalação
-de módulo no <a href="http://httpd.apache.org">Apache</a> e não servia para meu cliente,
-mas anotei na pauta para testá-lo em outro momento.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1731,6 +1757,10 @@ mas anotei na pauta para testá-lo em outro momento.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/10/resenha-soa-aplicado-integrando-com-web-services-e-alem/">Resenha: SOA aplicado: Integrando com web services e além</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/09/8o-solisc-nos-vemos-la/">8º SoLiSC - Nos vemos lá</a>
       </li>
     
@@ -1746,19 +1776,15 @@ mas anotei na pauta para testá-lo em outro momento.</p>
         <a href="/blog/2013/07/participaremos-do-fisl-14/">Participaremos do FISL 14</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/03/agendamento-de-tarefas-na-wso2-enterprise-service-bus/">Agendamento de tarefas na WSO2 Enterprise Service Bus</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (8)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (9)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/tags/business-process' style='font-size: 104.28571428571429%'>business process(3)</a> <a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/soa' style='font-size: 108.57142857142857%'>soa(6)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/web-services-application' style='font-size: 104.28571428571429%'>web services application(3)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> </span>
+    <span id="tag-cloud"><a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/oracle' style='font-size: 105.71428571428571%'>oracle(4)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/java' style='font-size: 104.28571428571429%'>java(3)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> <a href='/blog/tags/soa' style='font-size: 110.0%'>soa(7)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> </span>
 </section>
 
 <section>

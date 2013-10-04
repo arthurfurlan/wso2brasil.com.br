@@ -4,7 +4,7 @@
   <title><![CDATA[WSO2Brasil]]></title>
   <link href="http://wso2brasil.com.br/atom.xml" rel="self"/>
   <link href="http://wso2brasil.com.br/"/>
-  <updated>2013-09-17T10:03:28-03:00</updated>
+  <updated>2013-10-04T17:56:44-03:00</updated>
   <id>http://wso2brasil.com.br/</id>
   <author>
     <name><![CDATA[WSO2Brasil]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    
+    <title type="html"><![CDATA[Resenha: SOA aplicado: Integrando com web services e além]]></title>
+    <link href="http://mcorp.com.br/2013/10/resenha-soa-aplicado-integrando-com-web-services-e-alem/"/>
+    
+    <updated>2013-10-03T16:37:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/10/resenha-soa-aplicado-integrando-com-web-services-e-alem</id>
+    <content type="html"><![CDATA[<p><a href="http://www.casadocodigo.com.br/products/livro-soa-webservices"><img class="right" src="http://assets.mcorp.com.br/wp-content/uploads/2013/10/soa-aplicado.png" width="280" height="384"></a>
+Certa vez, navegando aleatóriamente pela internet, esbarrei no livro <a href="http://www.casadocodigo.com.br/products/livro-soa-webservices">SOA Aplicado: Integrando com web services e além</a>. Vou admitir que não sou uma pessoa que gosta de ler livros técnicos, gosto de livros no geral, mas os técnicos normalmente são bem sacais. Mas, resolvi dar uma chance. (:</p>
+
+<p>E não me arrependi!</p>
+
+<p>O <strong>SOA Aplicado</strong> é um livro muito instrutivo e que aborda SOA de uma maneira &#8220;atual&#8221;, com problemas atuais e que pode ser &#8220;imaginado&#8221; por qualquer pessoa que trabalhe com informática. O autor conseguiu passar a imagem que eu tenho de SOA: acessível a qualquer pessoa e não algo &#8216;de um mundo longíquo e complicado&#8217;. O autor Alexandre Saudate está de parabéns com o livro.</p>
+
+<h2>Pontos positivos</h2>
+
+<ul>
+<li>Explica sobre conceito e as várias da &#8220;sopa de letrinhas&#8221; do mundo SOAP;</li>
+<li>Mostra a implementação &#8220;na mão&#8221; de:
+
+<ul>
+<li><em>Web service</em>;</li>
+<li>Serviços seguros (WS-Security);</li>
+<li>Serviços assícronos (WS-Addressing);</li>
+<li>Ensina um pouco da excelente ferramenta <a href="http://soapui.org">SoapUI</a> para testes de serviços;</li>
+</ul>
+</li>
+<li>Explica conceitualmente <em>REST</em> e sua (menor) &#8220;sopa de letrinhas&#8221;;</li>
+<li>Mostra a implementação &#8220;na mão&#8221; de um serviço <em>REST</em>.</li>
+</ul>
+
+
+<h2>Pontos negativos</h2>
+
+<ul>
+<li>Ter usado produtos Oracle;</li>
+<li>Falou muito superficialmente da <em>Enteprise Service Bus</em>;</li>
+<li>Falou muito por cima de <em>BPEL</em>.</li>
+</ul>
+
+
+<p>Mas aqui, daremos um desconto, pois no fim do livro disse que virá conteúdo. Espero sinceramente que seja tão bom (ou melhor) que esse primeiro. Muito boa referência para quem quer entender um pouco mais de serviços, REST, integração de sistemas e, principalmente, SOA!</p>
+]]></content>
+  </entry>
   
   <entry>
     
@@ -1885,95 +1930,6 @@ INSERT INTO funcionario (nome_funcionario, endereco_funcionario, sexo_funcionari
 
 <p>Até a próxima!</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    
-    <title type="html"><![CDATA[Compilando o WSO2 Carbon 3.0.0 e corrigindo o WSO2 Data  Services Server 2.5.0]]></title>
-    <link href="http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0/"/>
-    
-    <updated>2010-06-16T10:17:12-03:00</updated>
-    <id>http://wso2brasil.com.br/blog/2010/06/compilando-o-wso2-carbon-3-0-0-e-corrigindo-o-wso2-data-services-server-2-5-0</id>
-    <content type="html"><![CDATA[<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-data-services-server.gif" alt="" />Versões novas de produtos sempre são uma alegria, seja pelos
-recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
-nós desenvolvedores. Mas juntamente com as novas versões (principalmente nos
-primeiros releases) vem também problemas, bugs ou incompatibilidade de
-versões- os problemas mais comuns.</p>
-
-<p>E para não pararmos no tempo, vendo que <a href="http://wso2brasil.com.br/2010/04/novidades-do-proximo-wso2-data-services-server-2-5-x/">as novidades do WSO2 Data Services Server 2.5.0</a>
-seriam muito bem vindas para nós, resolvemos realizar testes para verificar a
-possibilidade de atualizarmos nossa versão da 2.2.1 para a 2.5.0, e surgiu
-aquela alegria quando vimos que não teríamos problemas de incompatibilidade
-como ocorreu nos testes de migração da 2.0 para <a href="http://wso2brasil.com.br/2009/12/testes-na-versao-2-2-0-do-wso2-data-services-server/">WSO2 Data Services Server 2.2.1</a>.</p>
-
-<p>Mas como nem tudo são rosas, um velho <em>bug</em> conhecido nosso na versão 2.0 e
-discutido no <a href="http://wso2.org/forum/thread/5349">fórum - de não aceitar valores <em>null</em></a>, tinha sido corrigido na versão
-2.2.1; mas resolveu dar as caras na versão 2.5.0. E por necessitarmos das
-novidades dessa versão, tivemos que correr atrás e corrigir o problema, já
-corrigido anteriormente.</p>
-
-<p><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/06/wso2-carbon.gif" alt="" />Como já
-conhecemos a estrutura, fomos direto ao site do projeto para realizar o
-<a href="http://wso2.org/downloads/data-services-server">download do fonte do WSO2 Data Services Server</a> e fomos atrás do arquivo problemático (SQLQuery.java).
-Mas para nossa surpresa, o arquivo não estava mais lá, foi centralizado no
-projeto <a href="http://wso2.org/downloads/carbon">WSO2 Carbon</a>.</p>
-
-<p>Então com o arquivo de <a href="http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip">código-fonte do WSO2 Carbon
-3.0.0</a>
-devidamente baixado, vamos colocar a mão na massa.</p>
-
-<h2>Baixando e descompactando o fonte</h2>
-
-<pre><code>wget http://dist.wso2.org/products/carbon/3.0.0/wso2carbon-3.0.0-src.zip
-unzip wso2carbon-3.0.0-src.zip
-</code></pre>
-
-<h2>Baixando e aplicando o <em>patch</em></h2>
-
-<pre><code>wget /wp-content/uploads/2010/06/wso2-dataservices-accept-null.txt
-cd wso2carbon-3.0.0-src patch -p1 wso2-dataservices-accept-null.patch
-</code></pre>
-
-<p>E a mensagem recebida aqui será algo como:</p>
-
-<pre><code>patching file components/data-services/org.wso2.carbon.dataservices.core/3.0.0/src/main/java/org/wso2/carbon/dataservices/dispatch/query/SQLQuery.java
-</code></pre>
-
-<h2>Compilando o componente</h2>
-
-<p>Levando em consideração que você tenha as dependências necessárias, vai ser um
-passo bem demorado. Vai fazer download de alguns pacotes, compilar, testar e
-gerar uma nova versão do componente, com a correção.</p>
-
-<pre><code>cd components/data-services
-mvn install
-</code></pre>
-
-<h2>Corrigindo o Data Services Server</h2>
-
-<p>Agora que temos o componente corrigido e devidamente compilado, vamos copiá-lo
-para a instância do WSO2 Data Services Server (levando em consideração que
-minha instalação fica em ~/Applications/wso2/wso2dataservices-2.5.0).</p>
-
-<pre><code>cp org.wso2.carbon.dataservices.core/3.0.0/target/org.wso2.carbon.dataservices.core-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.core-3.0.0.jar
-cp org.wso2.carbon.dataservices.ui/3.0.0/target/org.wso2.carbon.dataservices.ui-3.0.0.jar ~/Applications/wso2/wso2dataservices-2.5.0/wso2dataservices-2.5.0/repository/components/plugins/org.wso2.carbon.dataservices.ui-3.0.0.jar
-</code></pre>
-
-<h2>Conclusão</h2>
-
-<p>Com o <em>patch</em> criado, testado e aplicado. Abrimos um <a href="https://wso2.org/jira/browse/CARBON-7589">pedido de correção no JIRA do WSO2</a>, para que eles possam
-corrigir na próxima <em>release</em> (provavelmente a 2.5.1). Caso você não tenha
-disponibilidade (de tempo ou paciência), pode baixar os componente do WSO2
-Data Services Server corrigido (bastando apenas descompactá-los).</p>
-
-<ul>
-<li><a href="http://wso2brasil.com.br/wp-content/uploads/2010/06/carbon-dataservices-core-3.0.0.tar.gz">org.wso2.carbon.dataservices.core-3.0.0.jar</a></li>
-<li><a href="http://wso2brasil.com.br/wp-content/uploads/2010/06/carbon-dataservices-ui-3.0.0.tar.gz">org.wso2.carbon.dataservices.ui-3.0.0.jar</a></li>
-</ul>
-
-
-<p>E tenho que falar, viva o código aberto e o software livre! (;</p>
 ]]></content>
   </entry>
   

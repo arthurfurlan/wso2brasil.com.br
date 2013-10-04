@@ -4,7 +4,7 @@
   <title><![CDATA[Category: arquitetura | WSO2Brasil]]></title>
   <link href="http://wso2brasil.com.br/blog/categorias/arquitetura/atom.xml" rel="self"/>
   <link href="http://wso2brasil.com.br/"/>
-  <updated>2013-09-17T10:03:28-03:00</updated>
+  <updated>2013-10-04T17:56:44-03:00</updated>
   <id>http://wso2brasil.com.br/</id>
   <author>
     <name><![CDATA[WSO2Brasil]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Resenha: SOA aplicado: Integrando com web services e além]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/10/resenha-soa-aplicado-integrando-com-web-services-e-alem/"/>
+    <updated>2013-10-03T16:37:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/10/resenha-soa-aplicado-integrando-com-web-services-e-alem</id>
+    <content type="html"><![CDATA[<p><a href="http://www.casadocodigo.com.br/products/livro-soa-webservices"><img class="right" src="http://assets.mcorp.com.br/wp-content/uploads/2013/10/soa-aplicado.png" width="280" height="384"></a>
+Certa vez, navegando aleatóriamente pela internet, esbarrei no livro <a href="http://www.casadocodigo.com.br/products/livro-soa-webservices">SOA Aplicado: Integrando com web services e além</a>. Vou admitir que não sou uma pessoa que gosta de ler livros técnicos, gosto de livros no geral, mas os técnicos normalmente são bem sacais. Mas, resolvi dar uma chance. (:</p>
+
+<p>E não me arrependi!</p>
+
+<p>O <strong>SOA Aplicado</strong> é um livro muito instrutivo e que aborda SOA de uma maneira "atual", com problemas atuais e que pode ser "imaginado" por qualquer pessoa que trabalhe com informática. O autor conseguiu passar a imagem que eu tenho de SOA: acessível a qualquer pessoa e não algo 'de um mundo longíquo e complicado'. O autor Alexandre Saudate está de parabéns com o livro.</p>
+
+<h2>Pontos positivos</h2>
+
+<ul>
+<li>Explica sobre conceito e as várias da "sopa de letrinhas" do mundo SOAP;</li>
+<li>Mostra a implementação "na mão" de:
+
+<ul>
+<li><em>Web service</em>;</li>
+<li>Serviços seguros (WS-Security);</li>
+<li>Serviços assícronos (WS-Addressing);</li>
+<li>Ensina um pouco da excelente ferramenta <a href="http://soapui.org">SoapUI</a> para testes de serviços;</li>
+</ul>
+</li>
+<li>Explica conceitualmente <em>REST</em> e sua (menor) "sopa de letrinhas";</li>
+<li>Mostra a implementação "na mão" de um serviço <em>REST</em>.</li>
+</ul>
+
+
+<h2>Pontos negativos</h2>
+
+<ul>
+<li>Ter usado produtos Oracle;</li>
+<li>Falou muito superficialmente da <em>Enteprise Service Bus</em>;</li>
+<li>Falou muito por cima de <em>BPEL</em>.</li>
+</ul>
+
+
+<p>Mas aqui, daremos um desconto, pois no fim do livro disse que virá conteúdo. Espero sinceramente que seja tão bom (ou melhor) que esse primeiro. Muito boa referência para quem quer entender um pouco mais de serviços, REST, integração de sistemas e, principalmente, SOA!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lançado: WSO2 User Engagement Server - 1.0.0!]]></title>
@@ -437,22 +480,6 @@ mas não encontrei documentação nesse <em>build</em>.</p>
 <p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/05/product-platform.gif"><img class="aligncenter" src="http://www.leandroprado.com.br/wp-content/uploads/2010/05/product-platform.gif" title="Plataforma WSO2" alt="Plataforma WSO2" /></a></p>
 
 <p>Nos próximos posts vou explicar a funcionalidade de cada produto.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Livro grátis: SOA Adoption for Dummies]]></title>
-    <link href="http://wso2brasil.com.br/blog/2010/02/livro-gratis-soa-adoption-for-dummies/"/>
-    <updated>2010-02-25T13:25:05-03:00</updated>
-    <id>http://wso2brasil.com.br/blog/2010/02/livro-gratis-soa-adoption-for-dummies</id>
-    <content type="html"><![CDATA[<p>Para os interessados em aprender mais sobre <a href="/glossario/#SOA">SOA</a>, uma boa
-oportunidade é a leitura do livro <strong>SOA Adoption for Dummies</strong>, ainda não tive
-tempo de ler todo ele pra "garantir" a qualidade, mas logo postarei minha
-impressão sobre ele.</p>
-
-<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/02/Free_Book_SOA_Adoption_for_Dummies.png"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/02/Free_Book_SOA_Adoption_for_Dummies-194x300.png" title="Free Book: SOA Adoption for Dummies (somente em inglês)" alt="&quot;Free Book: SOA Adoption for Dummies (somente em inglês)&quot;" /></a></p>
-
-<p>Você pode realizar o download dele por este link: <a href="http://www.softwareag.com/Corporate/res/books/soa_adoption_for_dummies/default.%0Aasp">SOA Adoption for Dummies</a>.</p>
 ]]></content>
   </entry>
   
