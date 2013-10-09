@@ -9,9 +9,7 @@
   <meta name="author" content="WSO2Brasil">
 
   
-  <meta name="description" content="Versões novas de produtos sempre são uma alegria, seja pelos
-recursos novos ou somente pela novidade que sempre alegra-nos, principalmente
-nós &hellip;">
+  <meta name="description" content="Nesse post vou descrever como criar um ambiente SOA completo usando as ferramentas WSO2. O ambiente que estou usando é Ubuntu 10 como Java 6 (esse &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,6 +90,277 @@ jQuery(document).ready( function() {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+  
+    <h1 class="entry-title"><a href="http://www.leandroprado.com.br/2010/07/criando-um-ambiente-soa-com-wso2/">Criando Um Ambiente SOA Com WSO2 →</a></h1>
+    
+    
+
+
+  <p class="meta">
+    
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-07-15T00:00:00-03:00" pubdate data-updated="true">Jul 15<span>th</span>, 2010</time>
+    
+     | <a href="/blog/2010/07/criando-um-ambiente-soa-com-wso2/#disqus_thread">Comments</a>
+    
+  </p>
+
+
+  </header>
+
+
+  <div class="entry-content"><p style="text-align: justify;">Nesse post vou descrever como criar um ambiente SOA completo usando as ferramentas WSO2.</p>
+
+
+<p style="text-align: justify;">O ambiente que estou usando é Ubuntu 10 como Java 6 (esse tutorial parte do princípio que o Ubuntu e o Java já estão instalados e configurados)</p>
+
+
+<h3>Passo 1- Criar diretório</h3>
+
+
+<p>Vamos criar um diretório onde vamos instalar todas as ferramentas do WSO2</p>
+
+
+<pre class="brush:java">     cd /home/leandro-prado
+     mkdir wso2
+     cd wso2/
+     pwd
+     /home/leandro-prado/wso2</pre>
+
+
+<h3>Passo 2 &#8211; WSO2 Governance Registry</h3>
+
+
+<p style="text-align: justify;">Baixar o arquivo em <a title="WSO3 Governance Registry" href="http://wso2.com/products/governance-registry/" target="_blank">http://wso2.com/products/governance-registry/</a> (a versão que usamos foi a 3.5.0) descompactar e depois mover para o diretório criado acima</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2greg-3.5.0.zip
+     mv wso2greg-3.5.0 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2greg-3.5.0/bin/
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Para iniciar o serviço entrar no diretório bin e executar o arquivo wso2server.sh, se tudo ocorrer sem erros, a seguinte saída deverá ser exibida no console</p>
+
+
+<pre class="brush:java">     [2010-06-05 17:46:15,887]  INFO -  Connection established with the registry
+     [2010-06-05 17:46:16,732]  INFO -  HTTPS port       : 9443
+     [2010-06-05 17:46:16,761]  INFO -  HTTP port        : 9763
+     [2010-06-05 17:46:18,911]  INFO -  Successfully Initialized Eventing on Registry
+     [2010-06-05 17:46:27,749]  INFO -  Mgt Console URL  : https://10.0.2.15:9443/carbon/
+     [2010-06-05 17:46:28,702]  INFO -  Started Transport Listener Manager
+     [2010-06-05 17:46:28,703]  INFO -  Server           :  WSO2 Governance Registry-3.5.0
+     [2010-06-05 17:46:28,703]  INFO -  WSO2 Carbon started in 65 sec</pre>
+
+
+<p>Agora podemos acessar o browser e verificar se esta tudo correto:</p>
+
+
+<p>Endereco: https://10.0.2.15:9443/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p style="text-align: center;"><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/06/GovernanceRegistry.png"><img class="size-medium wp-image-165 aligncenter" title="WSO2 Governance Registry" src="http://www.leandroprado.com.br/wp-content/uploads/2010/06/GovernanceRegistry-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 3 &#8211; WSO2 Data Services</h3>
+
+
+<p style="text-align: justify;">Agora vamos instalar o Data Service, baixar o arquivo em <a title="WSO2 Data Services" href="http://wso2.com/products/data-services-server/" target="_blank">http://wso2.com/products/data-services-server/</a> (a versão que usamos foi a 2.2.1) descompactar e depois mover para o diretório criado no passo 1, podemos perceber que a intalação é igual para todas as ferramentas.</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2dataservices-2.2.1.zip
+     mv wso2dataservices-2.2.1 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2dataservices-2.2.1/bin/
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Quando mandamos iniciar o servidor do Data Service pela primeira vez vamos receber o seguinte erro:</p>
+
+
+<pre class="brush:java">     [2010-06-05 18:43:35,233]  INFO -  Repository       : /home/leandro-prado/wso2/wso2dataservices-2.2.1/repository/
+     [2010-06-05 18:43:35,720]  INFO -  HTTPS port       : 9443
+     [2010-06-05 18:43:35,721]  INFO -  HTTP port        : 9763
+     [2010-06-05 18:43:35,954] ERROR -  Error initializing endpoint
+     java.net.BindException: Address already in use:9443</pre>
+
+
+<p style="text-align: justify;">Esse erro ocorre porque a porta 9443 ja esta sendo usanda pelo WSO2 Governance Registry, por esse motivo temos que configurar manualmente outra porta para o Data Service, para isso temos que editar o arquivo transports.xml que fica na pasta conf</p>
+
+
+<pre class="brush:java">     cd ..
+     cd conf/
+     sudo gedit transports.xml</pre>
+
+
+<p style="text-align: justify;">Temos que alterar o parâmetro port tanto para HTTP e HTTPS, essa configuração está na a linha 3 e na linha 30  e depois iniciar o serviço novamente, conforme abaixo:</p>
+
+
+<pre class="brush:java">     &lt;parameter name="port"&gt;9764&lt;/parameter&gt;
+     &lt;parameter name="port"&gt;9444&lt;/parameter&gt;
+     cd ..
+     cd bin/
+     ./wsoeserver.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-03 00:21:01,928]  INFO -  Initializing transport descriptions and their associated parameters
+     [2010-07-03 00:21:01,992]  INFO -  Repository       : /home/leandro-prado/wso2/wso2dataservices-2.2.1/repository/
+     [2010-07-03 00:21:02,363]  INFO -  HTTPS port       : 9444
+     [2010-07-03 00:21:02,363]  INFO -  HTTP port        : 9764
+     [2010-07-03 00:21:04,398]  INFO -  Mgt Console URL  : https://10.0.2.15:9444/carbon/
+     [2010-07-03 00:21:04,399]  INFO -  Started Transport Listener Manager
+     [2010-07-03 00:21:04,399]  INFO -  Server           :  WSO2 Data Services-2.2.1
+     [2010-07-03 00:21:04,400]  INFO -  WSO2 Carbon started in 50 sec</pre>
+
+
+<p style="text-align: justify;">Para ver se tudo esta correto podemos acessar o administrador do Data Service no browser.</p>
+
+
+<p>Endereço: https://10.0.2.15:9444/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/DataServices.png"><img class="aligncenter size-medium wp-image-182" title="WSO2 Data Services" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/DataServices-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 4 &#8211; WSO2 Application Server</h3>
+
+
+<p style="text-align: justify;">Agora vamos instalar o Application Server, baixar o arquivo em <a href="http://wso2.com/products/web-services-application-server/" target="_blank">http://wso2.com/products/web-services-application-server/</a> (a versão que usamos foi a 3.2.0) para instalar seguir o mesmo padrão, descompactar, mover para o diretório, configurar o arquivo transports.xml (port HTTP 9445 e HTTPS 9765) e iniciar o serviço</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2wsas-3.2.0.zip
+     mv wso2wsas-3.2.0 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2wsas-3.2.0
+     cd repository/conf
+     gedit mgt-transports.xml
+     cd ../../bin
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-03 00:49:45,404]  INFO -  Repository       : /home/leandro-prado/wso2/wso2wsas-3.2.0/repository/deployment/server/
+     [2010-07-03 00:49:45,657]  INFO -  Connection established with the registry
+     [2010-07-03 00:49:47,821]  INFO -  HTTPS port       : 9445
+     [2010-07-03 00:49:47,829]  INFO -  HTTP port        : 9765
+     [2010-07-03 00:49:50,774]  INFO -  Mgt Console URL  : https://10.0.2.15:9445/carbon/
+     [2010-07-03 00:49:50,787]  INFO -  Started Transport Listener Manager
+     [2010-07-03 00:49:50,795]  INFO -  Server           :  WSO2 WSAS-3.2.0
+     [2010-07-03 00:49:50,796]  INFO -  WSO2 Carbon started in 33 sec</pre>
+
+
+<p style="text-align: justify;">Para ver se tudo esta correto podemos acessar o administrador do Application Server no browser.</p>
+
+
+<p>Endereco: https://10.0.2.15:9445/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/ApplicationServer.png"><img class="aligncenter size-medium wp-image-187" title="WSO2 Application Server" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/ApplicationServer-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 5 &#8211; WSO2 Enterprise Service Bus</h3>
+
+
+<p style="text-align: justify;">Agora vamos instalar a BUS, baixar o arquivo em <a href="http://wso2.com/products/web-services-application-server/" target="_blank">http://wso2.com/products/enterprise-service-bus/</a> (a versão que usamos foi a 3.0.0) novamente a instalação segue o mesmo padrão, descompactar, mover para o diretório, configurar o arquivo transports.xml (port HTTP 9446 e HTTPS 9766) e iniciar o serviço</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2esb-3.0.0.zip
+     mv wso2esb-3.0.0 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2esb-3.0.0
+     cd repository/conf
+     gedit mgt-transports.xml
+     cd ../../bin
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-03 01:15:19,725]  INFO - CarbonUIServiceComponent Mgt Console URL  : https://10.0.2.15:9446/carbon/
+     [2010-07-03 01:15:19,783]  INFO - StartupFinalizerServiceComponent Started Transport Listener Manager
+     [2010-07-03 01:15:19,784]  INFO - StartupFinalizerServiceComponent Server           :  WSO2 ESB-3.0.0
+     [2010-07-03 01:15:19,784]  INFO - StartupFinalizerServiceComponent WSO2 Carbon started in 114 sec</pre>
+
+
+<p style="text-align: justify;">Para ver se tudo esta correto podemos acessar o administrador do Application Server no browser.</p>
+
+
+<p>Endereco: https://10.0.2.15:9446/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/EnterpriseServiceBus.png"><img class="aligncenter size-medium wp-image-191" title="WSO2 Enterprise Service Bus" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/EnterpriseServiceBus-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<h3>Passo 6 &#8211; WSO2 Business Activity Monitor</h3>
+
+
+<p>Agora vamos instalar a BAM, baixar o arquivo em <a href="http://wso2.com/products/business-activity-monitor/">http://wso2.com/products/business-activity-monitor/</a> (a versão que usamos foi a 1.0.1) novamente a instalação segue o mesmo padrão, descompactar, mover para o diretório, configurar o arquivo transports.xml (port HTTP 9447 e HTTPS 9767) e iniciar o serviço.</p>
+
+
+<pre class="brush:java">     cd Downloads/wso2/
+     unzip wso2bam-1.0.1.zip
+     mv wso2bam-1.0.1 /home/leandro-prado/wso2/
+     cd /home/leandro-prado/wso2/wso2bam-1.0.1
+     cd conf/
+     gedit transports.xml
+     cd ../bin
+     ./wso2server.sh</pre>
+
+
+<p style="text-align: justify;">Se tudo ocorrer sem erros a seguinte saída devera ser exibida no console:</p>
+
+
+<pre class="brush:java">     [2010-07-07 16:06:32,854]  INFO -  Connection established with the registry
+     [2010-07-07 16:06:33,816]  INFO -  Successfully Initialized Eventing on Registry
+     [2010-07-07 16:06:47,166]  INFO -  Mgt Console URL  : https://10.0.2.15:9447/carbon/
+     [2010-07-07 16:06:47,167]  INFO -  Started Transport Listener Manager
+     [2010-07-07 16:06:47,168]  INFO -  Server           :  WSO2 Business Activity Monitor-1.0.1
+     [2010-07-07 16:06:47,168]  INFO -  WSO2 Carbon started in 96 sec</pre>
+
+
+<p>Para ver se tudo esta correto podemos acessar o administrador da BAM no browser.</p>
+
+
+<p>Endereco: https://10.0.2.15:9447/carbon &#8211; <strong>Usuário: admin / Senha:admin</strong></p>
+
+
+<p><a href="http://www.leandroprado.com.br/wp-content/uploads/2010/07/BAM.png"><img class="aligncenter size-medium wp-image-230" title="WSO2 Business Activity Monitor" src="http://www.leandroprado.com.br/wp-content/uploads/2010/07/BAM-300x187.png" alt="" width="300" height="187" /></a></p>
+
+
+<p>Podemos ver como é fácil instalar as ferrametas do WSO2, nos próximos posts vamos configurar os servers para se conectar com o baco de dados MySQL.</p>
+
+
+<p>Até a próxima!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1631,115 +1900,6 @@ ligado nas atualizações pelo <em>feed</em>.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-  
-    <h1 class="entry-title"><a href="/blog/2010/04/wso2-business-activity-monitoring-sql-server/">WSO2 Business Activity Monitoring + SQL Server</a></h1>
-    
-    
-
-
-  <p class="meta">
-    
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-04-06T15:44:57-03:00" pubdate data-updated="true">Apr 6<span>th</span>, 2010</time>
-    
-     | <a href="/blog/2010/04/wso2-business-activity-monitoring-sql-server/#disqus_thread">Comments</a>
-    
-  </p>
-
-
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif"><img src="http://assets.mcorp.com.br/wp-content/uploads/2010/04/wso2-bam.gif" alt="" /></a>A pedidos do &#8220;chefe&#8221;, realizei o download
-e a instalação do <a href="http://wso2.org/downloads/bam">WSO2 Business Activity Monitoring</a> (versão 1.0.1) e parti para os
-testes.</p>
-
-<p>Mas como migramos toda a suíte para rodar sobre o SQL Server, configurei tudo
-para apontar para o banco de dados do <a href="http://wso2.org/downloads/governance-registry">WSO2 Governance Registry</a>
-(arquivo <em>conf/registry.xml</em>) e do <a href="http://wso2.org/downloads/identity">WSO2 Identity Server</a>
-(arquivo <em>conf/user-mgt.xml</em>) - maiores explicações ficam para uma outra oportunidade.</p>
-
-<p>Só que ainda ficou uma dúvida no ar! Aonde estavam as configurações de conexão
-de banco de dados que armazenam as informações do <a href="/glossario/#BAM">BAM</a>
-propriamente dito? Pesquisando nos arquivos instalados encontrei um diretório
-&#8220;bam&#8221;, e para minha não-surpresa, lá estavam mais dois diretórios:</p>
-
-<ul>
-<li><strong>./bam/database/</strong>: diretório com arquivos da base de dados do H2;</li>
-<li><strong>./bam/sql/</strong>: scripts de criação da base de dados em diferentes bancos (H2, SQL Server, MySQL e Oracle).</li>
-</ul>
-
-
-<p>Com essa descoberta, o jeito foi partir para o básico, buscar um arquivo de
-configuração que pudesse conter a conexão apontando para esses arquivos.</p>
-
-<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2:database *
-conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
-conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
-</code></pre>
-
-<p>Ops, não encontrei nada. Nova tentativa:</p>
-
-<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r h2 *
-[milhões de respostas - ocultadas por mim - que não ajudam em nada]
-</code></pre>
-
-<p>Vamos lá, filtrar um pouco mais para quem sabe ser mais feliz:</p>
-
-<pre><code>leonardo@mcorp:~/Applications/wso2/wso2bam-1.0.1$ grep -r jdbc:h2 *
-conf/registry.xml: jdbc:h2:database/WSO2CARBON_DB
-conf/user-mgt.xml: jdbc:h2:database/WSO2CARBON_DB
-repository/dataservices/BAMSummaryGenerationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
-repository/dataservices/BAMConfigurationDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
-repository/dataservices/BAMStatQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
-repository/dataservices/BAMDataCollectionDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
-repository/dataservices/BAMSummaryQueryDS.dbs:jdbc:h2:bam/database/WSO2BAM_DB
-</code></pre>
-
-<p>E agora sim! Com isso descobrimos que ele utiliza alguns <a href="/glossario/#DataServices">data services</a> que realizam o trabalho &#8220;sujo&#8221;.</p>
-
-<p>Então, basta alterarmos todos esses serviços para conectarem na base de dados
-criada no SQL Server (dentro de cada serviço tem exemplos). Os serviços são:</p>
-
-<ul>
-<li>repository/dataservices/BAMSummaryGenerationDS.dbs</li>
-<li>repository/dataservices/BAMConfigurationDS.dbs</li>
-<li>repository/dataservices/BAMStatQueryDS.dbs</li>
-<li>repository/dataservices/BAMDataCollectionDS.dbs</li>
-<li>repository/dataservices/BAMSummaryQueryDS.dbs</li>
-</ul>
-
-
-<p>E carregar o arquivo <em>bam/sql/bam_schema_mssql.sql</em> na base de dados e&#8230;
-<em>voilà</em>.</p>
-
-<pre><code>INFO - Server : WSO2 Business Activity Monitor-1.0.1 INFO - WSO2 Carbon started in 6 sec
-</code></pre>
-
-<p>Os estudos sobre o WSO2 Business Activity Monitoring continuarão num próximo
-capítulo, sempre acompanhado de dicas e descobertas. (:</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1757,6 +1917,10 @@ capítulo, sempre acompanhado de dicas e descobertas. (:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/10/v-forum-de-tecnologia-em-software-livre/">V Fórum de Tecnologia em Software Livre</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/10/resenha-soa-aplicado-integrando-com-web-services-e-alem/">Resenha: SOA aplicado: Integrando com web services e além</a>
       </li>
     
@@ -1772,19 +1936,15 @@ capítulo, sempre acompanhado de dicas e descobertas. (:</p>
         <a href="/blog/2013/07/nos-no-fisl-14/">Nós no FISL14</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/07/participaremos-do-fisl-14/">Participaremos do FISL 14</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (9)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (6)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categorias/arquitetura'>arquitetura (9)</a></li><li><a href='/blog/categorias/avisos'>avisos (3)</a></li><li><a href='/blog/categorias/desenvolvimento'>desenvolvimento (29)</a></li><li><a href='/blog/categorias/eventos'>eventos (7)</a></li></ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/tags/identity' style='font-size: 105.71428571428571%'>identity(4)</a> <a href='/blog/tags/oracle' style='font-size: 105.71428571428571%'>oracle(4)</a> <a href='/blog/tags/lancamento' style='font-size: 107.14285714285714%'>lançamento(5)</a> <a href='/blog/tags/software-livre' style='font-size: 108.57142857142857%'>software livre(6)</a> <a href='/blog/tags/carbon' style='font-size: 107.14285714285714%'>carbon(5)</a> <a href='/blog/tags/dss' style='font-size: 130.0%'>dss(21)</a> <a href='/blog/tags/data-services' style='font-size: 128.57142857142858%'>data services(20)</a> <a href='/blog/tags/stratos' style='font-size: 104.28571428571429%'>stratos(3)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.57142857142857%'>código aberto(6)</a> <a href='/blog/tags/instalacao' style='font-size: 104.28571428571429%'>instalação(3)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.85714285714286%'>enterprise service bus(9)</a> <a href='/blog/tags/esb' style='font-size: 118.57142857142857%'>esb(13)</a> <a href='/blog/tags/eclipse' style='font-size: 107.14285714285714%'>eclipse(5)</a> <a href='/blog/tags/java' style='font-size: 104.28571428571429%'>java(3)</a> <a href='/blog/tags/application-server' style='font-size: 107.14285714285714%'>application server(5)</a> <a href='/blog/tags/bam' style='font-size: 105.71428571428571%'>bam(4)</a> <a href='/blog/tags/soa' style='font-size: 110.0%'>soa(7)</a> <a href='/blog/tags/wsas' style='font-size: 107.14285714285714%'>wsas(5)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(42)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 110.0%'>wso2 carbon(7)</a> </span>
+    <span id="tag-cloud"><a href='/blog/tags/oracle' style='font-size: 105.5813953488372%'>oracle(4)</a> <a href='/blog/tags/dss' style='font-size: 129.30232558139534%'>dss(21)</a> <a href='/blog/tags/software-livre' style='font-size: 108.37209302325581%'>software livre(6)</a> <a href='/blog/tags/application-server' style='font-size: 106.97674418604652%'>application server(5)</a> <a href='/blog/tags/esb' style='font-size: 118.13953488372093%'>esb(13)</a> <a href='/blog/tags/soa' style='font-size: 109.76744186046511%'>soa(7)</a> <a href='/blog/tags/wsas' style='font-size: 106.97674418604652%'>wsas(5)</a> <a href='/blog/tags/eclipse' style='font-size: 106.97674418604652%'>eclipse(5)</a> <a href='/blog/tags/bam' style='font-size: 105.5813953488372%'>bam(4)</a> <a href='/blog/tags/lancamento' style='font-size: 106.97674418604652%'>lançamento(5)</a> <a href='/blog/tags/instalacao' style='font-size: 104.18604651162791%'>instalação(3)</a> <a href='/blog/tags/data-services' style='font-size: 127.90697674418604%'>data services(20)</a> <a href='/blog/tags/carbon' style='font-size: 106.97674418604652%'>carbon(5)</a> <a href='/blog/tags/wso2' style='font-size: 160.0%'>wso2(43)</a> <a href='/blog/tags/stratos' style='font-size: 104.18604651162791%'>stratos(3)</a> <a href='/blog/tags/enterprise-service-bus' style='font-size: 112.55813953488372%'>enterprise service bus(9)</a> <a href='/blog/tags/identity' style='font-size: 105.5813953488372%'>identity(4)</a> <a href='/blog/tags/wso2-carbon' style='font-size: 109.76744186046511%'>wso2 carbon(7)</a> <a href='/blog/tags/web-services-application' style='font-size: 104.18604651162791%'>web services application(3)</a> <a href='/blog/tags/codigo-aberto' style='font-size: 108.37209302325581%'>código aberto(6)</a> </span>
 </section>
 
 <section>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: ftsl | WSO2Brasil]]></title>
+  <link href="http://wso2brasil.com.br/blog/tags/ftsl/atom.xml" rel="self"/>
+  <link href="http://wso2brasil.com.br/"/>
+  <updated>2013-10-09T14:49:16-03:00</updated>
+  <id>http://wso2brasil.com.br/</id>
+  <author>
+    <name><![CDATA[WSO2Brasil]]></name>
+    <email><![CDATA[leonardo@wso2brasil.com.br]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[V Fórum de Tecnologia em Software Livre]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/10/v-forum-de-tecnologia-em-software-livre/"/>
+    <updated>2013-10-09T10:08:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/10/v-forum-de-tecnologia-em-software-livre</id>
+    <content type="html"><![CDATA[<p>Então galerinha, nos dias 24 e 25 de outubro acontecerá em Curitiba o V Fórum de Tecnologia de Software Livre e será nossa última palestra do ano!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/10/ftsl-cartaz.png"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/10/ftsl-cartaz-500x239.png" width="500" height="239"></a></p>
+
+<p>As <a href="http://www.ftsl.org.br/user/register">inscrições são gratuitas</a> e estão abertas para todo e qualquer pessoa que esteja interessada em aprender um pouco mais sobre esse mundo do software livre.</p>
+
+<p>Nossa palestra será no dia 25 as 15 horas, mas existem outras várias interessantes palestras!</p>
+
+<p>Por exemplo:</p>
+
+<ul>
+<li>Na <a href="http://www.solisc.org.br">SoLiSC</a> aprendi a controlar minhas apresentações usando o celular e o LibreOffice, agora temos a oportunidade de ver <a href="http://www.ftsl.org.br/novidades-do-libreoffice">as novidades do LibreOffice</a>;</li>
+<li>Será que vão sortear um celular com <a href="http://www.ftsl.org.br/firefox-os-sistema-operacional-movel-da-mozilla">Firefox OS na palestra</a>? Sou muito curioso pra brincar um pouco com esse sistema operacional;</li>
+<li>Tem o Matheus Gontijo (que sempre esbarro nos diversos eventos) falando sobre o <a href="http://www.ftsl.org.br/git-esse-cara-e-fera">GIT</a>, que inclusivemos usamos como versionador do nosso blog do <a href="http://www.wso2brasil.com.br">WSO2Brasil</a>;</li>
+<li>Terá uma palestra sobre o <a href="http://www.ftsl.org.br/instalando-servidores-de-forma-facil-e-rapida-com-o-puppet">Puppet</a>, uma ferramenta poderosa que ajuda muito na administração de servidores;</li>
+<li>Teremos duas palestras que falarão sobre o <a href="http://www.pentaho.com/">Pentaho</a>, uma explicando <a href="http://www.ftsl.org.br/desenvolvendo-produtos-sobre-plataforma-pentaho">mais sobre o produto</a> e outra que trata de um <a href="http://www.ftsl.org.br/pentaho-na-gestao-clinica-e-assistencial-de-pacientes"><em>case</em></a>;</li>
+<li>Qualidade de código? Sempre necessário! Então por que não aprender um pouco mais de <a href="http://www.ftsl.org.br/vamos-falar-de-clean-code-refatoracao-e-tdd-mais-uma-vez">Clean Code, Refatoração e TDD</a>? Não é mesmo;</li>
+<li>Uma palestra sobre <a href="http://www.ftsl.org.br/geoprocessamento-com-postgresql">geoprocessamento usando PostgreSQL</a> (geo "apavora");</li>
+<li>E muito mais, vale a pena dar uma bisu na <a href="http://www.ftsl.org.br/palestras">grade completa</a>.</li>
+</ul>
+
+
+<p>Até lá!</p>
+]]></content>
+  </entry>
+  
+</feed>

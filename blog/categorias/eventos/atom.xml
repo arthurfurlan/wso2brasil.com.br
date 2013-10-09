@@ -4,7 +4,7 @@
   <title><![CDATA[Category: eventos | WSO2Brasil]]></title>
   <link href="http://wso2brasil.com.br/blog/categorias/eventos/atom.xml" rel="self"/>
   <link href="http://wso2brasil.com.br/"/>
-  <updated>2013-10-04T17:56:44-03:00</updated>
+  <updated>2013-10-09T14:49:16-03:00</updated>
   <id>http://wso2brasil.com.br/</id>
   <author>
     <name><![CDATA[WSO2Brasil]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[V Fórum de Tecnologia em Software Livre]]></title>
+    <link href="http://wso2brasil.com.br/blog/2013/10/v-forum-de-tecnologia-em-software-livre/"/>
+    <updated>2013-10-09T10:08:00-03:00</updated>
+    <id>http://wso2brasil.com.br/blog/2013/10/v-forum-de-tecnologia-em-software-livre</id>
+    <content type="html"><![CDATA[<p>Então galerinha, nos dias 24 e 25 de outubro acontecerá em Curitiba o V Fórum de Tecnologia de Software Livre e será nossa última palestra do ano!</p>
+
+<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/10/ftsl-cartaz.png"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/10/ftsl-cartaz-500x239.png" width="500" height="239"></a></p>
+
+<p>As <a href="http://www.ftsl.org.br/user/register">inscrições são gratuitas</a> e estão abertas para todo e qualquer pessoa que esteja interessada em aprender um pouco mais sobre esse mundo do software livre.</p>
+
+<p>Nossa palestra será no dia 25 as 15 horas, mas existem outras várias interessantes palestras!</p>
+
+<p>Por exemplo:</p>
+
+<ul>
+<li>Na <a href="http://www.solisc.org.br">SoLiSC</a> aprendi a controlar minhas apresentações usando o celular e o LibreOffice, agora temos a oportunidade de ver <a href="http://www.ftsl.org.br/novidades-do-libreoffice">as novidades do LibreOffice</a>;</li>
+<li>Será que vão sortear um celular com <a href="http://www.ftsl.org.br/firefox-os-sistema-operacional-movel-da-mozilla">Firefox OS na palestra</a>? Sou muito curioso pra brincar um pouco com esse sistema operacional;</li>
+<li>Tem o Matheus Gontijo (que sempre esbarro nos diversos eventos) falando sobre o <a href="http://www.ftsl.org.br/git-esse-cara-e-fera">GIT</a>, que inclusivemos usamos como versionador do nosso blog do <a href="http://www.wso2brasil.com.br">WSO2Brasil</a>;</li>
+<li>Terá uma palestra sobre o <a href="http://www.ftsl.org.br/instalando-servidores-de-forma-facil-e-rapida-com-o-puppet">Puppet</a>, uma ferramenta poderosa que ajuda muito na administração de servidores;</li>
+<li>Teremos duas palestras que falarão sobre o <a href="http://www.pentaho.com/">Pentaho</a>, uma explicando <a href="http://www.ftsl.org.br/desenvolvendo-produtos-sobre-plataforma-pentaho">mais sobre o produto</a> e outra que trata de um <a href="http://www.ftsl.org.br/pentaho-na-gestao-clinica-e-assistencial-de-pacientes"><em>case</em></a>;</li>
+<li>Qualidade de código? Sempre necessário! Então por que não aprender um pouco mais de <a href="http://www.ftsl.org.br/vamos-falar-de-clean-code-refatoracao-e-tdd-mais-uma-vez">Clean Code, Refatoração e TDD</a>? Não é mesmo;</li>
+<li>Uma palestra sobre <a href="http://www.ftsl.org.br/geoprocessamento-com-postgresql">geoprocessamento usando PostgreSQL</a> (geo "apavora");</li>
+<li>E muito mais, vale a pena dar uma bisu na <a href="http://www.ftsl.org.br/palestras">grade completa</a>.</li>
+</ul>
+
+
+<p>Até lá!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[8º SoLiSC - Nos vemos lá]]></title>
@@ -136,26 +167,6 @@
 <p><a href="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2013/02/wso2con-organizacao-400x300.jpg" width="400" height="300" title="WSO2Con Organização" alt="WSO2Con Organização"></a></p>
 
 <p>Meus parabéns ao pessoal organizador da <a href="http://wso2con.com">WSO2Con</a> e até depois! Desculpem-me pela qualidade das fotos, mas na correria fui apenas com o celular. ):</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Treinamento: Celepar]]></title>
-    <link href="http://wso2brasil.com.br/blog/2012/11/treinamento-celepar/"/>
-    <updated>2012-11-08T20:06:00-02:00</updated>
-    <id>http://wso2brasil.com.br/blog/2012/11/treinamento-celepar</id>
-    <content type="html"><![CDATA[<p>Aplicamos um pequeno treinamento/apresentação nos dias 07 e 08/11 na <a href="http://www.celepar.pr.gov.br/">Celepar</a>, Companhia de Informática do Paraná, os
-temas abordados foram os usos das ferramentas <a href="http://wso2.com/products/data-services-server/">WSO2 Data Service</a>, <a href="http://wso2.com/products/application-server/">WSO2 Application Server</a> e <a href="http://wso2.com/products/enterprise-service-bus/">WSO2 Enterprise Service Bus</a>.</p>
-
-<p>Falamos sobre como funciona o tal do "<a href="/glossario/#SOA">SOA</a>", passamos num geral sobre as funcionabilidades das ferramentas e, por fim, simulamos
-um pequeno <em>case</em> utilizando as ferramentas citadas anteriormente.</p>
-
-<p>Estiveram presentes membros de diversas equipes da empresa: infra-estrutura, desenvolvedores, responsáveis por novas tecnologias
-e algumas outras áreas mais específicas. Elas serão usadas como "cobaias" para a implementação dos primeiros <em>cases</em> da empresa.</p>
-
-<p><a href="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar.jpg"><img class="center" src="http://assets.mcorp.com.br/wp-content/uploads/2012/11/treinamento-celepar-400x300.jpg" width="400" height="300"></a></p>
-
-<p>Um muito obrigado a todos os envolvidos.</p>
 ]]></content>
   </entry>
   
